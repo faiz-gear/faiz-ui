@@ -1,0 +1,35 @@
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import { {{capitalize uiName}}, {{capitalize uiName}}Props } from "../src";
+
+export default {
+  title: "Components/{{capitalize uiName}}",
+  component: {{capitalize uiName}},
+  argTypes: {
+    color: {
+      control: { type: "select" },
+      options: ["neutral", "primary", "secondary", "success", "warning", "danger"],
+    },
+    isDisabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as Meta<typeof {{capitalize uiName}}>;
+
+const defaultProps = {
+  color: "default",
+  isDisabled: false,
+};
+
+const Template = (args: {{capitalize uiName}}Props) => <{{capitalize uiName}} {...args} />;
+
+
+export const Default = {
+  render: Template,
+  args: {
+    ...defaultProps,
+  }
+}

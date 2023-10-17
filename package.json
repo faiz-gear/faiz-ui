@@ -4,14 +4,20 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "create:ui": "plop ui"
   },
   "devDependencies": {
+    "@types/react": "^18.0.1",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "my-turborepo"
+  "name": "my-turborepo",
+  "dependencies": {
+    "plop": "^4.0.0",
+    "@storybook/react": "^7.4.6"
+  }
 }

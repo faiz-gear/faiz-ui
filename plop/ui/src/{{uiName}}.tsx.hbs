@@ -1,0 +1,18 @@
+import { forwardRef } from '@multiway-ui/system'
+import { Use{{capitalize uiName}}Props, use{{capitalize uiName}} } from "./use-{{uiName}}";
+
+export interface {{capitalize uiName}}Props extends Use{{capitalize uiName}}Props {}
+
+
+const {{capitalize uiName}} = forwardRef<'div', {{capitalize uiName}}Props>((props, ref) => {
+  const {Component, domRef, children, className, ...otherProps} =  use{{capitalize uiName}}({...props, ref});
+  return (
+    <Component ref={domRef} className={className} {...otherProps}>
+      {children}
+    </Component>
+  )
+}) 
+
+{{capitalize uiName}}.displayName = "{{capitalize uiName}}";
+
+export default {{capitalize uiName}};
