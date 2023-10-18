@@ -32,7 +32,8 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@multiway-ui/system": "workspace:*"
+    "@multiway-ui/system": "workspace:*",
+    "@multiway-ui/theme": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

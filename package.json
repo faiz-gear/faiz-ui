@@ -2,7 +2,9 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:theme": "pnpm build --filter=@multiway-ui/theme",
     "dev": "turbo run dev",
+    "dev:book": "pnpm dev --filter=@multiway-ui/storybook",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "create:ui": "plop ui"
@@ -12,6 +14,7 @@
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
+    "tsup": "6.4.0",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",

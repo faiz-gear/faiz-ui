@@ -3,26 +3,32 @@ import { Meta } from '@storybook/react'
 
 import { Button, ButtonProps } from '../src'
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   argTypes: {
     color: {
       control: { type: 'select' },
-      options: ['neutral', 'primary', 'secondary', 'success', 'warning', 'danger']
+      options: ['primary', 'secondary', 'success']
     },
-    isDisabled: {
-      control: {
-        type: 'boolean'
-      }
+    size: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg']
+    },
+    radius: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg']
     }
   }
-} as Meta<typeof Button>
+}
+
+export default meta
 
 const defaultProps = {
   children: 'Button',
-  color: 'default',
-  isDisabled: false
+  color: 'primary',
+  size: 'md',
+  radius: 'md'
 }
 
 const Template = (args: ButtonProps) => <Button {...args} />

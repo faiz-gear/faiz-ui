@@ -1,0 +1,42 @@
+{
+  "name": "@multiway-ui/theme",
+  "version": "1.0.0",
+  "description": "Default theme",
+  "license": "MIT",
+  "keywords": [
+    "theme"
+  ],
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "packages/core/react"
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "dependencies": {
+    "tailwind-variants": "^0.1.14",
+    "tailwindcss": "^3.2.7"
+  },
+  "peerDependencies": {
+    "tailwindcss": "*"
+  },
+  "devDependencies": {
+    "react": "^18.0.0",
+    "clean-package": "2.2.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
