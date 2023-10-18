@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "build:theme": "pnpm build --filter=@multiway-ui/theme",
+    "build:theme": "pnpm build --filter=@faiz-ui/theme",
     "dev": "turbo run dev",
-    "dev:book": "pnpm dev --filter=@multiway-ui/storybook",
+    "dev:book": "pnpm dev --filter=@faiz-ui/storybook",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "create:ui": "plop ui"

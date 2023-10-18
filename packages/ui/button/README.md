@@ -1,4 +1,4 @@
-# @multiway-ui/button
+# @faiz-ui/button
 
 button
 
@@ -7,13 +7,12 @@ button
 ## Installation
 
 ```sh
-pnpm add @multiway-ui/button
+pnpm add @faiz-ui/button
 # or
-npm i @multiway-ui/button
+npm i @faiz-ui/button
 ```
 
 ## Contribution
-
 
 ## Licence
 

@@ -1,4 +1,4 @@
-# @multiway-ui/theme
+# @faiz-ui/theme
 
 A Quick description of the component
 
@@ -7,7 +7,7 @@ A Quick description of the component
 ## Installation
 
 ```sh
-pnpm add @multiway-ui/theme
+pnpm add @faiz-ui/theme
 # or
-npm i @multiway-ui/theme
+npm i @faiz-ui/theme
 ```

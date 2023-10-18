@@ -1,4 +1,4 @@
 'use client'
 
 // only for developments, client directive  this is removed in production builds
-export * from '@multiway-ui/button'
+export * from '@faiz-ui/button'

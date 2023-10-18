@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { HTMLMultiwayUIProps } from '@multiway-ui/system'
-import { button, type ButtonVariantProps } from '@multiway-ui/theme'
+import { HTMLMultiwayUIProps } from '@faiz-ui/system'
+import { button, type ButtonVariantProps } from '@faiz-ui/theme'
 
 export type UseButtonProps = HTMLMultiwayUIProps<'div'> &
   ButtonVariantProps & {

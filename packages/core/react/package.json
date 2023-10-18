@@ -1,5 +1,5 @@
 {
-  "name": "@multiway-ui/react",
+  "name": "@faiz-ui/react",
   "version": "1.0.0",
   "description": "🚀 Beautiful and modern React UI library.",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@multiway-ui/button": "workspace:*"
+    "@faiz-ui/button": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

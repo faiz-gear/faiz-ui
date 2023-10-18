@@ -1,5 +1,5 @@
 {
-  "name": "@multiway-ui/button",
+  "name": "@faiz-ui/button",
   "version": "1.0.0",
   "description": "button",
   "keywords": [
@@ -32,8 +32,8 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@multiway-ui/system": "workspace:*",
-    "@multiway-ui/theme": "workspace:*"
+    "@faiz-ui/system": "workspace:*",
+    "@faiz-ui/theme": "workspace:*"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

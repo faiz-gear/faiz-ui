@@ -1,5 +1,5 @@
 {
-  "name": "@multiway-ui/storybook",
+  "name": "@faiz-ui/storybook",
   "version": "1.0.0",
   "description": "The MultiwayUI react components storybook ",
   "keywords": [
@@ -27,7 +27,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@multiway-ui/react": "workspace:*",
+    "@faiz-ui/react": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

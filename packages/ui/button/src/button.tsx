@@ -1,4 +1,4 @@
-import { forwardRef } from '@multiway-ui/system'
+import { forwardRef } from '@faiz-ui/system'
 import { UseButtonProps, useButton } from './use-button'
 
 export interface ButtonProps extends UseButtonProps {}
