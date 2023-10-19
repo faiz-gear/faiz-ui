@@ -32,6 +32,8 @@
     "react": ">=18"
   },
   "dependencies": {
+    "@faiz-ui/react-utils": "workspace:*",
+    "@faiz-ui/ripple": "workspace:*",
     "@faiz-ui/system": "workspace:*",
     "@faiz-ui/theme": "workspace:*"
   },

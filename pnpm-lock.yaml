@@ -107,6 +107,12 @@ importers:
 
   packages/components/button:
     dependencies:
+      '@faiz-ui/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@faiz-ui/ripple':
+        specifier: workspace:*
+        version: link:../ripple
       '@faiz-ui/system':
         specifier: workspace:*
         version: link:../../core/system
