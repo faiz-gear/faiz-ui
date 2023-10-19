@@ -1,0 +1,18 @@
+import { forwardRef } from '@faiz-ui/system'
+import { Use{{capitalize componentName}}Props, use{{capitalize componentName}} } from "./use-{{componentName}}";
+
+export interface {{capitalize componentName}}Props extends Use{{capitalize componentName}}Props {}
+
+
+const {{capitalize componentName}} = forwardRef<'div', {{capitalize componentName}}Props>((props, ref) => {
+  const {Component, domRef, children, className, ...otherProps} =  use{{capitalize componentName}}({...props, ref});
+  return (
+    <Component ref={domRef} className={className} {...otherProps}>
+      {children}
+    </Component>
+  )
+}) 
+
+{{capitalize componentName}}.displayName = "{{capitalize componentName}}";
+
+export default {{capitalize componentName}};

@@ -7,7 +7,7 @@
     "dev:book": "pnpm dev --filter=@faiz-ui/storybook",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "create:ui": "plop ui"
+    "create:comp": "plop component"
   },
   "devDependencies": {
     "@types/react": "^18.0.1",

@@ -10,11 +10,11 @@ const camelCase = (str) => {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase())
 }
 
-const workspaces = ['ui', 'hooks']
-const generators = ['ui', 'hook']
+const workspaces = ['components', 'hooks']
+const generators = ['component', 'hook']
 
 const defaultOutDirs = {
-  ui: 'ui',
+  component: 'components',
   hook: 'hooks'
 }
 

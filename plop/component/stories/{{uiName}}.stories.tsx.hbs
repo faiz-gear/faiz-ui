@@ -1,11 +1,11 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import { {{capitalize uiName}}, {{capitalize uiName}}Props } from "../src";
+import { {{capitalize componentName}}, {{capitalize componentName}}Props } from "../src";
 
 export default {
-  title: "Components/{{capitalize uiName}}",
-  component: {{capitalize uiName}},
+  title: "Components/{{capitalize componentName}}",
+  component: {{capitalize componentName}},
   argTypes: {
     color: {
       control: { type: "select" },
@@ -17,14 +17,14 @@ export default {
       },
     },
   },
-} as Meta<typeof {{capitalize uiName}}>;
+} as Meta<typeof {{capitalize componentName}}>;
 
 const defaultProps = {
   color: "default",
   isDisabled: false,
 };
 
-const Template = (args: {{capitalize uiName}}Props) => <{{capitalize uiName}} {...args} />;
+const Template = (args: {{capitalize componentName}}Props) => <{{capitalize componentName}} {...args} />;
 
 
 export const Default = {
