@@ -1,0 +1,43 @@
+{
+  "name": "@faiz-ui/ripple",
+  "version": "1.0.0",
+  "description": "Ripple effect",
+  "keywords": [
+    "ripple"
+  ],
+  "author": "multiway",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "packages/components/ripple"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@faiz-ui/react-utils": "workspace:*",
+    "@faiz-ui/system": "workspace:*",
+    "@react-spring/web": "^9.7.3"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  }
+}

@@ -50,7 +50,7 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
   as?: As
 }
 
-export type HTMLMultiwayUIProps<T extends As = 'div', OmitKeys extends keyof any = never> = Omit<
+export type HTMLFaizUIProps<T extends As = 'div', OmitKeys extends keyof any = never> = Omit<
   PropsOf<T>,
   'ref' | 'color' | 'slot' | OmitKeys
 > & {

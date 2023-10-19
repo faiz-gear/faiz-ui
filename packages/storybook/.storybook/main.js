@@ -13,7 +13,7 @@ const config = {
   stories: [
     '../stories/**/*.mdx',
     '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    '../../ui/**/stories/*.stories.@(js|jsx|ts|tsx)'
+    '../../components/**/stories/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
