@@ -32,7 +32,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'pnpm'
     - run: npm install pnpm
     - run: pnpm config set registry https://registry.npmmirror.com
     - run: pnpm install
