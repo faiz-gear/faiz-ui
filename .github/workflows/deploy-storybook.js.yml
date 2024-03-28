@@ -30,9 +30,7 @@ jobs:
       
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
+      
     - run: npm install pnpm
     - run: pnpm config set registry https://registry.npmmirror.com
     - run: pnpm install
