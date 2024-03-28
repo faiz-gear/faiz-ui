@@ -13,9 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    defaults: 
-      run:
-        working-directory: ./faiz-ui/
+    # defaults: 
+    #   run:
+    #     working-directory: ./faiz-ui/
 
     strategy:
       matrix:
