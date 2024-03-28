@@ -15,7 +15,7 @@ const defaultProps = {}
 
 const Template = (args: RippleProps) => {
   const rippleRef = useRef<any>(null)
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     rippleRef.current?.addRipple?.(e)
   }
   return (
