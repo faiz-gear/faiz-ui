@@ -5,7 +5,7 @@
   "keywords": [
     "system"
   ],
-  "author": "multiway",
+  "author": "faiz-gear",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
