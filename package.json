@@ -7,9 +7,13 @@
     "dev:book": "pnpm dev --filter=@faiz-ui/storybook",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "create:comp": "plop component"
+    "create:comp": "plop component",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@types/react": "^18.0.1",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
@@ -20,7 +24,7 @@
   "packageManager": "pnpm@8.6.10",
   "name": "my-turborepo",
   "dependencies": {
-    "plop": "^4.0.0",
-    "@storybook/react": "^7.4.6"
+    "@storybook/react": "^7.4.6",
+    "plop": "^4.0.0"
   }
 }

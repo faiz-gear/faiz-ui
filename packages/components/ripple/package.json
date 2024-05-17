@@ -1,6 +1,6 @@
 {
   "name": "@faiz-ui/ripple",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Ripple effect",
   "keywords": [
     "ripple"
@@ -26,7 +26,8 @@
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "prepare": "pnpm run build"
   },
   "peerDependencies": {
     "react": ">=18"
@@ -39,5 +40,6 @@
   "devDependencies": {
     "clean-package": "2.2.0",
     "react": "^18.0.0"
-  }
+  },
+  "clean-package": "../../../clean-package.config.json"
 }
