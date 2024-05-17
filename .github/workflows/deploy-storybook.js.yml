@@ -38,7 +38,7 @@ jobs:
       
     - run: npm install pnpm@8.6.10 -g
     - run: pnpm config set registry https://registry.npmmirror.com
-    - run: pnpm install
+    - run: pnpm install --frozen-lockfile=false
     - run: pnpm build-storybook
       working-directory: './packages/storybook'
     - name: Upload artifact
