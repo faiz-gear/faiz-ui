@@ -36,7 +36,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       
-    - run: npm install pnpm -g
+    - run: npm install pnpm@8.6.10 -g
     - run: pnpm config set registry https://registry.npmmirror.com
     - run: pnpm install
     - run: pnpm build-storybook
