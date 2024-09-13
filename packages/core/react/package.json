@@ -1,6 +1,6 @@
 {
   "name": "@faiz-ui/react",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "🚀 Beautiful and modern React UI library.",
   "license": "MIT",
   "keywords": [
@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "@faiz-ui/button": "workspace:*",
+    "@faiz-ui/landing-card": "workspace:*",
+    "clean-package": "2.2.0"
   },
   "peerDependencies": {
     "react": ">=18",

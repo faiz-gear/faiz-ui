@@ -1,5 +1,11 @@
 # @faiz-ui/react
 
+## 1.1.0
+
+### Minor Changes
+
+- add LandingCard component
+
 ## 1.0.4
 
 ### Patch Changes
