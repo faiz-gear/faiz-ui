@@ -1,5 +1,17 @@
 # @faiz-ui/theme
 
+## 1.1.2
+
+### Patch Changes
+
+- updating changelog
+
+## 1.1.1
+
+### Patch Changes
+
+- add button size and radius variants
+
 ## 1.1.0
 
 ### Minor Changes

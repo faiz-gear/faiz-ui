@@ -1,5 +1,22 @@
 # @faiz-ui/react
 
+## 1.1.2
+
+### Patch Changes
+
+- updating changelog
+- Updated dependencies
+  - @faiz-ui/landing-card@1.0.6
+  - @faiz-ui/button@1.0.6
+
+## 1.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @faiz-ui/button@1.0.5
+  - @faiz-ui/landing-card@1.0.5
+
 ## 1.1.0
 
 ### Minor Changes

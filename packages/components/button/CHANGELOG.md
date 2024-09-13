@@ -1,5 +1,21 @@
 # @faiz-ui/button
 
+## 1.0.6
+
+### Patch Changes
+
+- updating changelog
+- Updated dependencies
+  - @faiz-ui/theme@1.1.2
+
+## 1.0.5
+
+### Patch Changes
+
+- add button size and radius variants
+- Updated dependencies
+  - @faiz-ui/theme@1.1.1
+
 ## 1.0.4
 
 ### Patch Changes
