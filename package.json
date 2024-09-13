@@ -19,10 +19,10 @@
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
     "tsup": "6.4.0",
-    "turbo": "latest"
+    "turbo": "1.10.15"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "my-turborepo",
+  "name": "faiz-ui",
   "dependencies": {
     "@storybook/react": "^7.4.6",
     "plop": "^4.0.0"

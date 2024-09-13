@@ -1,5 +1,11 @@
 # @faiz-ui/react
 
+## 1.0.4
+
+### Patch Changes
+
+- @faiz-ui/button@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

@@ -1,41 +1,41 @@
-import React from 'react'
-import { Meta } from '@storybook/react'
+import React from "react";
+import { Meta } from "@storybook/react";
 
-import { Button, ButtonProps } from '../src'
+import { Button, ButtonProps } from "../src";
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   argTypes: {
     color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'success']
+      control: { type: "select" },
+      options: ["primary", "secondary", "success"],
     },
     size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg']
+      control: { type: "select" },
+      options: ["sm", "md", "lg"],
     },
     radius: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg']
-    }
-  }
-}
+      control: { type: "select" },
+      options: ["sm", "md", "lg"],
+    },
+  },
+};
 
-export default meta
+export default meta;
 
 const defaultProps = {
-  children: 'Button',
-  color: 'primary',
-  size: 'md',
-  radius: 'md'
-}
+  children: "Button",
+  color: "primary",
+  size: "md",
+  radius: "md",
+};
 
-const Template = (args: ButtonProps) => <Button {...args} />
+const Template = (args: ButtonProps) => <Button {...args} />;
 
 export const Default = {
   render: Template,
   args: {
-    ...defaultProps
-  }
-}
+    ...defaultProps,
+  },
+};

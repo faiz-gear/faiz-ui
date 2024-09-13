@@ -1,9 +1,9 @@
 {
-  "name": "@faiz-ui/button",
-  "version": "1.0.4",
-  "description": "button",
+  "name": "@faiz-ui/landing-card",
+  "version": "1.0.1",
+  "description": "landing-card",
   "keywords": [
-    "button"
+    "landing-card"
   ],
   "author": "faiz-gear",
   "license": "MIT",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "directory": "packages/ui/button"
+    "directory": "packages/components/landing-card"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -26,21 +26,18 @@
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
-    "postpack": "clean-package restore",
-    "prepare": "pnpm run build"
+    "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "dependencies": {
-    "@faiz-ui/react-utils": "workspace:*",
-    "@faiz-ui/ripple": "workspace:*",
     "@faiz-ui/system": "workspace:*",
-    "@faiz-ui/theme": "workspace:*"
+    "@faiz-ui/theme": "workspace:*",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
     "react": "^18.0.0"
-  },
-  "clean-package": "../../../clean-package.config.json"
+  }
 }
