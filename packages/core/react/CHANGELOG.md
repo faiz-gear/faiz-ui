@@ -1,5 +1,12 @@
 # @faiz-ui/react
 
+## 1.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @faiz-ui/landing-card@1.0.7
+
 ## 1.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @faiz-ui/landing-card
 
+## 1.0.7
+
+### Patch Changes
+
+- update package.json
+
 ## 1.0.6
 
 ### Patch Changes
