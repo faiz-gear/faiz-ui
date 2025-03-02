@@ -1,81 +1,122 @@
-# Turborepo starter
+# Faiz-UI
 
-This is an official starter Turborepo.
+Faiz-UI 是一个基于 React 和 Tailwind CSS 的现代组件库，采用 monorepo 结构管理。项目使用 pnpm workspace 进行包管理，使用 Turborepo 进行构建优化，使用 Changesets 进行版本管理和发布。
 
-## Using this example
+## 特性
 
-Run the following command:
+- 🚀 基于 React 18+ 和 TypeScript 开发
+- 🎨 使用 Tailwind CSS 和 tailwind-variants 进行样式管理
+- 🧩 组件逻辑与视图分离，易于维护和扩展
+- 📦 支持组件的自定义样式和变体
+- 🔄 支持通过 `as` 属性更改渲染元素
+- 📚 使用 Storybook 进行组件开发和文档
 
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## 项目结构
 
 ```
-cd my-turborepo
-pnpm build
+faiz-ui/
+├── apps/                  # 应用目录
+│   ├── docs/              # 文档网站
+│   └── web/               # 示例网站
+├── packages/              # 包目录
+│   ├── components/        # UI 组件
+│   ├── core/              # 核心功能
+│   ├── eslint-config-custom/ # ESLint 配置
+│   ├── storybook/         # Storybook 配置
+│   ├── tsconfig/          # TypeScript 配置
+│   └── utilities/         # 工具函数
+└── plop/                  # 代码生成模板
 ```
 
-### Develop
+## 快速开始
 
-To develop all apps and packages, run the following command:
+### 安装依赖
 
+```bash
+pnpm install
 ```
-cd my-turborepo
+
+### 开发
+
+```bash
+# 启动所有应用和包的开发模式
 pnpm dev
+
+# 启动 Storybook
+pnpm dev:book
 ```
 
-### Remote Caching
+### 构建
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+```bash
+# 构建所有应用和包
+pnpm build
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+# 构建主题包
+pnpm build:theme
 ```
 
-## Useful Links
+### 创建新组件
 
-Learn more about the power of Turborepo:
+```bash
+pnpm create:comp
+```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## 组件开发规范
+
+每个组件包遵循以下结构：
+
+```
+packages/components/[component-name]/
+├── src/
+│   ├── index.ts           # 导出组件和类型
+│   ├── [component-name].tsx  # 组件视图
+│   └── use-[component-name].ts  # 组件逻辑 Hook
+├── stories/               # Storybook 示例
+├── __tests__/             # 测试文件
+├── package.json           # 包配置
+└── README.md              # 组件文档
+```
+
+组件开发遵循以下规范：
+
+1. **组件逻辑与视图分离**：
+
+   - 使用 `use[ComponentName]` 自定义 Hook 处理组件逻辑
+   - 组件文件只负责渲染，从 Hook 获取所需数据
+
+2. **类型定义**：
+
+   - 组件 Props 继承自 `HTMLFaizUIProps<'element'>`
+   - 导出组件的 Props 类型供外部使用
+
+3. **样式处理**：
+   - 在 `packages/core/theme/src/components` 中定义组件样式
+   - 使用 tailwind-variants 创建样式变体
+   - 导出样式变体的类型
+
+## 版本管理
+
+项目使用 Changesets 进行版本管理和发布：
+
+```bash
+# 记录变更
+pnpm changeset
+
+# 更新版本
+pnpm version
+
+# 发布包
+pnpm release
+```
+
+## 开发工具
+
+- **Plop**: 用于生成组件和 Hook 模板
+- **Turborepo**: 用于优化构建流程
+- **Changesets**: 用于版本管理和发布
+- **Storybook**: 用于组件开发和文档
+
+## 许可证
+
+MIT

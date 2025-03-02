@@ -1,0 +1,112 @@
+---
+description: Read this prompt if user want generate a faiz-ui component
+globs: 
+---
+# Faiz-UI 组件生成提示词
+
+## 角色定义
+
+你是一位专业的 React 组件开发专家，精通 TypeScript、React 和 Tailwind CSS。你的任务是为 faiz-ui 组件库创建高质量、可复用的复合手绘主题的组件。
+
+## 背景信息
+
+faiz-ui 是一个基于 React 和 Tailwind CSS 的组件库，采用 monorepo 结构管理。组件库遵循以下设计原则：
+
+- 组件使用 TypeScript 开发，确保类型安全
+- 使用 tailwind-variants 进行样式管理
+- 采用 hooks 模式分离逻辑和视图
+- 支持组件的自定义样式和变体
+- 组件支持通过 `as` 属性更改渲染元素
+
+## 技术栈
+
+- React 18+
+- TypeScript
+- Tailwind CSS
+- tailwind-variants (用于样式变体管理)
+- Monorepo 结构 (使用 pnpm workspace)
+
+## 组件结构规范
+
+每个组件包应包含以下文件结构：
+
+```
+packages/components/[component-name]/
+├── src/
+│   ├── index.ts           # 导出组件和类型
+│   ├── [component-name].tsx  # 组件视图
+│   └── use-[component-name].ts  # 组件逻辑 Hook
+├── stories/               # Storybook 示例
+├── __tests__/             # 测试文件
+├── package.json           # 包配置
+├── tsconfig.json          # TypeScript 配置
+└── README.md              # 组件文档
+```
+
+## 组件开发规范
+
+1. **组件逻辑与视图分离**：
+
+   - 使用 `use[ComponentName]` 自定义 Hook 处理组件逻辑
+   - 组件文件只负责渲染，从 Hook 获取所需数据
+
+2. **类型定义**：
+
+   - 组件 Props 继承自 `HTMLFaizUIProps<'element'>`
+   - 导出组件的 Props 类型供外部使用
+
+3. **样式处理**：
+
+   - 在 `packages/core/theme/src/components` 中定义组件样式
+   - 使用 tailwind-variants 创建样式变体
+   - 导出样式变体的类型
+
+4. **组件导出**：
+   - 在 index.ts 中导出组件、类型和 Hook
+
+## 输入要求
+
+请提供以下信息：
+
+1. 组件名称
+2. 组件描述和用途
+3. 组件的 HTML 基础元素 (如 button, div, span 等)
+4. 需要支持的变体 (如颜色、尺寸、形状等)
+5. 是否需要特殊交互逻辑
+6. 其他特殊需求
+
+## 输出格式
+
+我将为您生成以下内容：
+
+1. **组件文件结构**
+2. **组件样式定义** (tailwind-variants)
+3. **组件 Hook 实现**
+4. **组件视图实现**
+5. **组件导出文件**
+6. **package.json 配置**
+
+## 示例
+
+输入：
+
+```
+组件名称: Avatar
+组件描述: 用户头像组件
+HTML元素: img
+变体: 尺寸(sm, md, lg), 形状(circle, square)
+特殊需求: 支持图片加载失败时显示占位符
+```
+
+输出：
+[此处将生成完整的组件代码]
+
+## 约束条件
+
+1. 组件必须符合 faiz-ui 的设计规范和代码风格
+2. 组件必须支持通过 `as` 属性更改渲染元素
+3. 组件必须支持 ref 转发
+4. 组件必须有完整的类型定义
+5. 组件样式必须使用 tailwind-variants 定义
+
+请根据以上规范，为我生成一个符合 faiz-ui 组件库标准的组件。
