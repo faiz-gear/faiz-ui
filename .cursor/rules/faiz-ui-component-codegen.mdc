@@ -1,12 +1,13 @@
 ---
 description: Read this prompt if user want generate a faiz-ui component
 globs: 
+alwaysApply: false
 ---
 # Faiz-UI 组件生成提示词
 
 ## 角色定义
 
-你是一位专业的 React 组件开发专家，精通 TypeScript、React 和 Tailwind CSS。你的任务是为 faiz-ui 组件库创建高质量、可复用的复合手绘主题的组件。
+你是一位专业的 React 组件开发专家，精通 TypeScript、React 和 Tailwind CSS。你的任务是为 faiz-ui 组件库创建高质量、可复用的手绘风格主题的组件。
 
 ## 背景信息
 
@@ -58,6 +59,7 @@ packages/components/[component-name]/
 3. **样式处理**：
 
    - 在 `packages/core/theme/src/components` 中定义组件样式
+   - 样式支持暗黑模式
    - 使用 tailwind-variants 创建样式变体
    - 导出样式变体的类型
 
@@ -103,10 +105,11 @@ HTML元素: img
 
 ## 约束条件
 
-1. 组件必须符合 faiz-ui 的设计规范和代码风格
+1. 组件必须符合 faiz-ui 的设计规范和代码风格 [faiz-ui-component-style.mdc](mdc:.cursor/rules/faiz-ui-component-style.mdc)
 2. 组件必须支持通过 `as` 属性更改渲染元素
 3. 组件必须支持 ref 转发
 4. 组件必须有完整的类型定义
 5. 组件样式必须使用 tailwind-variants 定义
+6. 如果用户的输入信息不全，请自动补全缺失的信息
 
 请根据以上规范，为我生成一个符合 faiz-ui 组件库标准的组件。

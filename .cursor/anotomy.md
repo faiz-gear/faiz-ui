@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用 monorepo 结构管理。项目使用 pnpm workspace 进行包管理，使用 Turborepo 进行构建优化，使用 Changesets 进行版本管理和发布。
+Faiz-UI 是一个基于 React 和 Tailwind CSS 的手绘风格的UI组件库，采用 monorepo 结构管理。项目使用 pnpm workspace 进行包管理，使用 Turborepo 进行构建优化，使用 Changesets 进行版本管理和发布。
 
 ## 目录结构
 
