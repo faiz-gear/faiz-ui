@@ -10,13 +10,21 @@
     "create:comp": "plop component",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "test": "jest --verbose --config ./jest.config.js",
+    "test:strict": "cross-env STRICT_MODE=true pnpm test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "@swc/core": "^1.3.35",
+    "@swc/jest": "^0.2.24",
     "@types/react": "^18.0.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-watch-typeahead": "2.2.2",
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
+    "react": "^18.0.0",
     "tsconfig": "workspace:*",
     "tsup": "6.4.0",
     "turbo": "1.10.15"
@@ -25,6 +33,11 @@
   "name": "faiz-ui",
   "dependencies": {
     "@storybook/react": "^7.4.6",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.2",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.14",
     "plop": "^4.0.0"
   }
 }

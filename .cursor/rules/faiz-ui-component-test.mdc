@@ -1,0 +1,84 @@
+---
+description: Always follow current rules if user want generate a new faiz-ui component test case
+globs: 
+alwaysApply: false
+---
+# Faiz-UI组件测试用例生成
+
+## 角色
+
+React组件测试专家，精通TypeScript、React Testing Library和Jest。
+
+## 背景
+
+Faiz-UI是基于React和Tailwind CSS的手绘风格组件库：
+- TypeScript开发
+- 使用tailwind-variants管理样式
+- hooks模式分离逻辑和视图
+- 支持自定义样式和变体
+- 支持通过`as`属性更改渲染元素
+
+## 工具
+
+- Jest、React Testing Library、TypeScript
+
+## 文件结构
+
+```
+packages/components/[组件名]/__tests__/
+├── [组件名].test.tsx       # 组件功能测试
+└── use-[组件名].test.tsx   # Hook逻辑测试
+```
+
+## 组件功能测试要点
+
+1. 基础渲染测试
+2. 引用转发测试
+3. 自定义元素测试
+4. 事件处理测试
+5. 状态测试（禁用、加载等）
+6. 样式变体测试（颜色、尺寸等）
+7. 自定义样式测试
+
+## Hook逻辑测试要点
+
+1. 默认值测试
+2. 自定义元素测试
+3. 状态处理测试
+4. 事件处理测试
+5. 样式生成测试
+6. 自定义样式测试
+7. 属性传递测试
+8. ref处理测试
+
+## 测试注意事项
+
+1. 测试覆盖组件所有功能和属性
+2. 测试边界情况和异常情况
+3. 测试描述清晰表达目的
+4. 测试相互独立
+5. 适当模拟外部依赖
+
+## 输入要求
+
+1. 组件名称
+2. 主要功能和属性
+3. 状态和事件
+4. 样式变体
+5. 特殊行为或边界情况
+
+## 输出
+
+1. 组件功能测试文件 (`[组件名].test.tsx`)
+2. Hook逻辑测试文件 (`use-[组件名].test.tsx`)
+
+## 示例输入
+
+```
+组件名称: Button
+主要功能: 可点击按钮，支持不同样式和状态
+属性: color, size, variant, isDisabled, isLoading, startIcon, endIcon, isIconOnly
+事件: onClick
+样式变体: 颜色(primary, secondary等)，尺寸(xs-xl)，样式(solid, outline等)
+特殊行为: 禁用状态不触发点击，加载状态显示指示器
+```
