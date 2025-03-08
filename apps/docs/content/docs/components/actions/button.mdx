@@ -1,267 +1,391 @@
 ---
 title: Button
-description: Button
+description: A versatile button component with hand-drawn sketch aesthetic supporting various states, sizes, and customization options.
 ---
 
 import { Button } from '@faiz-ui/react'
+import { ButtonUsage, Colors, Sizes, Radius, Variants, Disabled, WithIcons, IconOnly, Loading, SketchyVariant, CustomStyles, FunCombinations, DarkMode } from '@/components/docs/button'
 
 # Button
 
-A button component that can be used to trigger actions.
+The Button component in Faiz UI provides a hand-drawn sketch aesthetic while maintaining full functionality. It supports various states, sizes, styles, and customization options, making it suitable for a wide range of use cases while adding a unique visual flair to your interface.
 
 ## Usage
 
 ```tsx
-import { Button } from '@faiz-ui/react'
+'use client'
 
-<Button>Click me</Button>
+import { useRef } from "react"
+import { Button } from "@faiz-ui/react"
+
+export default function ButtonUsage() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button color="primary">Click me</Button>
+    </div>
+  )
+}
 ```
 
-<Button>Click me</Button>
+<ButtonUsage />
+
+## Colors
+
+Buttons come in various color options to convey different meanings and actions.
+
+```tsx
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Colors() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="danger">Danger</Button>
+      <Button color="info">Info</Button>
+    </div>
+  )
+}
+```
+
+<Colors />
+
+## Sizes
+
+Buttons are available in different sizes to fit various UI contexts.
+
+```tsx
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Sizes() {
+  return (
+    <div className="flex flex-wrap items-center gap-4">
+      <Button size="xs">Extra Small</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+      <Button size="xl">Extra Large</Button>
+    </div>
+  )
+}
+```
+
+<Sizes />
+
+## Radius
+
+Control the border radius of buttons to match your design requirements.
+
+```tsx
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Radius() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button radius="none">No Radius</Button>
+      <Button radius="sm">Small Radius</Button>
+      <Button radius="md">Medium Radius</Button>
+      <Button radius="lg">Large Radius</Button>
+      <Button radius="xl">Extra Large Radius</Button>
+      <Button radius="full">Full Radius</Button>
+    </div>
+  )
+}
+```
+
+<Radius />
 
 ## Variants
 
-### Color Variants
+The Button component offers multiple style variants to suit different UI contexts.
 
 ```tsx
-  <Button color="primary">Primary</Button>
-  <Button color="secondary">Secondary</Button>
-  <Button color="success">Success</Button>
-  <Button color="warning">Warning</Button>
-  <Button color="danger">Danger</Button>
-  <Button color="info">Info</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Variants() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="solid">Solid</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="light">Light</Button>
+      <Button variant="flat">Flat</Button>
+      <Button variant="sketchy">Sketchy</Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button color="primary">Primary</Button>
-  <Button color="secondary">Secondary</Button>
-  <Button color="success">Success</Button>
-  <Button color="warning">Warning</Button>
-  <Button color="danger">Danger</Button>
-  <Button color="info">Info</Button>
-</div>
+<Variants />
 
-### Size Variants
+## Disabled State
+
+Buttons can be disabled to indicate that interaction is not currently possible.
 
 ```tsx
-  <Button size="xs">Extra Small</Button>
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-  <Button size="xl">Extra Large</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Disabled() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button isDisabled>Disabled</Button>
+      <Button isDisabled color="secondary">Disabled Secondary</Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap items-center gap-4">
-  <Button size="xs">Extra Small</Button>
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-  <Button size="xl">Extra Large</Button>
-</div>
+<Disabled />
 
-### Radius Variants
+## Icons
+
+Buttons can include icons at the start or end position to enhance visual communication.
 
 ```tsx
-  <Button radius="none">No Radius</Button>
-  <Button radius="sm">Small Radius</Button>
-  <Button radius="md">Medium Radius</Button>
-  <Button radius="lg">Large Radius</Button>
-  <Button radius="xl">Extra Large Radius</Button>
-  <Button radius="full">Full Radius</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function WithIcons() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button startIcon={<span>✏️</span>}>Start Icon</Button>
+      <Button endIcon={<span>📝</span>}>End Icon</Button>
+      <Button startIcon={<span>🖌️</span>} endIcon={<span>🎨</span>}>
+        Both Icons
+      </Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button radius="none">No Radius</Button>
-  <Button radius="sm">Small Radius</Button>
-  <Button radius="md">Medium Radius</Button>
-  <Button radius="lg">Large Radius</Button>
-  <Button radius="xl">Extra Large Radius</Button>
-  <Button radius="full">Full Radius</Button>
-</div>
+<WithIcons />
 
-### Style Variants
+## Icon Only
+
+Create compact icon-only buttons for space-efficient interfaces.
 
 ```tsx
-  <Button variant="solid">Solid</Button>
-  <Button variant="outline">Outline</Button>
-  <Button variant="ghost">Ghost</Button>
-  <Button variant="light">Light</Button>
-  <Button variant="flat">Flat</Button>
-  <Button variant="sketchy">Sketchy</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function IconOnly() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button isIconOnly>+</Button>
+      <Button isIconOnly color="secondary">-</Button>
+      <Button isIconOnly color="success">✓</Button>
+      <Button isIconOnly color="danger">✕</Button>
+      <Button isIconOnly color="warning">⚠️</Button>
+      <Button isIconOnly color="info">ℹ️</Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button variant="solid">Solid</Button>
-  <Button variant="outline">Outline</Button>
-  <Button variant="ghost">Ghost</Button>
-  <Button variant="light">Light</Button>
-  <Button variant="flat">Flat</Button>
-  <Button variant="sketchy">Sketchy</Button>
-</div>
+<IconOnly />
 
-### Disabled State
+## Loading State
+
+Buttons can display a loading state to indicate ongoing processes.
 
 ```tsx
-  <Button isDisabled>Disabled</Button>
-  <Button isDisabled color="secondary">Disabled</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function Loading() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button isLoading>Loading</Button>
+      <Button isLoading color="secondary">Loading</Button>
+      <Button isLoading color="success" variant="outline">Loading</Button>
+      <Button isLoading color="danger" variant="ghost">Loading</Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button isDisabled>Disabled</Button>
-  <Button isDisabled color="secondary">Disabled</Button>
-</div>
+<Loading />
 
-### Icon Buttons
+## Sketchy Variant
+
+The signature sketchy style variant enhances the hand-drawn aesthetic.
 
 ```tsx
-  <Button startIcon={<span>✏️</span>}>Start Icon</Button>
-  <Button endIcon={<span>📝</span>}>End Icon</Button>
-  <Button startIcon={<span>🖌️</span>} endIcon={<span>🎨</span>}>Both Icons</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function SketchyVariant() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="sketchy" color="primary">Sketchy Style</Button>
+      <Button variant="sketchy" color="secondary">Irregular Border</Button>
+      <Button variant="sketchy" color="success">Hand-drawn Effect</Button>
+      <Button variant="sketchy" color="warning">Semi-realistic</Button>
+      <Button variant="sketchy" color="danger">Dotted Line Frame</Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button startIcon={<span>✏️</span>}>Start Icon</Button>
-  <Button endIcon={<span>📝</span>}>End Icon</Button>
-  <Button startIcon={<span>🖌️</span>} endIcon={<span>🎨</span>}>Both Icons</Button>
-</div>
+<SketchyVariant />
 
-### Icon Only Buttons
+## Custom Styles
+
+Apply custom styles using Tailwind CSS classes to create unique button appearances.
 
 ```tsx
-  <Button isIconOnly>+</Button>
-  <Button isIconOnly color="secondary">-</Button>
-  <Button isIconOnly color="success">✓</Button>
-  <Button isIconOnly color="danger">✕</Button>
-  <Button isIconOnly color="warning">⚠️</Button>
-  <Button isIconOnly color="info">ℹ️</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function CustomStyles() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60 hover:from-purple-500/60 hover:to-pink-500/60">
+        Gradient Background
+      </Button>
+      <Button customStyles="border-[3px] border-dashed">
+        Dashed Border
+      </Button>
+      <Button customStyles="[transform:rotate(-3deg)_translateY(-2px)] hover:[transform:rotate(0deg)_translateY(0)]">
+        Hover Animation
+      </Button>
+      <Button customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] hover:shadow-none">
+        Heavy Shadow
+      </Button>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button isIconOnly>+</Button>
-  <Button isIconOnly color="secondary">-</Button>
-  <Button isIconOnly color="success">✓</Button>
-  <Button isIconOnly color="danger">✕</Button>
-  <Button isIconOnly color="warning">⚠️</Button>
-  <Button isIconOnly color="info">ℹ️</Button>
-</div>
+<CustomStyles />
 
-### Loading State
+## Fun Combinations
+
+Combine various properties to create unique and expressive button styles.
 
 ```tsx
-  <Button isLoading>Loading</Button>
-  <Button isLoading color="secondary">Loading</Button>
-  <Button isLoading color="success" variant="outline">Loading</Button>
-  <Button isLoading color="danger" variant="ghost">Loading</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function FunCombinations() {
+  return (
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-wrap gap-4">
+        <Button color="primary" variant="ghost" startIcon={<span>📌</span>}>
+          Important Note
+        </Button>
+        <Button color="success" variant="flat" startIcon={<span>✓</span>}>
+          Completed
+        </Button>
+        <Button color="warning" variant="outline" startIcon={<span>⚠️</span>}>
+          Notice
+        </Button>
+      </div>
+
+      <div className="flex flex-wrap gap-4">
+        <Button color="secondary" size="lg" customStyles="[transform:rotate(-2deg)]">
+          Twisted Angle
+        </Button>
+        <Button color="info" size="lg" customStyles="[transform:rotate(1deg)]">
+          Slightly Tilted
+        </Button>
+        <Button color="danger" size="lg" customStyles="[transform:skew(-5deg)]">
+          Skewed Transform
+        </Button>
+      </div>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button isLoading>Loading</Button>
-  <Button isLoading color="secondary">Loading</Button>
-  <Button isLoading color="success" variant="outline">Loading</Button>
-  <Button isLoading color="danger" variant="ghost">Loading</Button>
-</div>
+<FunCombinations />
 
-### Custom Styles
+## Dark Mode Support
+
+Buttons automatically adapt to dark mode environments with appropriate styling adjustments.
 
 ```tsx
-  <Button customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60 hover:from-purple-500/60 hover:to-pink-500/60">Gradient Background</Button>
-  <Button customStyles="border-[3px] border-dashed">Dashed Border</Button>
-  <Button customStyles="[transform:rotate(-3deg)_translateY(-2px)] hover:[transform:rotate(0deg)_translateY(0)]">Hover Animation</Button>
-  <Button customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] hover:shadow-none">Heavy Shadow</Button>
+'use client'
+
+import { Button } from "@faiz-ui/react"
+
+export default function DarkMode() {
+  return (
+    <div className="dark bg-gray-900 p-6 rounded-lg">
+      <div className="flex flex-wrap gap-4 mb-4">
+        <Button>Default</Button>
+        <Button color="primary">Primary</Button>
+        <Button color="secondary">Secondary</Button>
+        <Button color="success">Success</Button>
+      </div>
+      <div className="flex flex-wrap gap-4 mb-4">
+        <Button variant="outline" color="primary">
+          Outline
+        </Button>
+        <Button variant="ghost" color="secondary">
+          Ghost
+        </Button>
+        <Button variant="light" color="success">
+          Light
+        </Button>
+        <Button variant="flat" color="warning">
+          Flat
+        </Button>
+      </div>
+      <div className="flex flex-wrap gap-4">
+        <Button isLoading color="danger">
+          Loading
+        </Button>
+        <Button isIconOnly color="info">
+          ℹ️
+        </Button>
+        <Button isDisabled>Disabled</Button>
+      </div>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Button customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60 hover:from-purple-500/60 hover:to-pink-500/60">Gradient Background</Button>
-  <Button customStyles="border-[3px] border-dashed">Dashed Border</Button>
-  <Button customStyles="[transform:rotate(-3deg)_translateY(-2px)] hover:[transform:rotate(0deg)_translateY(0)]">Hover Animation</Button>
-  <Button customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] hover:shadow-none">Heavy Shadow</Button>
-</div>
+<DarkMode />
 
-### Sketchy Variant
+## Implementation Notes
 
-```tsx
-  <Button variant="sketchy" color="primary">Sketchy Style</Button>
-  <Button variant="sketchy" color="secondary">Irregular Border</Button>
-  <Button variant="sketchy" color="success">Hand-drawn Effect</Button>
-  <Button variant="sketchy" color="warning">Semi-realistic</Button>
-  <Button variant="sketchy" color="danger">Dotted Line Frame</Button>
-```
-
-<div className="flex flex-wrap gap-4">
-  <Button variant="sketchy" color="primary">Sketchy Style</Button>
-  <Button variant="sketchy" color="secondary">Irregular Border</Button>
-  <Button variant="sketchy" color="success">Hand-drawn Effect</Button>
-  <Button variant="sketchy" color="warning">Semi-realistic</Button>
-  <Button variant="sketchy" color="danger">Dotted Line Frame</Button>
-</div>
-
-### Standard Radius Variations
-
-```tsx
-  <Button radius="sm" color="primary">Small Radius</Button>
-  <Button radius="md" color="secondary">Medium Radius</Button>
-  <Button radius="lg" color="success">Large Radius</Button>
-  <Button radius="xl" color="warning">Extra Large Radius</Button>
-
-  <Button radius="sm" variant="outline" color="primary">Outline Button</Button>
-  <Button radius="md" variant="ghost" color="secondary">Ghost Button</Button>
-  <Button radius="lg" variant="sketchy" color="success">Sketchy Button</Button>
-  <Button radius="xl" variant="flat" color="danger">Flat Button</Button>
-```
-
-<div className="flex flex-col gap-6">
-  <div className="flex flex-wrap gap-4">
-    <Button radius="sm" color="primary">Small Radius</Button>
-    <Button radius="md" color="secondary">Medium Radius</Button>
-    <Button radius="lg" color="success">Large Radius</Button>
-    <Button radius="xl" color="warning">Extra Large Radius</Button>
-  </div>
-  <div className="flex flex-wrap gap-4">
-    <Button radius="sm" variant="outline" color="primary">Outline Button</Button>
-    <Button radius="md" variant="ghost" color="secondary">Ghost Button</Button>
-    <Button radius="lg" variant="sketchy" color="success">Sketchy Button</Button>
-    <Button radius="xl" variant="flat" color="danger">Flat Button</Button>
-  </div>
-</div>
-
-### Fun Combinations
-
-```tsx
-  <Button color="primary" variant="ghost" startIcon={<span>📌</span>}>Important Note</Button>
-  <Button color="success" variant="flat" startIcon={<span>✓</span>}>Completed</Button>
-  <Button color="warning" variant="outline" startIcon={<span>⚠️</span>}>Notice</Button>
-
-  <Button color="secondary" size="lg" customStyles="[transform:rotate(-2deg)]">Twisted Angle</Button>
-  <Button color="info" size="lg" customStyles="[transform:rotate(1deg)]">Slightly Tilted</Button>
-  <Button color="danger" size="lg" customStyles="[transform:skew(-5deg)]">Skewed Transform</Button>
-```
-
-<div className="flex flex-col gap-6">
-  <div className="flex flex-wrap gap-4">
-    <Button color="primary" variant="ghost" startIcon={<span>📌</span>}>Important Note</Button>
-    <Button color="success" variant="flat" startIcon={<span>✓</span>}>Completed</Button>
-    <Button color="warning" variant="outline" startIcon={<span>⚠️</span>}>Notice</Button>
-  </div>
-
-  <div className="flex flex-wrap gap-4">
-    <Button color="secondary" size="lg" customStyles="[transform:rotate(-2deg)]">Twisted Angle</Button>
-    <Button color="info" size="lg" customStyles="[transform:rotate(1deg)]">Slightly Tilted</Button>
-    <Button color="danger" size="lg" customStyles="[transform:skew(-5deg)]">Skewed Transform</Button>
-  </div>
-</div>
+- The Button component includes a built-in ripple effect that animates on click.
+- The hand-drawn aesthetic is consistently applied across all variants and states.
+- Custom loading indicators are designed to match the overall sketchy style.
+- All buttons are fully accessible with keyboard navigation and screen reader support.
 
 ## Props
 
-| Prop           | Type                                                                       | Default        | Description                                           |
-| -------------- | -------------------------------------------------------------------------- | -------------- | ----------------------------------------------------- |
-| `variant`      | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`      | The variant style of the button                       |
-| `color`        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'`    | The color of the button                               |
-| `size`         | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                     | `'md'`         | The size of the button                                |
-| `radius`       | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'`                         | `'md'`         | The border radius of the button                       |
-| `isLoading`    | `boolean`                                                                  | `false`        | Whether the button is in loading state                |
-| `isDisabled`   | `boolean`                                                                  | `false`        | Whether the button is disabled                        |
-| `isIconOnly`   | `boolean`                                                                  | `false`        | Whether to display the button in icon-only mode       |
-| `startIcon`    | `React.ReactNode`                                                          | `undefined`    | The icon to display before the button text            |
-| `endIcon`      | `React.ReactNode`                                                          | `undefined`    | The icon to display after the button text             |
-| `loadingText`  | `string`                                                                   | `'Loading...'` | Text for the loading state (for accessibility)        |
-| `customStyles` | `string`                                                                   | `undefined`    | Custom styles for the button (using Tailwind classes) |
+| Prop | Type | Default | Description |
+| ---- | ---- | ---- | ----- |
+| `variant` | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'` | `'solid'` | The visual style variant of the button |
+| `color` | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the button |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the button |
+| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | The border radius of the button |
+| `isLoading` | `boolean` | `false` | Whether the button is in loading state |
+| `isDisabled` | `boolean` | `false` | Whether the button is disabled |
+| `isIconOnly` | `boolean` | `false` | Whether to display the button in icon-only mode |
+| `startIcon` | `React.ReactNode` | `undefined` | The icon to display before the button text |
+| `endIcon` | `React.ReactNode` | `undefined` | The icon to display after the button text |
+| `spinner` | `React.ReactNode` | `undefined` | Custom element to display during loading state |
+| `loadingText` | `string` | `'Loading'` | Text for the loading state (for accessibility) |
+| `customStyles` | `string` | `undefined` | Custom Tailwind CSS classes for additional styling |
