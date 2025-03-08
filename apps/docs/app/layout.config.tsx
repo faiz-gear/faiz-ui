@@ -1,4 +1,4 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared'
 
 /**
  * Shared layout configurations
@@ -10,13 +10,13 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 export const baseOptions: BaseLayoutProps = {
   nav: {
     // can be JSX too!
-    title: 'Faiz UI',
+    title: 'Faiz UI'
   },
   links: [
     {
       text: 'Documentation',
-      url: '/docs',
-      active: 'nested-url',
-    },
-  ],
-};
+      url: '/docs/getting-started',
+      active: 'nested-url'
+    }
+  ]
+}
