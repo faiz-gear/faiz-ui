@@ -5,6 +5,10 @@ import { ReactRef } from '@faiz-ui/react-utils'
 
 export interface UseRippleProps {
   /**
+   * color of the ripple
+   */
+  color?: string
+  /**
    * Ref to the Ripple.
    */
   ref?: ReactRef<{
@@ -20,7 +24,7 @@ export type TRipple = {
 }
 
 export function useRipple(props: UseRippleProps) {
-  const { ref } = props
+  const { ref, color = '#eee' } = props
   const [ripples, setRipples] = useState<TRipple[]>([])
 
   const onClick = useCallback((e: MouseEvent<HTMLElement>) => {
@@ -39,7 +43,6 @@ export function useRipple(props: UseRippleProps) {
   }, [])
 
   const onClear = useCallback((key: Key) => {
-    console.log('🚀 ~ file: use-ripple.ts ~ line 41 ~ onClear ~ key', key)
     setRipples((pre) => pre.filter((ripple) => ripple.key !== key))
   }, [])
 
@@ -47,7 +50,7 @@ export function useRipple(props: UseRippleProps) {
     addRipple: onClick
   }))
 
-  return { ripples, onClick, onClear }
+  return { ripples, onClick, onClear, color }
 }
 
 export type UseRippleReturn = ReturnType<typeof useRipple>

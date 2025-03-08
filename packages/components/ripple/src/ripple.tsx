@@ -6,8 +6,8 @@ import { animated, useSpring } from '@react-spring/web'
 
 export interface RippleProps extends UseRippleProps {}
 
-const RippleItem = (props: { ripple: TRipple; onClear: UseRippleReturn['onClear'] }) => {
-  const { ripple, onClear } = props
+const RippleItem = (props: { ripple: TRipple; color: string; onClear: UseRippleReturn['onClear'] }) => {
+  const { ripple, color, onClear } = props
   const rippleSprings = useSpring({
     from: { opacity: 0.5, transform: 'scale(0)' },
     to: { opacity: 0, transform: 'scale(1)' },
@@ -18,7 +18,7 @@ const RippleItem = (props: { ripple: TRipple; onClear: UseRippleReturn['onClear'
       key={ripple.key}
       style={{
         position: 'absolute',
-        backgroundColor: '#333',
+        backgroundColor: color,
         borderRadius: '100%',
         transformOrigin: 'center',
         pointerEvents: 'none',
@@ -35,12 +35,12 @@ const RippleItem = (props: { ripple: TRipple; onClear: UseRippleReturn['onClear'
 }
 
 const Ripple = forwardRef<'div', RippleProps>((props, ref) => {
-  const { ripples, onClear } = useRipple({ ...props, ref })
+  const { ripples, color, onClear } = useRipple({ ...props, ref })
 
   return (
     <>
       {ripples.map((ripple) => (
-        <RippleItem key={ripple.key} ripple={ripple} onClear={onClear} />
+        <RippleItem key={ripple.key} color={color} ripple={ripple} onClear={onClear} />
       ))}
     </>
   )

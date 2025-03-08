@@ -6,7 +6,14 @@ import { Ripple, RippleProps } from '../src'
 const meta: Meta<typeof Ripple> = {
   title: 'Components/Ripple',
   component: Ripple,
-  argTypes: {}
+  argTypes: {
+    color: {
+      control: 'color'
+    }
+  },
+  args: {
+    color: '#eee'
+  }
 }
 
 export default meta
