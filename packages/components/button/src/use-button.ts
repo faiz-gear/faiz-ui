@@ -51,10 +51,10 @@ export function useButton(props: UseButtonProps) {
   const {
     ref,
     as,
-    color,
+    color = 'primary',
     size,
     radius,
-    variant,
+    variant = 'solid',
     disabled,
     isDisabled = disabled,
     isLoading,

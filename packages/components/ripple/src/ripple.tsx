@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef } from '@faiz-ui/system'
 import { UseRippleProps, useRipple, TRipple, UseRippleReturn } from './use-ripple'
 import { animated, useSpring } from '@react-spring/web'
