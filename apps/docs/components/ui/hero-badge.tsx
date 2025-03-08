@@ -47,7 +47,7 @@ export default function HeroBadge({
   const controls = useAnimation();
 
   const BadgeWrapper = href ? Link : motion.button;
-  const wrapperProps = href ? { href } : { onClick };
+  const wrapperProps = href ? { href } : { onClick, href: '#' };
 
   const baseClassName = cn(
     "inline-flex items-center rounded-full border transition-colors",

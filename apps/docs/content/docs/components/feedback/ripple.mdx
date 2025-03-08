@@ -1,0 +1,81 @@
+---
+title: Ripple
+description: Ripple component adds a material design-like ripple effect to elements.
+---
+
+import { Ripple } from '@faiz-ui/react'
+import { RippleUsage, CustomColor } from '@/components/docs/ripple'
+
+# Ripple
+
+Ripple component adds a material design-like ripple effect to elements when they are clicked. It creates a visual feedback that enhances the user experience by providing a tactile response to interactions.
+
+## Usage
+
+```tsx
+'use client'
+
+import { useRef } from "react"
+import { Ripple } from "@faiz-ui/react"
+
+export default function RippleUsage() {
+	const rippleRef = useRef<any>(null)
+  const handleClick = (e: any) => {
+    rippleRef.current?.addRipple?.(e)
+  }
+  return (
+    <div
+      className="relative font-semibold text-white py-1 px-3 rounded-xl active:opacity-80 bg-black inline-flex overflow-hidden dark:bg-white dark:text-black"
+      onClick={handleClick}
+    >
+      button
+      <Ripple ref={rippleRef} color="#227eff"/>
+    </div>
+  )
+}
+```
+
+<RippleUsage />
+
+## Custom Color
+
+You can customize the color of the ripple effect.
+
+```tsx
+'use client'
+import { useRef } from "react"
+import { Ripple } from "@faiz-ui/react"
+
+export default function CustomColor() {
+	const rippleRef = useRef<any>(null)
+  const handleClick = (e: any) => {
+    rippleRef.current?.addRipple?.(e)
+  }
+  return (
+    <div
+      className="relative font-semibold text-white py-1 px-3 rounded-xl active:opacity-80 border-solid border-2 border-blue-500 inline-flex overflow-hidden"
+      onClick={handleClick}
+    >
+      button
+      <Ripple ref={rippleRef} color="#227eff"/>
+    </div>
+  )
+}
+```
+
+<CustomColor />
+
+
+## Implementation Notes
+
+For the ripple effect to work properly, the parent element should have:
+
+1. `position: relative` - To position the ripple correctly
+2. `overflow: hidden` - To contain the ripple within the element
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| color | `string` | `'#eee'` | The color of the ripple effect |
+| ref | `React.RefObject` | - | Ref to access the `addRipple` method |

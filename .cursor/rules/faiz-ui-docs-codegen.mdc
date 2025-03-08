@@ -26,6 +26,7 @@ description: [组件简述]
 ---
 
 import { [组件名称] } from '@faiz-ui/react'
+import { [示例组件名1], [示例组件名2], ... } from '@/components/docs/[组件名小写]'
 
 # [组件名称]
 
@@ -34,122 +35,97 @@ import { [组件名称] } from '@faiz-ui/react'
 ## Usage
 
 ```tsx
-import { [组件名称] } from '@faiz-ui/react'
+'use client'
 
-<[组件名称]>[基本用法]</[组件名称]>
+import { useRef } from "react"
+import { [组件名称] } from "@faiz-ui/react"
+
+export default function [组件名称]Usage() {
+  // 组件基本用法的代码
+}
 ```
 
-<[组件名称]>[基本用法]</[组件名称]>
+<[组件名称]Usage />
 
-## Variants
+## [变体类别1]
 
-[根据stories文件中的示例，分类展示组件的各种变体]
-
-### [变体类别1]
+[变体类别1的描述]
 
 ```tsx
-  [变体示例代码]
+'use client'
+
+import { useRef } from "react"
+import { [组件名称] } from "@faiz-ui/react"
+
+export default function [变体类别1名称]() {
+  // 变体类别1的示例代码
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  [变体示例组件实例]
-</div>
+<[变体类别1名称] />
 
-### [变体类别2]
-
+## [变体类别2]
 ...
+
+## Implementation Notes
+
+[组件实现的重要注意事项和最佳实践]
 
 ## Props
 
 | Prop | Type | Default | Description |
-| ---- | ---- | ---- | ----- |
-| [属性名] | [类型] | [默认值] | [描述] |
+| ---- | ---- | ------- | ----------- |
+| [属性名] | `[类型]` | `[默认值]` | [描述] |
 ...
 ```
 
-## 文档限制
+## 目录结构
+在生成文档的同时，需要创建相应的组件示例文件：
 
-### 1. 组件单行显示规则（重要！）
+1. 文档文件: `apps/docs/content/docs/components/[类别]/[组件名称小写].mdx`
+2. 示例组件目录: `apps/docs/components/docs/[组件名称小写]/`
+   - `usage.tsx`: 基本用法示例组件
+   - `[变体名称小写].tsx`: 各个变体示例组件
+   - `index.ts`: 导出所有示例组件
 
-所有组件实例必须在单行内完成，不允许有任何换行。这是为了确保组件在文档中正确渲染。
+### 示例组件目录结构
 
-#### 错误示例（多行显示）：
-```tsx
-<Alert 
-  color="primary" 
-  radius="md">
-  这是一个提示信息
-</Alert>
+```
+apps/docs/components/docs/[组件名称小写]/
+├── usage.tsx            // 基本用法示例
+├── [变体名称1].tsx      // 变体1示例
+├── [变体名称2].tsx      // 变体2示例
+└── index.ts             // 导出所有示例组件
 ```
 
-或
-
-```tsx
-<div className="flex flex-wrap gap-4">
-  <Alert radius="none" color="primary">
-    No radius alert
-  </Alert>
-  <Alert radius="sm" color="secondary">
-    Small radius alert
-  </Alert>
-</div>
+### index.ts 示例
+```ts
+export { default as [组件名称]Usage } from './usage'
+export { default as [变体名称1] } from './[变体名称1小写]'
+export { default as [变体名称2] } from './[变体名称2小写]'
 ```
 
-#### 正确示例（单行显示）：
-```tsx
-<Alert color="primary" radius="md">这是一个提示信息</Alert>
-```
+## 组件示例代码结构
 
-或
+每个示例组件文件应该是一个完整的、可独立工作的组件，包含必要的状态管理和交互逻辑。它们应该遵循以下结构：
 
 ```tsx
-<div className="flex flex-wrap gap-4">
-  <Alert radius="none" color="primary">No radius alert</Alert>
-  <Alert radius="sm" color="secondary">Small radius alert</Alert>
-</div>
-```
+'use client'
 
-### 对于复杂组件的处理
+import { useRef } from "react"
+import { [组件名称] } from "@faiz-ui/react"
 
-即使是包含复杂内容（如SVG图标）的组件，也必须在单行显示：
-
-#### 错误示例：
-```tsx
-<Alert
-  color="primary"
-  icon={
-    <svg width="24" height="24" viewBox="0 0 24 24">
-      <path d="..." />
-    </svg>
+export default function [示例名称]() {
+  // 必要的状态管理和事件处理逻辑
+  const [state, setState] = useState(initialState)
+  const handleEvent = () => {
+    // 事件处理逻辑
   }
->
-  Alert with custom icon
-</Alert>
-```
-
-#### 正确示例：
-```tsx
-<Alert color="primary" icon={<svg width="24" height="24" viewBox="0 0 24 24"><path d="..." /></svg>}>Alert with custom icon</Alert>
-```
-
-### 2. 其他文档规则
-
-1. 所有onXXX相关的story切记不需要生成！
-如以下的story不用转换到文档中，因为组件是关于onClose的示例
-```
-export const WithCloseButton: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <Alert color="primary" onClose={() => alert('关闭按钮被点击')}>
-        带关闭按钮的提示信息
-      </Alert>
-      <Alert
-        color="warning"
-        onClose={() => alert('关闭按钮被点击')}
-        action={<button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">操作</button>}
-      >
-        带关闭按钮和操作按钮的提示信息
-      </Alert>
+  
+  return (
+    // JSX 渲染代码
+    <div className="...">
+      <[组件名称] prop1={value1} prop2={value2} />
     </div>
   )
 }
@@ -163,25 +139,23 @@ export const WithCloseButton: Story = {
 
 ## 命名与内容转换规则
 1. 组件名称应使用PascalCase（如Button）
-2. 文件名应使用kebab-case（如button.mdx）
+2. 文件名和目录名应使用kebab-case（如button.mdx, button/）
 3. 示例代码中的内容应与stories中的相符，但可以适当简化
 4. 确保所有示例都能在文档页面上正确渲染
 5. 中英文翻译：stories是中文的，但是组件文档需要转换成英文
 
-## 实例化过程
-1. 分析stories中每个Story的render函数
-2. 提取JSX代码作为示例
-3. 生成可视化展示的组件实例
-4. 确保所有变体和特性都有对应的示例
+## 其他文档规则
+1. 不要创建过于复杂的示例，保持简洁、清晰和易于理解。
+2. 确保每个变体都有清晰的描述和适当的示例。
+3. 对于具有多种样式变体的组件，应使用适当的头部结构组织文档。
 
 ## 最终检查清单
 
 在完成文档生成后，请进行以下检查：
 
-1. ✅ 所有组件实例是否都在单行显示？
-2. ✅ 是否排除了所有onXXX相关的story？
-3. ✅ 组件示例是否与stories中的相符？
-4. ✅ 是否已将中文内容转换为英文？
-5. ✅ 文档结构是否符合要求？
+1. ✅ 是否生成了正确的文档结构和示例组件文件？
+2. ✅ 示例组件是否包含所有必要的状态管理和事件处理逻辑？
+3. ✅ 是否已将中文内容转换为英文？
+4. ✅ Props表格是否完整、准确？
 
 请确保生成的文档风格一致，内容全面，展示了组件的所有功能和变体。
