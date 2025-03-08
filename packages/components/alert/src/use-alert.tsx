@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { HTMLFaizUIProps } from '@faiz-ui/system'
 import { alert, type AlertVariantProps } from '@faiz-ui/theme'

@@ -1,0 +1,141 @@
+---
+title: Alert
+description: Alert component displays important messages or feedback to users.
+---
+
+import { Alert } from '@faiz-ui/react'
+
+# Alert
+
+Alert component is used to display important messages or feedback to users. It supports various styles, colors, and customization options to match different use cases and severity levels.
+
+## Usage
+
+```tsx
+import { Alert } from '@faiz-ui/react'
+<Alert>This is an alert message</Alert>
+```
+
+<Alert>This is an alert message</Alert>
+
+## Variants
+
+### Colors
+
+```tsx
+<Alert color="primary">This is a primary alert</Alert>
+<Alert color="secondary">This is a secondary alert</Alert>
+<Alert color="success">This is a success alert</Alert>
+<Alert color="warning">This is a warning alert</Alert>
+<Alert color="danger">This is a danger alert</Alert>
+<Alert color="info">This is an info alert</Alert>
+```
+
+<div className="flex flex-wrap gap-4">
+  <Alert color="primary">This is a primary alert</Alert>
+  <Alert color="secondary">This is a secondary alert</Alert>
+  <Alert color="success">This is a success alert</Alert>
+  <Alert color="warning">This is a warning alert</Alert>
+  <Alert color="danger">This is a danger alert</Alert>
+  <Alert color="info">This is an info alert</Alert>
+</div>
+
+### Style Variants
+
+```tsx
+<Alert variant="solid" color="primary">Solid style alert</Alert>
+<Alert variant="outline" color="secondary">Outline style alert</Alert>
+<Alert variant="ghost" color="success">Ghost style alert</Alert>
+<Alert variant="light" color="warning">Light style alert</Alert>
+<Alert variant="flat" color="danger">Flat style alert</Alert>
+<Alert variant="sketchy" color="info">Sketchy style alert</Alert>
+```
+
+<div className="flex flex-wrap gap-4">
+  <Alert variant="solid" color="primary">Solid style alert</Alert>
+  <Alert variant="outline" color="secondary">Outline style alert</Alert>
+  <Alert variant="ghost" color="success">Ghost style alert</Alert>
+  <Alert variant="light" color="warning">Light style alert</Alert>
+  <Alert variant="flat" color="danger">Flat style alert</Alert>
+  <Alert variant="sketchy" color="info">Sketchy style alert</Alert>
+</div>
+
+### Border Radius
+
+```tsx
+<Alert radius="none" color="primary">No radius alert</Alert>
+<Alert radius="sm" color="secondary">Small radius alert</Alert>
+<Alert radius="md" color="success">Medium radius alert</Alert>
+<Alert radius="lg" color="warning">Large radius alert</Alert>
+<Alert radius="xl" color="danger">Extra large radius alert</Alert>
+<Alert radius="full" color="info">Full radius alert</Alert>
+```
+
+<div className="flex flex-wrap gap-4">
+  <Alert radius="none" color="primary">No radius alert</Alert>
+  <Alert radius="sm" color="secondary">Small radius alert</Alert>
+  <Alert radius="md" color="success">Medium radius alert</Alert>
+  <Alert radius="lg" color="warning">Large radius alert</Alert>
+  <Alert radius="xl" color="danger">Extra large radius alert</Alert>
+  <Alert radius="full" color="info">Full radius alert</Alert>
+</div>
+
+## Custom Icon
+
+You can customize the icon displayed in the alert.
+
+```tsx
+<Alert color="primary" icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}>Alert with custom icon</Alert>
+```
+
+<Alert color="primary" icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}>Alert with custom icon</Alert>
+
+## Without Icon
+
+You can hide the icon by setting the `hideIcon` prop to `true`.
+
+```tsx
+<Alert hideIcon color="primary">Alert without icon</Alert>
+```
+
+<Alert hideIcon color="primary">Alert without icon</Alert>
+
+## With Action
+
+You can add action buttons to the alert.
+
+```tsx
+<Alert color="primary" action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}>Alert with action button</Alert>
+```
+
+<Alert color="primary" action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}>Alert with action button</Alert>
+
+## Controlled Visibility
+
+You can control the visibility of the alert using the `isVisible` prop.
+
+```tsx
+const [isVisible, setIsVisible] = useState(true)
+
+<button onClick={() => setIsVisible(!isVisible)}>
+  {isVisible ? 'Hide Alert' : 'Show Alert'}
+</button>
+
+<Alert color="primary" isVisible={isVisible} onClose={() => setIsVisible(false)}>
+  Alert with controlled visibility
+</Alert>
+```
+
+## Props
+
+| Prop         | Type                                                                       | Default     | Description                              |
+| ------------ | -------------------------------------------------------------------------- | ----------- | ---------------------------------------- |
+| color        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color variant of the alert           |
+| variant      | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`   | The style variant of the alert           |
+| radius       | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'`                         | `'md'`      | The border radius of the alert           |
+| hideIcon     | `boolean`                                                                  | `false`     | Whether to hide the icon                 |
+| icon         | `ReactNode`                                                                | -           | Custom icon to display in the alert      |
+| action       | `ReactNode`                                                                | -           | Action component to display in the alert |
+| isVisible    | `boolean`                                                                  | `true`      | Whether the alert is visible             |
+| onClose      | `() => void`                                                               | -           | Callback fired when the alert is closed  |
+| customStyles | `string`                                                                   | -           | Custom styles for the alert              |

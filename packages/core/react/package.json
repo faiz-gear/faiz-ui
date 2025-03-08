@@ -29,8 +29,10 @@
     "prepare": "pnpm run build"
   },
   "dependencies": {
+    "@faiz-ui/alert": "workspace:*",
     "@faiz-ui/button": "workspace:*",
     "@faiz-ui/landing-card": "workspace:*",
+    "@faiz-ui/ripple": "workspace:*",
     "clean-package": "2.2.0"
   },
   "peerDependencies": {
