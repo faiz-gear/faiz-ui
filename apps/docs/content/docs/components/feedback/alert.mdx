@@ -1,141 +1,411 @@
 ---
 title: Alert
-description: Alert component displays important messages or feedback to users.
+description: A hand-drawn styled alert component for displaying important messages, notifications, and feedback to users.
 ---
 
 import { Alert } from '@faiz-ui/react'
+import { AlertUsage, Colors, Variants, Radius, CustomIcon, WithoutIcon, WithAction, WithCloseButton, ControlledVisibility, CustomStyles, SketchyVariant } from '@/components/docs/alert'
 
 # Alert
 
-Alert component is used to display important messages or feedback to users. It supports various styles, colors, and customization options to match different use cases and severity levels.
+The Alert component in Faiz UI provides a hand-drawn sketch aesthetic for displaying important messages, notifications, and feedback to users. It supports various colors, styles, and customization options to match different use cases and severity levels.
 
 ## Usage
 
 ```tsx
-import { Alert } from '@faiz-ui/react'
-<Alert>This is an alert message</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function AlertUsage() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert color="primary">This is an alert message</Alert>
+    </div>
+  )
+}
 ```
 
-<Alert>This is an alert message</Alert>
+<AlertUsage />
+
+## Colors
+
+Alerts come in various color options to convey different meanings and priority levels.
+
+```tsx
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function Colors() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert color="primary">This is a primary alert</Alert>
+      <Alert color="secondary">This is a secondary alert</Alert>
+      <Alert color="success">This is a success alert</Alert>
+      <Alert color="warning">This is a warning alert</Alert>
+      <Alert color="danger">This is a danger alert</Alert>
+      <Alert color="info">This is an info alert</Alert>
+    </div>
+  )
+}
+```
+
+<Colors />
 
 ## Variants
 
-### Colors
+The Alert component offers multiple style variants to suit different UI contexts.
 
 ```tsx
-<Alert color="primary">This is a primary alert</Alert>
-<Alert color="secondary">This is a secondary alert</Alert>
-<Alert color="success">This is a success alert</Alert>
-<Alert color="warning">This is a warning alert</Alert>
-<Alert color="danger">This is a danger alert</Alert>
-<Alert color="info">This is an info alert</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function Variants() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert variant="solid" color="primary">
+        Solid style alert
+      </Alert>
+      <Alert variant="outline" color="secondary">
+        Outline style alert
+      </Alert>
+      <Alert variant="ghost" color="success">
+        Ghost style alert
+      </Alert>
+      <Alert variant="light" color="warning">
+        Light style alert
+      </Alert>
+      <Alert variant="flat" color="danger">
+        Flat style alert
+      </Alert>
+      <Alert variant="sketchy" color="info">
+        Sketchy style alert
+      </Alert>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Alert color="primary">This is a primary alert</Alert>
-  <Alert color="secondary">This is a secondary alert</Alert>
-  <Alert color="success">This is a success alert</Alert>
-  <Alert color="warning">This is a warning alert</Alert>
-  <Alert color="danger">This is a danger alert</Alert>
-  <Alert color="info">This is an info alert</Alert>
-</div>
+<Variants />
 
-### Style Variants
+## Border Radius
+
+Control the border radius of alerts to match your design requirements.
 
 ```tsx
-<Alert variant="solid" color="primary">Solid style alert</Alert>
-<Alert variant="outline" color="secondary">Outline style alert</Alert>
-<Alert variant="ghost" color="success">Ghost style alert</Alert>
-<Alert variant="light" color="warning">Light style alert</Alert>
-<Alert variant="flat" color="danger">Flat style alert</Alert>
-<Alert variant="sketchy" color="info">Sketchy style alert</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function Radius() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert radius="none" color="primary">
+        No radius alert
+      </Alert>
+      <Alert radius="sm" color="secondary">
+        Small radius alert
+      </Alert>
+      <Alert radius="md" color="success">
+        Medium radius alert
+      </Alert>
+      <Alert radius="lg" color="warning">
+        Large radius alert
+      </Alert>
+      <Alert radius="xl" color="danger">
+        Extra large radius alert
+      </Alert>
+      <Alert radius="full" color="info">
+        Full radius alert
+      </Alert>
+    </div>
+  )
+}
 ```
 
-<div className="flex flex-wrap gap-4">
-  <Alert variant="solid" color="primary">Solid style alert</Alert>
-  <Alert variant="outline" color="secondary">Outline style alert</Alert>
-  <Alert variant="ghost" color="success">Ghost style alert</Alert>
-  <Alert variant="light" color="warning">Light style alert</Alert>
-  <Alert variant="flat" color="danger">Flat style alert</Alert>
-  <Alert variant="sketchy" color="info">Sketchy style alert</Alert>
-</div>
-
-### Border Radius
-
-```tsx
-<Alert radius="none" color="primary">No radius alert</Alert>
-<Alert radius="sm" color="secondary">Small radius alert</Alert>
-<Alert radius="md" color="success">Medium radius alert</Alert>
-<Alert radius="lg" color="warning">Large radius alert</Alert>
-<Alert radius="xl" color="danger">Extra large radius alert</Alert>
-<Alert radius="full" color="info">Full radius alert</Alert>
-```
-
-<div className="flex flex-wrap gap-4">
-  <Alert radius="none" color="primary">No radius alert</Alert>
-  <Alert radius="sm" color="secondary">Small radius alert</Alert>
-  <Alert radius="md" color="success">Medium radius alert</Alert>
-  <Alert radius="lg" color="warning">Large radius alert</Alert>
-  <Alert radius="xl" color="danger">Extra large radius alert</Alert>
-  <Alert radius="full" color="info">Full radius alert</Alert>
-</div>
+<Radius />
 
 ## Custom Icon
 
-You can customize the icon displayed in the alert.
+You can customize the icon displayed in the alert to better match your message's context.
 
 ```tsx
-<Alert color="primary" icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}>Alert with custom icon</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function CustomIcon() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert
+        color="primary"
+        icon={
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        }
+      >
+        Alert with custom icon
+      </Alert>
+      <Alert
+        color="success"
+        icon={
+          <div className="w-6 h-6 flex items-center justify-center bg-green-100 dark:bg-green-900 rounded-full">
+            <span className="text-green-800 dark:text-green-200">✓</span>
+          </div>
+        }
+      >
+        Alert with custom styled icon
+      </Alert>
+    </div>
+  )
+}
 ```
 
-<Alert color="primary" icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}>Alert with custom icon</Alert>
+<CustomIcon />
 
 ## Without Icon
 
-You can hide the icon by setting the `hideIcon` prop to `true`.
+Hide the icon when it's not needed by setting the `hideIcon` prop to `true`.
 
 ```tsx
-<Alert hideIcon color="primary">Alert without icon</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function WithoutIcon() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert hideIcon color="primary">
+        Alert without icon (primary)
+      </Alert>
+      <Alert hideIcon color="success">
+        Alert without icon (success)
+      </Alert>
+      <Alert hideIcon color="warning">
+        Alert without icon (warning)
+      </Alert>
+      <Alert hideIcon color="danger">
+        Alert without icon (danger)
+      </Alert>
+    </div>
+  )
+}
 ```
 
-<Alert hideIcon color="primary">Alert without icon</Alert>
+<WithoutIcon />
 
 ## With Action
 
-You can add action buttons to the alert.
+Add action buttons to your alerts to provide users with immediate response options.
 
 ```tsx
-<Alert color="primary" action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}>Alert with action button</Alert>
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function WithAction() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert
+        color="primary"
+        action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}
+      >
+        Alert with action button
+      </Alert>
+      <Alert
+        color="warning"
+        action={
+          <div className="flex gap-2">
+            <button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">Confirm</button>
+            <button className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-md">Cancel</button>
+          </div>
+        }
+      >
+        Alert with multiple action buttons
+      </Alert>
+    </div>
+  )
+}
 ```
 
-<Alert color="primary" action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}>Alert with action button</Alert>
+<WithAction />
+
+## With Close Button
+
+Include a close button for dismissible alerts by providing an `onClose` callback.
+
+```tsx
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+import { useState } from "react"
+
+export default function WithCloseButton() {
+  const [visible, setVisible] = useState(true)
+  const [visible2, setVisible2] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-4">
+      {visible && (
+        <Alert color="primary" onClose={() => setVisible(false)}>
+          Alert with close button (click X to dismiss)
+        </Alert>
+      )}
+
+      {visible2 && (
+        <Alert
+          color="warning"
+          onClose={() => setVisible2(false)}
+          action={<button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">Action</button>}
+        >
+          Alert with close button and action button
+        </Alert>
+      )}
+
+      {(!visible || !visible2) && (
+        <button 
+          className="self-start px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md"
+          onClick={() => {
+            setVisible(true)
+            setVisible2(true)
+          }}
+        >
+          Reset Alerts
+        </button>
+      )}
+    </div>
+  )
+}
+```
+
+<WithCloseButton />
 
 ## Controlled Visibility
 
-You can control the visibility of the alert using the `isVisible` prop.
+Control the visibility of alerts programmatically using the `isVisible` prop.
 
 ```tsx
-const [isVisible, setIsVisible] = useState(true)
+'use client'
 
-<button onClick={() => setIsVisible(!isVisible)}>
-  {isVisible ? 'Hide Alert' : 'Show Alert'}
-</button>
+import { Alert } from "@faiz-ui/react"
+import { useState } from "react"
 
-<Alert color="primary" isVisible={isVisible} onClose={() => setIsVisible(false)}>
-  Alert with controlled visibility
-</Alert>
+export default function ControlledVisibility() {
+  const [isVisible, setIsVisible] = useState(true)
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="mb-4">
+        <button
+          className="px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md"
+          onClick={() => setIsVisible(!isVisible)}
+        >
+          {isVisible ? 'Hide Alert' : 'Show Alert'}
+        </button>
+      </div>
+
+      <Alert color="primary" isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        Alert with controlled visibility. Use the button above to toggle visibility.
+      </Alert>
+    </div>
+  )
+}
 ```
+
+<ControlledVisibility />
+
+## Custom Styles
+
+Apply custom styles using Tailwind CSS classes to create unique alert appearances.
+
+```tsx
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function CustomStyles() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60">
+        Alert with gradient background
+      </Alert>
+      <Alert customStyles="border-[3px] border-dashed">
+        Alert with dashed border
+      </Alert>
+      <Alert customStyles="[transform:rotate(-1deg)] hover:[transform:rotate(0deg)]">
+        Alert with rotation effect (hover to see)
+      </Alert>
+      <Alert customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+        Alert with heavy shadow
+      </Alert>
+    </div>
+  )
+}
+```
+
+<CustomStyles />
+
+## Sketchy Variant
+
+The signature sketchy style variant enhances the hand-drawn aesthetic of the alert component.
+
+```tsx
+'use client'
+
+import { Alert } from "@faiz-ui/react"
+
+export default function SketchyVariant() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Alert variant="sketchy" color="primary">
+        Primary sketchy alert
+      </Alert>
+      <Alert variant="sketchy" color="secondary">
+        Secondary sketchy alert with irregular border
+      </Alert>
+      <Alert variant="sketchy" color="success">
+        Success sketchy alert with hand-drawn effect
+      </Alert>
+      <Alert variant="sketchy" color="warning">
+        Warning sketchy alert with semi-realistic style
+      </Alert>
+      <Alert variant="sketchy" color="danger">
+        Danger sketchy alert with dotted line frame
+      </Alert>
+    </div>
+  )
+}
+```
+
+<SketchyVariant />
+
+## Implementation Notes
+
+- The Alert component automatically selects appropriate icons based on the color prop if no custom icon is provided.
+- The component is fully responsive and adapts to containers of different sizes.
+- Alert visibility can be controlled both with the `isVisible` prop and the built-in close button functionality.
+- The hand-drawn aesthetic is consistently applied across all variants and states.
+- All alerts are fully accessible with proper ARIA attributes and keyboard navigation support.
 
 ## Props
 
-| Prop         | Type                                                                       | Default     | Description                              |
-| ------------ | -------------------------------------------------------------------------- | ----------- | ---------------------------------------- |
-| color        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color variant of the alert           |
-| variant      | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`   | The style variant of the alert           |
-| radius       | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'`                         | `'md'`      | The border radius of the alert           |
-| hideIcon     | `boolean`                                                                  | `false`     | Whether to hide the icon                 |
-| icon         | `ReactNode`                                                                | -           | Custom icon to display in the alert      |
-| action       | `ReactNode`                                                                | -           | Action component to display in the alert |
-| isVisible    | `boolean`                                                                  | `true`      | Whether the alert is visible             |
-| onClose      | `() => void`                                                               | -           | Callback fired when the alert is closed  |
-| customStyles | `string`                                                                   | -           | Custom styles for the alert              |
+| Prop | Type | Default | Description |
+| ---- | ---- | ---- | ----- |
+| `color` | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the alert |
+| `variant` | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'` | `'solid'` | The visual style variant of the alert |
+| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | The border radius of the alert |
+| `hideIcon` | `boolean` | `false` | Whether to hide the icon |
+| `icon` | `React.ReactNode` | `undefined` | Custom icon to display in the alert |
+| `action` | `React.ReactNode` | `undefined` | Action component to display in the alert |
+| `isVisible` | `boolean` | `true` | Whether the alert is visible |
+| `onClose` | `() => void` | `undefined` | Callback fired when the alert is closed |
+| `customStyles` | `string` | `undefined` | Custom Tailwind CSS classes for additional styling |
