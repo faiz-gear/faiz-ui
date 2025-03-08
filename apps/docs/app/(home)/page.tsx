@@ -23,7 +23,7 @@ export default function HomePage() {
             icon: <Icons.logo className="h-4 w-4" />
           },
           secondaryAction: {
-            href: '/components',
+            href: '/docs/components',
             text: 'Browse Components',
             icon: <Icons.component className="h-4 w-4" />
           }
