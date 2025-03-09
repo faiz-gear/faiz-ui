@@ -4,6 +4,7 @@
     "build": "turbo run build",
     "docs:dev": "turbo run dev --filter=docs",
     "build:theme": "pnpm build --filter=@faiz-ui/theme",
+    "build:packages": "pnpm build --filter=./packages/*",
     "dev": "turbo run dev",
     "dev:book": "pnpm dev --filter=@faiz-ui/storybook",
     "lint": "turbo run lint",
