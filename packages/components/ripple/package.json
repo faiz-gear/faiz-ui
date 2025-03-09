@@ -7,7 +7,9 @@
   ],
   "author": "faiz-gear",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "src/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
