@@ -10,7 +10,10 @@ export default function WithCloseButton() {
   return (
     <div className="flex flex-col gap-4">
       {visible && (
-        <Alert color="primary" onClose={() => setVisible(false)}>
+        <Alert color="primary" onClose={() => {
+          setVisible(false)
+          console.log('close')
+        }}>
           Alert with close button (click X to dismiss)
         </Alert>
       )}

@@ -1,30 +1,36 @@
 import { VariantProps, tv } from 'tailwind-variants'
 
 export const alert = tv({
-  base: [
-    'relative py-3 px-4 overflow-hidden transition-all',
-    'flex items-start gap-3',
-
-    'font-medium tracking-wide',
-    'font-[Caveat,_cursive,_system-ui,_sans-serif] dark:text-white',
-
-    'border-[2px] border-black dark:border-white',
-    'border-solid',
-    'rounded-md',
-
-    '[box-shadow:3px_3px_0px_0px_rgba(0,0,0,0.8)] dark:[box-shadow:3px_3px_0px_0px_rgba(255,255,255,0.5)]',
-    '[transform:rotate(-0.3deg)]',
-    "after:content-[''] after:absolute after:-inset-0.5 after:border after:border-black/10 after:dark:border-white/10 after:rounded-[inherit] after:z-[-1]",
-    'bg-neutral-50/90',
-
-    'even:[transform:rotate(0.2deg)]',
-    'nth-[3n]:[transform:rotate(-0.2deg)]',
-
-    "before:content-[''] before:absolute before:inset-0 before:border-[1px] before:border-black/20 before:dark:border-white/20",
-    'before:rounded-[inherit]',
-
-    'after:opacity-30 after:bg-[length:5px_5px]'
-  ],
+  slots:{
+    base: [
+      'relative py-3 px-4 overflow-hidden transition-all',
+      'flex items-start gap-3',
+  
+      'font-medium tracking-wide',
+      'font-[Caveat,_cursive,_system-ui,_sans-serif] dark:text-white',
+  
+      'border-[2px] border-black dark:border-white',
+      'border-solid',
+      'rounded-md',
+  
+      '[box-shadow:3px_3px_0px_0px_rgba(0,0,0,0.8)] dark:[box-shadow:3px_3px_0px_0px_rgba(255,255,255,0.5)]',
+      '[transform:rotate(-0.3deg)]',
+      "after:content-[''] after:absolute after:-inset-0.5 after:border after:border-black/10 after:dark:border-white/10 after:rounded-[inherit] after:z-[-1]",
+      'bg-neutral-50/90',
+  
+      'even:[transform:rotate(0.2deg)]',
+      'nth-[3n]:[transform:rotate(-0.2deg)]',
+  
+      "before:content-[''] before:absolute before:inset-0 before:border-[1px] before:border-black/20 before:dark:border-white/20 before:z-[-1]",
+      'before:rounded-[inherit]',
+  
+      'after:opacity-30 after:bg-[length:5px_5px]'
+    ],
+    icon: 'flex-shrink-0 mt-0.5',
+    content: 'flex-grow',
+    action: 'flex-shrink-0 ml-auto',
+    closeButton: 'flex-shrink-0 ml-2 -mr-1 p-1 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-colors',
+  },
   variants: {
     color: {
       primary: 'text-blue-800 border-blue-600 dark:text-blue-200 dark:border-blue-500',
@@ -155,4 +161,6 @@ export const alert = tv({
   }
 })
 
-export type AlertVariantProps = VariantProps<typeof alert>
+export type AlertVariantProps = VariantProps<typeof alert>;
+export type AlertSlots = keyof ReturnType<typeof alert>;
+export type AlertReturn = ReturnType<typeof alert>;

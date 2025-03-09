@@ -1,5 +1,10 @@
 {
   "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "tailwind-variants": ["../../core/theme/node_modules/tailwind-variants/dist"]
+    },
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
 }

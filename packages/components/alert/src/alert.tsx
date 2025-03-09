@@ -14,10 +14,10 @@ const Alert = forwardRef<'div', AlertProps>((props, ref) => {
   }
 
   return (
-    <Component ref={domRef} className={styles} {...otherProps}>
-      {icon && <div className="flex-shrink-0 mt-0.5">{icon}</div>}
-      <div className="flex-grow">{children}</div>
-      {action && <div className="flex-shrink-0 ml-auto">{action}</div>}
+    <Component ref={domRef} className={styles.base()} {...otherProps}>
+      {icon && <div className={styles.icon()}>{icon}</div>}
+      <div className={styles.content()}>{children}</div>
+      {action && <div className={styles.action()}>{action}</div>}
       {props.onClose && (
         <button
           type="button"
