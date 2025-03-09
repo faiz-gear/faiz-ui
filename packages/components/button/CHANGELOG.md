@@ -1,5 +1,17 @@
 # @faiz-ui/button
 
+## 2.0.0
+
+### Major Changes
+
+- e3933dd: Add alert component;Refactor button, ripple components.
+
+### Patch Changes
+
+- Updated dependencies [e3933dd]
+  - @faiz-ui/ripple@2.0.0
+  - @faiz-ui/theme@2.0.0
+
 ## 1.0.6
 
 ### Patch Changes

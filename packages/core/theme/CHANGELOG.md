@@ -1,5 +1,11 @@
 # @faiz-ui/theme
 
+## 2.0.0
+
+### Major Changes
+
+- e3933dd: Add alert component;Refactor button, ripple components.
+
 ## 1.1.2
 
 ### Patch Changes

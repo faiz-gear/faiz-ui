@@ -1,5 +1,20 @@
 # @faiz-ui/react
 
+## 2.0.0
+
+### Major Changes
+
+- e3933dd: Add alert component;Refactor button, ripple components.
+
+### Patch Changes
+
+- Updated dependencies [e3933dd]
+- Updated dependencies [abe26c7]
+  - @faiz-ui/alert@2.0.0
+  - @faiz-ui/button@2.0.0
+  - @faiz-ui/ripple@2.0.0
+  - @faiz-ui/landing-card@1.0.8
+
 ## 1.1.3
 
 ### Patch Changes
