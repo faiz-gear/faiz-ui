@@ -1,5 +1,13 @@
 # @faiz-ui/ripple
 
+## 1.0.4
+
+### Patch Changes
+
+- ed85f08: update version
+- Updated dependencies [ed85f08]
+  - @faiz-ui/system@1.0.4
+
 ## 1.0.1
 
 ### Patch Changes

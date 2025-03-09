@@ -1,5 +1,11 @@
 # @faiz-ui/theme
 
+## 1.1.3
+
+### Patch Changes
+
+- ed85f08: update version
+
 ## 1.0.1
 
 ### Patch Changes

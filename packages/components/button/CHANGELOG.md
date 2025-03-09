@@ -1,5 +1,15 @@
 # @faiz-ui/button
 
+## 1.0.7
+
+### Patch Changes
+
+- ed85f08: update version
+- Updated dependencies [ed85f08]
+  - @faiz-ui/ripple@1.0.4
+  - @faiz-ui/system@1.0.4
+  - @faiz-ui/theme@1.1.3
+
 ## 1.0.1
 
 ### Patch Changes

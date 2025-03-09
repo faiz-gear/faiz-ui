@@ -1,5 +1,11 @@
 # @faiz-ui/system
 
+## 1.0.4
+
+### Patch Changes
+
+- ed85f08: update version
+
 ## 1.0.1
 
 ### Patch Changes

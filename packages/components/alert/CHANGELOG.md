@@ -4,6 +4,15 @@
 
 ### Patch Changes
 
+- ed85f08: update version
+- Updated dependencies [ed85f08]
+  - @faiz-ui/system@1.0.4
+  - @faiz-ui/theme@1.1.3
+
+## 1.0.1
+
+### Patch Changes
+
 - downgrade version to 1.0.0
 - Updated dependencies
   - @faiz-ui/system@1.0.1

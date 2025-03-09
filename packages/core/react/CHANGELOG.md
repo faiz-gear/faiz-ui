@@ -1,5 +1,16 @@
 # @faiz-ui/react
 
+## 1.1.4
+
+### Patch Changes
+
+- ed85f08: update version
+- Updated dependencies [ed85f08]
+  - @faiz-ui/landing-card@1.0.8
+  - @faiz-ui/button@1.0.7
+  - @faiz-ui/ripple@1.0.4
+  - @faiz-ui/alert@1.0.1
+
 ## 1.0.1
 
 ### Patch Changes

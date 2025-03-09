@@ -1,5 +1,13 @@
 # docs
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [ed85f08]
+  - @faiz-ui/react@1.1.4
+  - @faiz-ui/theme@1.1.3
+
 ## 0.0.2
 
 ### Patch Changes

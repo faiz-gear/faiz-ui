@@ -1,5 +1,12 @@
 # web
 
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies [ed85f08]
+  - @faiz-ui/react@1.1.4
+
 ## 1.0.9
 
 ### Patch Changes
