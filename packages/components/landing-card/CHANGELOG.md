@@ -1,5 +1,14 @@
 # @faiz-ui/landing-card
 
+## 1.0.1
+
+### Patch Changes
+
+- downgrade version to 1.0.0
+- Updated dependencies
+  - @faiz-ui/system@1.0.1
+  - @faiz-ui/theme@1.0.1
+
 ## 1.0.8
 
 ### Patch Changes

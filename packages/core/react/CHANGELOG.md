@@ -1,5 +1,16 @@
 # @faiz-ui/react
 
+## 1.0.1
+
+### Patch Changes
+
+- downgrade version to 1.0.0
+- Updated dependencies
+  - @faiz-ui/landing-card@1.0.1
+  - @faiz-ui/button@1.0.1
+  - @faiz-ui/ripple@1.0.1
+  - @faiz-ui/alert@1.0.1
+
 ## 2.0.0
 
 ### Major Changes

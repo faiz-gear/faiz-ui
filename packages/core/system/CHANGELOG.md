@@ -1,5 +1,11 @@
 # @faiz-ui/system
 
+## 1.0.1
+
+### Patch Changes
+
+- downgrade version to 1.0.0
+
 ## 1.0.3
 
 ### Patch Changes

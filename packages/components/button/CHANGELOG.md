@@ -1,5 +1,15 @@
 # @faiz-ui/button
 
+## 1.0.1
+
+### Patch Changes
+
+- downgrade version to 1.0.0
+- Updated dependencies
+  - @faiz-ui/ripple@1.0.1
+  - @faiz-ui/system@1.0.1
+  - @faiz-ui/theme@1.0.1
+
 ## 2.0.0
 
 ### Major Changes
