@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 import { HTMLFaizUIProps } from '@faiz-ui/system'
 import { landingCardContainer, landingCardWrapper, type LandingCardContainerVariantProps } from '@faiz-ui/theme'

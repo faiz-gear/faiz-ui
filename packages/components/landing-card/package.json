@@ -26,8 +26,7 @@
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
-    "postpack": "clean-package restore",
-    "prepare": "pnpm run build"
+    "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=18"

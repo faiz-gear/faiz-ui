@@ -3,8 +3,19 @@ title: Alert
 description: A hand-drawn styled alert component for displaying important messages, notifications, and feedback to users.
 ---
 
-import { Alert } from '@faiz-ui/react'
-import { AlertUsage, Colors, Variants, Radius, CustomIcon, WithoutIcon, WithAction, WithCloseButton, ControlledVisibility, CustomStyles, SketchyVariant } from '@/components/docs/alert'
+import {
+  AlertUsage,
+  Colors,
+  Variants,
+  Radius,
+  CustomIcon,
+  WithoutIcon,
+  WithAction,
+  WithCloseButton,
+  ControlledVisibility,
+  CustomStyles,
+  SketchyVariant,
+} from "@/components/docs/alert";
 
 # Alert
 
@@ -13,16 +24,16 @@ The Alert component in Faiz UI provides a hand-drawn sketch aesthetic for displa
 ## Usage
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function AlertUsage() {
   return (
     <div className="flex flex-col gap-4">
       <Alert color="primary">This is an alert message</Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -33,9 +44,9 @@ export default function AlertUsage() {
 Alerts come in various color options to convey different meanings and priority levels.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function Colors() {
   return (
@@ -47,7 +58,7 @@ export default function Colors() {
       <Alert color="danger">This is a danger alert</Alert>
       <Alert color="info">This is an info alert</Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -58,9 +69,9 @@ export default function Colors() {
 The Alert component offers multiple style variants to suit different UI contexts.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function Variants() {
   return (
@@ -84,7 +95,7 @@ export default function Variants() {
         Sketchy style alert
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -95,9 +106,9 @@ export default function Variants() {
 Control the border radius of alerts to match your design requirements.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function Radius() {
   return (
@@ -121,7 +132,7 @@ export default function Radius() {
         Full radius alert
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -132,9 +143,9 @@ export default function Radius() {
 You can customize the icon displayed in the alert to better match your message's context.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function CustomIcon() {
   return (
@@ -142,7 +153,13 @@ export default function CustomIcon() {
       <Alert
         color="primary"
         icon={
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
               stroke="currentColor"
@@ -166,7 +183,7 @@ export default function CustomIcon() {
         Alert with custom styled icon
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -177,9 +194,9 @@ export default function CustomIcon() {
 Hide the icon when it's not needed by setting the `hideIcon` prop to `true`.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function WithoutIcon() {
   return (
@@ -197,7 +214,7 @@ export default function WithoutIcon() {
         Alert without icon (danger)
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -208,16 +225,20 @@ export default function WithoutIcon() {
 Add action buttons to your alerts to provide users with immediate response options.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function WithAction() {
   return (
     <div className="flex flex-col gap-4">
       <Alert
         color="primary"
-        action={<button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">Action</button>}
+        action={
+          <button className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-md">
+            Action
+          </button>
+        }
       >
         Alert with action button
       </Alert>
@@ -225,15 +246,19 @@ export default function WithAction() {
         color="warning"
         action={
           <div className="flex gap-2">
-            <button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">Confirm</button>
-            <button className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-md">Cancel</button>
+            <button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">
+              Confirm
+            </button>
+            <button className="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-md">
+              Cancel
+            </button>
           </div>
         }
       >
         Alert with multiple action buttons
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -244,14 +269,14 @@ export default function WithAction() {
 Include a close button for dismissible alerts by providing an `onClose` callback.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
-import { useState } from "react"
+import {Alert} from "@faiz-ui/react";
+import {useState} from "react";
 
 export default function WithCloseButton() {
-  const [visible, setVisible] = useState(true)
-  const [visible2, setVisible2] = useState(true)
+  const [visible, setVisible] = useState(true);
+  const [visible2, setVisible2] = useState(true);
 
   return (
     <div className="flex flex-col gap-4">
@@ -265,25 +290,29 @@ export default function WithCloseButton() {
         <Alert
           color="warning"
           onClose={() => setVisible2(false)}
-          action={<button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">Action</button>}
+          action={
+            <button className="px-2 py-1 text-sm bg-amber-100 dark:bg-amber-900 rounded-md">
+              Action
+            </button>
+          }
         >
           Alert with close button and action button
         </Alert>
       )}
 
       {(!visible || !visible2) && (
-        <button 
+        <button
           className="self-start px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md"
           onClick={() => {
-            setVisible(true)
-            setVisible2(true)
+            setVisible(true);
+            setVisible2(true);
           }}
         >
           Reset Alerts
         </button>
       )}
     </div>
-  )
+  );
 }
 ```
 
@@ -294,13 +323,13 @@ export default function WithCloseButton() {
 Control the visibility of alerts programmatically using the `isVisible` prop.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
-import { useState } from "react"
+import {Alert} from "@faiz-ui/react";
+import {useState} from "react";
 
 export default function ControlledVisibility() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState(true);
 
   return (
     <div className="flex flex-col gap-4">
@@ -309,7 +338,7 @@ export default function ControlledVisibility() {
           className="px-3 py-1.5 bg-blue-100 dark:bg-blue-900 rounded-md"
           onClick={() => setIsVisible(!isVisible)}
         >
-          {isVisible ? 'Hide Alert' : 'Show Alert'}
+          {isVisible ? "Hide Alert" : "Show Alert"}
         </button>
       </div>
 
@@ -317,7 +346,7 @@ export default function ControlledVisibility() {
         Alert with controlled visibility. Use the button above to toggle visibility.
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -328,9 +357,9 @@ export default function ControlledVisibility() {
 Apply custom styles using Tailwind CSS classes to create unique alert appearances.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function CustomStyles() {
   return (
@@ -338,17 +367,13 @@ export default function CustomStyles() {
       <Alert customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60">
         Alert with gradient background
       </Alert>
-      <Alert customStyles="border-[3px] border-dashed">
-        Alert with dashed border
-      </Alert>
+      <Alert customStyles="border-[3px] border-dashed">Alert with dashed border</Alert>
       <Alert customStyles="[transform:rotate(-1deg)] hover:[transform:rotate(0deg)]">
         Alert with rotation effect (hover to see)
       </Alert>
-      <Alert customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
-        Alert with heavy shadow
-      </Alert>
+      <Alert customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">Alert with heavy shadow</Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -359,9 +384,9 @@ export default function CustomStyles() {
 The signature sketchy style variant enhances the hand-drawn aesthetic of the alert component.
 
 ```tsx
-'use client'
+"use client";
 
-import { Alert } from "@faiz-ui/react"
+import {Alert} from "@faiz-ui/react";
 
 export default function SketchyVariant() {
   return (
@@ -382,7 +407,7 @@ export default function SketchyVariant() {
         Danger sketchy alert with dotted line frame
       </Alert>
     </div>
-  )
+  );
 }
 ```
 
@@ -398,14 +423,14 @@ export default function SketchyVariant() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ---- | ----- |
-| `color` | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the alert |
-| `variant` | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'` | `'solid'` | The visual style variant of the alert |
-| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | The border radius of the alert |
-| `hideIcon` | `boolean` | `false` | Whether to hide the icon |
-| `icon` | `React.ReactNode` | `undefined` | Custom icon to display in the alert |
-| `action` | `React.ReactNode` | `undefined` | Action component to display in the alert |
-| `isVisible` | `boolean` | `true` | Whether the alert is visible |
-| `onClose` | `() => void` | `undefined` | Callback fired when the alert is closed |
-| `customStyles` | `string` | `undefined` | Custom Tailwind CSS classes for additional styling |
+| Prop           | Type                                                                       | Default     | Description                                        |
+| -------------- | -------------------------------------------------------------------------- | ----------- | -------------------------------------------------- |
+| `color`        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the alert                       |
+| `variant`      | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`   | The visual style variant of the alert              |
+| `radius`       | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'`                         | `'md'`      | The border radius of the alert                     |
+| `hideIcon`     | `boolean`                                                                  | `false`     | Whether to hide the icon                           |
+| `icon`         | `React.ReactNode`                                                          | `undefined` | Custom icon to display in the alert                |
+| `action`       | `React.ReactNode`                                                          | `undefined` | Action component to display in the alert           |
+| `isVisible`    | `boolean`                                                                  | `true`      | Whether the alert is visible                       |
+| `onClose`      | `() => void`                                                               | `undefined` | Callback fired when the alert is closed            |
+| `customStyles` | `string`                                                                   | `undefined` | Custom Tailwind CSS classes for additional styling |

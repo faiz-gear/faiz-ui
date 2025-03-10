@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "directory": "packages/ui/button"
+    "directory": "packages/components/button"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -26,8 +26,7 @@
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
-    "postpack": "clean-package restore",
-    "prepare": "pnpm run build"
+    "postpack": "clean-package restore"
   },
   "peerDependencies": {
     "react": ">=18"

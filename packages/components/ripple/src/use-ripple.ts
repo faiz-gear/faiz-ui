@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback, MouseEvent, useState, Key, useImperativeHandle } from 'react'
 import { ReactRef } from '@faiz-ui/react-utils'
 

@@ -3,8 +3,21 @@ title: Button
 description: A versatile button component with hand-drawn sketch aesthetic supporting various states, sizes, and customization options.
 ---
 
-import { Button } from '@faiz-ui/react'
-import { ButtonUsage, Colors, Sizes, Radius, Variants, Disabled, WithIcons, IconOnly, Loading, SketchyVariant, CustomStyles, FunCombinations, DarkMode } from '@/components/docs/button'
+import {
+  ButtonUsage,
+  Colors,
+  Sizes,
+  Radius,
+  Variants,
+  Disabled,
+  WithIcons,
+  IconOnly,
+  Loading,
+  SketchyVariant,
+  CustomStyles,
+  FunCombinations,
+  DarkMode,
+} from "@/components/docs/button";
 
 # Button
 
@@ -13,17 +26,17 @@ The Button component in Faiz UI provides a hand-drawn sketch aesthetic while mai
 ## Usage
 
 ```tsx
-'use client'
+"use client";
 
-import { useRef } from "react"
-import { Button } from "@faiz-ui/react"
+import {useRef} from "react";
+import {Button} from "@faiz-ui/react";
 
 export default function ButtonUsage() {
   return (
     <div className="flex flex-wrap gap-4">
       <Button color="primary">Click me</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -34,9 +47,9 @@ export default function ButtonUsage() {
 Buttons come in various color options to convey different meanings and actions.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Colors() {
   return (
@@ -48,7 +61,7 @@ export default function Colors() {
       <Button color="danger">Danger</Button>
       <Button color="info">Info</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -59,9 +72,9 @@ export default function Colors() {
 Buttons are available in different sizes to fit various UI contexts.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Sizes() {
   return (
@@ -72,7 +85,7 @@ export default function Sizes() {
       <Button size="lg">Large</Button>
       <Button size="xl">Extra Large</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -83,9 +96,9 @@ export default function Sizes() {
 Control the border radius of buttons to match your design requirements.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Radius() {
   return (
@@ -97,7 +110,7 @@ export default function Radius() {
       <Button radius="xl">Extra Large Radius</Button>
       <Button radius="full">Full Radius</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -108,9 +121,9 @@ export default function Radius() {
 The Button component offers multiple style variants to suit different UI contexts.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Variants() {
   return (
@@ -122,7 +135,7 @@ export default function Variants() {
       <Button variant="flat">Flat</Button>
       <Button variant="sketchy">Sketchy</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -133,17 +146,19 @@ export default function Variants() {
 Buttons can be disabled to indicate that interaction is not currently possible.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Disabled() {
   return (
     <div className="flex flex-wrap gap-4">
       <Button isDisabled>Disabled</Button>
-      <Button isDisabled color="secondary">Disabled Secondary</Button>
+      <Button isDisabled color="secondary">
+        Disabled Secondary
+      </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -154,9 +169,9 @@ export default function Disabled() {
 Buttons can include icons at the start or end position to enhance visual communication.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function WithIcons() {
   return (
@@ -167,7 +182,7 @@ export default function WithIcons() {
         Both Icons
       </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -178,21 +193,31 @@ export default function WithIcons() {
 Create compact icon-only buttons for space-efficient interfaces.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function IconOnly() {
   return (
     <div className="flex flex-wrap gap-4">
       <Button isIconOnly>+</Button>
-      <Button isIconOnly color="secondary">-</Button>
-      <Button isIconOnly color="success">✓</Button>
-      <Button isIconOnly color="danger">✕</Button>
-      <Button isIconOnly color="warning">⚠️</Button>
-      <Button isIconOnly color="info">ℹ️</Button>
+      <Button isIconOnly color="secondary">
+        -
+      </Button>
+      <Button isIconOnly color="success">
+        ✓
+      </Button>
+      <Button isIconOnly color="danger">
+        ✕
+      </Button>
+      <Button isIconOnly color="warning">
+        ⚠️
+      </Button>
+      <Button isIconOnly color="info">
+        ℹ️
+      </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -203,19 +228,25 @@ export default function IconOnly() {
 Buttons can display a loading state to indicate ongoing processes.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function Loading() {
   return (
     <div className="flex flex-wrap gap-4">
       <Button isLoading>Loading</Button>
-      <Button isLoading color="secondary">Loading</Button>
-      <Button isLoading color="success" variant="outline">Loading</Button>
-      <Button isLoading color="danger" variant="ghost">Loading</Button>
+      <Button isLoading color="secondary">
+        Loading
+      </Button>
+      <Button isLoading color="success" variant="outline">
+        Loading
+      </Button>
+      <Button isLoading color="danger" variant="ghost">
+        Loading
+      </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -226,20 +257,30 @@ export default function Loading() {
 The signature sketchy style variant enhances the hand-drawn aesthetic.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function SketchyVariant() {
   return (
     <div className="flex flex-wrap gap-4">
-      <Button variant="sketchy" color="primary">Sketchy Style</Button>
-      <Button variant="sketchy" color="secondary">Irregular Border</Button>
-      <Button variant="sketchy" color="success">Hand-drawn Effect</Button>
-      <Button variant="sketchy" color="warning">Semi-realistic</Button>
-      <Button variant="sketchy" color="danger">Dotted Line Frame</Button>
+      <Button variant="sketchy" color="primary">
+        Sketchy Style
+      </Button>
+      <Button variant="sketchy" color="secondary">
+        Irregular Border
+      </Button>
+      <Button variant="sketchy" color="success">
+        Hand-drawn Effect
+      </Button>
+      <Button variant="sketchy" color="warning">
+        Semi-realistic
+      </Button>
+      <Button variant="sketchy" color="danger">
+        Dotted Line Frame
+      </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -250,9 +291,9 @@ export default function SketchyVariant() {
 Apply custom styles using Tailwind CSS classes to create unique button appearances.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function CustomStyles() {
   return (
@@ -260,9 +301,7 @@ export default function CustomStyles() {
       <Button customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60 hover:from-purple-500/60 hover:to-pink-500/60">
         Gradient Background
       </Button>
-      <Button customStyles="border-[3px] border-dashed">
-        Dashed Border
-      </Button>
+      <Button customStyles="border-[3px] border-dashed">Dashed Border</Button>
       <Button customStyles="[transform:rotate(-3deg)_translateY(-2px)] hover:[transform:rotate(0deg)_translateY(0)]">
         Hover Animation
       </Button>
@@ -270,7 +309,7 @@ export default function CustomStyles() {
         Heavy Shadow
       </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -281,9 +320,9 @@ export default function CustomStyles() {
 Combine various properties to create unique and expressive button styles.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function FunCombinations() {
   return (
@@ -312,7 +351,7 @@ export default function FunCombinations() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -323,9 +362,9 @@ export default function FunCombinations() {
 Buttons automatically adapt to dark mode environments with appropriate styling adjustments.
 
 ```tsx
-'use client'
+"use client";
 
-import { Button } from "@faiz-ui/react"
+import {Button} from "@faiz-ui/react";
 
 export default function DarkMode() {
   return (
@@ -360,7 +399,7 @@ export default function DarkMode() {
         <Button isDisabled>Disabled</Button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -375,17 +414,17 @@ export default function DarkMode() {
 
 ## Props
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ---- | ----- |
-| `variant` | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'` | `'solid'` | The visual style variant of the button |
-| `color` | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the button |
-| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | The size of the button |
-| `radius` | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | The border radius of the button |
-| `isLoading` | `boolean` | `false` | Whether the button is in loading state |
-| `isDisabled` | `boolean` | `false` | Whether the button is disabled |
-| `isIconOnly` | `boolean` | `false` | Whether to display the button in icon-only mode |
-| `startIcon` | `React.ReactNode` | `undefined` | The icon to display before the button text |
-| `endIcon` | `React.ReactNode` | `undefined` | The icon to display after the button text |
-| `spinner` | `React.ReactNode` | `undefined` | Custom element to display during loading state |
-| `loadingText` | `string` | `'Loading'` | Text for the loading state (for accessibility) |
-| `customStyles` | `string` | `undefined` | Custom Tailwind CSS classes for additional styling |
+| Prop           | Type                                                                       | Default     | Description                                        |
+| -------------- | -------------------------------------------------------------------------- | ----------- | -------------------------------------------------- |
+| `variant`      | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`   | The visual style variant of the button             |
+| `color`        | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | The color theme of the button                      |
+| `size`         | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                     | `'md'`      | The size of the button                             |
+| `radius`       | `'none' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'`                         | `'md'`      | The border radius of the button                    |
+| `isLoading`    | `boolean`                                                                  | `false`     | Whether the button is in loading state             |
+| `isDisabled`   | `boolean`                                                                  | `false`     | Whether the button is disabled                     |
+| `isIconOnly`   | `boolean`                                                                  | `false`     | Whether to display the button in icon-only mode    |
+| `startIcon`    | `React.ReactNode`                                                          | `undefined` | The icon to display before the button text         |
+| `endIcon`      | `React.ReactNode`                                                          | `undefined` | The icon to display after the button text          |
+| `spinner`      | `React.ReactNode`                                                          | `undefined` | Custom element to display during loading state     |
+| `loadingText`  | `string`                                                                   | `'Loading'` | Text for the loading state (for accessibility)     |
+| `customStyles` | `string`                                                                   | `undefined` | Custom Tailwind CSS classes for additional styling |

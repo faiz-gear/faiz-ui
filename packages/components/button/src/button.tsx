@@ -1,5 +1,3 @@
-'use client'
-
 import { forwardRef } from '@faiz-ui/system'
 import { UseButtonProps, useButton } from './use-button'
 import { Ripple } from '@faiz-ui/ripple'
