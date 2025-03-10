@@ -1,5 +1,12 @@
 # web
 
+## 1.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @faiz-ui/react@1.1.5
+
 ## 1.0.10
 
 ### Patch Changes

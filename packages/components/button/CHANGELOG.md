@@ -1,5 +1,16 @@
 # @faiz-ui/button
 
+## 1.0.8
+
+### Patch Changes
+
+- update build configurations
+- Updated dependencies
+  - @faiz-ui/ripple@1.0.5
+  - @faiz-ui/system@1.0.5
+  - @faiz-ui/theme@1.1.4
+  - @faiz-ui/react-utils@1.0.4
+
 ## 1.0.7
 
 ### Patch Changes

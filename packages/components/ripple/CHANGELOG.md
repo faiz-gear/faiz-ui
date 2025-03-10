@@ -1,5 +1,14 @@
 # @faiz-ui/ripple
 
+## 1.0.5
+
+### Patch Changes
+
+- update build configurations
+- Updated dependencies
+  - @faiz-ui/system@1.0.5
+  - @faiz-ui/react-utils@1.0.4
+
 ## 1.0.4
 
 ### Patch Changes

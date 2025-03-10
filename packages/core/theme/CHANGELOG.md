@@ -1,5 +1,11 @@
 # @faiz-ui/theme
 
+## 1.1.4
+
+### Patch Changes
+
+- update build configurations
+
 ## 1.1.3
 
 ### Patch Changes

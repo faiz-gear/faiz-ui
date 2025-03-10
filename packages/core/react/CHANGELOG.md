@@ -1,5 +1,16 @@
 # @faiz-ui/react
 
+## 1.1.5
+
+### Patch Changes
+
+- update build configurations
+- Updated dependencies
+  - @faiz-ui/alert@1.0.2
+  - @faiz-ui/button@1.0.8
+  - @faiz-ui/landing-card@1.0.9
+  - @faiz-ui/ripple@1.0.5
+
 ## 1.1.4
 
 ### Patch Changes
