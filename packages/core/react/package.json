@@ -30,6 +30,7 @@
     "prebuild": "node ./src/scripts/prebuild.js"
   },
   "dependencies": {
+    "@faiz-ui/accordion": "workspace:*",
     "@faiz-ui/alert": "workspace:*",
     "@faiz-ui/button": "workspace:*",
     "@faiz-ui/landing-card": "workspace:*",

@@ -192,6 +192,28 @@ importers:
         specifier: ^4.5.3
         version: 4.9.5
 
+  packages/components/accordion:
+    dependencies:
+      '@faiz-ui/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@faiz-ui/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@faiz-ui/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@react-spring/web':
+        specifier: ^9.7.3
+        version: 9.7.3(react-dom@18.3.0)(react@18.3.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.0.0
+        version: 18.3.0
+
   packages/components/alert:
     dependencies:
       '@faiz-ui/react-utils':
@@ -276,6 +298,9 @@ importers:
 
   packages/core/react:
     dependencies:
+      '@faiz-ui/accordion':
+        specifier: workspace:*
+        version: link:../../components/accordion
       '@faiz-ui/alert':
         specifier: workspace:*
         version: link:../../components/alert
@@ -4958,6 +4983,16 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-spring/animated@9.7.3(react@18.3.0):
+    resolution: {integrity: sha512-5CWeNJt9pNgyvuSzQH+uy2pvTg8Y4/OisoscZIR8/ZNLIOI+CatFBhGZpDGTF/OzdNFsAoGk3wiUYTwoJ0YIvw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/shared': 9.7.3(react@18.3.0)
+      '@react-spring/types': 9.7.3
+      react: 18.3.0
+    dev: false
+
   /@react-spring/core@9.7.3(react@18.2.0):
     resolution: {integrity: sha512-IqFdPVf3ZOC1Cx7+M0cXf4odNLxDC+n7IN3MDcVCTIOSBfqEcBebSv+vlY5AhM0zw05PDbjKrNmBpzv/AqpjnQ==}
     peerDependencies:
@@ -4969,6 +5004,17 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-spring/core@9.7.3(react@18.3.0):
+    resolution: {integrity: sha512-IqFdPVf3ZOC1Cx7+M0cXf4odNLxDC+n7IN3MDcVCTIOSBfqEcBebSv+vlY5AhM0zw05PDbjKrNmBpzv/AqpjnQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/animated': 9.7.3(react@18.3.0)
+      '@react-spring/shared': 9.7.3(react@18.3.0)
+      '@react-spring/types': 9.7.3
+      react: 18.3.0
+    dev: false
+
   /@react-spring/shared@9.7.3(react@18.2.0):
     resolution: {integrity: sha512-NEopD+9S5xYyQ0pGtioacLhL2luflh6HACSSDUZOwLHoxA5eku1UPuqcJqjwSD6luKjjLfiLOspxo43FUHKKSA==}
     peerDependencies:
@@ -4976,6 +5022,15 @@ packages:
     dependencies:
       '@react-spring/types': 9.7.3
       react: 18.2.0
+    dev: false
+
+  /@react-spring/shared@9.7.3(react@18.3.0):
+    resolution: {integrity: sha512-NEopD+9S5xYyQ0pGtioacLhL2luflh6HACSSDUZOwLHoxA5eku1UPuqcJqjwSD6luKjjLfiLOspxo43FUHKKSA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/types': 9.7.3
+      react: 18.3.0
     dev: false
 
   /@react-spring/types@9.7.3:
@@ -4994,6 +5049,20 @@ packages:
       '@react-spring/types': 9.7.3
       react: 18.2.0
       react-dom: 18.3.0(react@18.2.0)
+    dev: false
+
+  /@react-spring/web@9.7.3(react-dom@18.3.0)(react@18.3.0):
+    resolution: {integrity: sha512-BXt6BpS9aJL/QdVqEIX9YoUy8CE6TJrU0mNCqSoxdXlIeNcEBWOfIyE6B14ENNsyQKS3wOWkiJfco0tCr/9tUg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@react-spring/animated': 9.7.3(react@18.3.0)
+      '@react-spring/core': 9.7.3(react@18.3.0)
+      '@react-spring/shared': 9.7.3(react@18.3.0)
+      '@react-spring/types': 9.7.3
+      react: 18.3.0
+      react-dom: 18.3.0(react@18.3.0)
     dev: false
 
   /@rollup/pluginutils@5.0.5:

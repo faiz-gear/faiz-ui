@@ -1,0 +1,820 @@
+---
+title: Accordion
+description: A collapsible content component with hand-drawn styling, supporting controlled/uncontrolled modes, multiple selection, and comprehensive accessibility features.
+---
+
+import {
+  AccordionUsage,
+  AccordionColors,
+  AccordionSizes,
+  AccordionVariants,
+  AccordionControlled,
+  AccordionMultiple,
+  AccordionDisabled,
+  AccordionCustomStyles,
+  AccordionAccessibility,
+  AccordionAnimations,
+  AccordionDarkMode,
+} from "@/components/docs/accordion";
+
+# Accordion
+
+The Accordion component provides a beautifully crafted collapsible content interface with hand-drawn styling. It supports both controlled and uncontrolled modes, multiple selection, smooth animations, and comprehensive accessibility features, making it perfect for organizing content in an elegant and user-friendly way.
+
+## Features
+
+- 🎨 **Hand-drawn aesthetic** - Unique visual style with slight rotations, shadows, and organic feel
+- 🎛️ **Flexible modes** - Both controlled and uncontrolled operation
+- 🔢 **Multiple selection** - Allow single or multiple panels to be open simultaneously
+- ♿ **Accessibility first** - Full ARIA support and keyboard navigation
+- 🎬 **Smooth animations** - React Spring powered expand/collapse transitions
+- 🎨 **Customizable styling** - Multiple variants, colors, and sizes
+- 📱 **Responsive design** - Works seamlessly across all device sizes
+
+## Installation
+
+```bash
+npm install @faiz-ui/react
+# or
+pnpm add @faiz-ui/react
+```
+
+## Usage
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionUsage() {
+  return (
+    <Accordion defaultValue="item-1">
+      <AccordionItem value="item-1">
+        <AccordionHeader value="item-1">What is hand-drawn design?</AccordionHeader>
+        <AccordionContent value="item-1">
+          Hand-drawn design mimics the organic, imperfect nature of hand-crafted elements, creating
+          a warm and approachable user interface.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionHeader value="item-2">How does it work?</AccordionHeader>
+        <AccordionContent value="item-2">
+          Through CSS transforms, shadows, and subtle animations, we create the illusion of
+          hand-drawn elements while maintaining digital precision.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+<AccordionUsage />
+
+## Colors
+
+Accordions come in various color themes to match your design system and convey different meanings.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionColors() {
+  return (
+    <div className="space-y-4">
+      <Accordion color="primary" defaultValue="primary-1">
+        <AccordionItem value="primary-1">
+          <AccordionHeader value="primary-1">Primary Color</AccordionHeader>
+          <AccordionContent value="primary-1">
+            The primary color theme for main content sections.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion color="secondary" defaultValue="secondary-1">
+        <AccordionItem value="secondary-1">
+          <AccordionHeader value="secondary-1">Secondary Color</AccordionHeader>
+          <AccordionContent value="secondary-1">
+            The secondary color theme for supporting content.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion color="success" defaultValue="success-1">
+        <AccordionItem value="success-1">
+          <AccordionHeader value="success-1">Success Color</AccordionHeader>
+          <AccordionContent value="success-1">
+            Perfect for positive information and confirmations.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion color="warning" defaultValue="warning-1">
+        <AccordionItem value="warning-1">
+          <AccordionHeader value="warning-1">Warning Color</AccordionHeader>
+          <AccordionContent value="warning-1">
+            Use for important notices and cautionary information.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion color="danger" defaultValue="danger-1">
+        <AccordionItem value="danger-1">
+          <AccordionHeader value="danger-1">Danger Color</AccordionHeader>
+          <AccordionContent value="danger-1">
+            For critical information and error states.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion color="info" defaultValue="info-1">
+        <AccordionItem value="info-1">
+          <AccordionHeader value="info-1">Info Color</AccordionHeader>
+          <AccordionContent value="info-1">
+            Ideal for informational content and help sections.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+<AccordionColors />
+
+## Sizes
+
+Accordions are available in different sizes to fit various UI contexts and content density requirements.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionSizes() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-sm font-medium mb-2">Small Size</h3>
+        <Accordion size="sm" defaultValue="small-1">
+          <AccordionItem value="small-1">
+            <AccordionHeader value="small-1">Compact Accordion</AccordionHeader>
+            <AccordionContent value="small-1">
+              Perfect for dense layouts and sidebar content.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-medium mb-2">Medium Size (Default)</h3>
+        <Accordion size="md" defaultValue="medium-1">
+          <AccordionItem value="medium-1">
+            <AccordionHeader value="medium-1">Standard Accordion</AccordionHeader>
+            <AccordionContent value="medium-1">
+              The default size, perfect for most use cases and content types.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-medium mb-2">Large Size</h3>
+        <Accordion size="lg" defaultValue="large-1">
+          <AccordionItem value="large-1">
+            <AccordionHeader value="large-1">Spacious Accordion</AccordionHeader>
+            <AccordionContent value="large-1">
+              Ideal for prominent content sections and landing pages.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  );
+}
+```
+
+<AccordionSizes />
+
+## Variants
+
+The Accordion component offers multiple visual variants to suit different design contexts and aesthetic preferences.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionVariants() {
+  return (
+    <div className="space-y-4">
+      <Accordion variant="solid" defaultValue="solid-1">
+        <AccordionItem value="solid-1">
+          <AccordionHeader value="solid-1">Solid Variant</AccordionHeader>
+          <AccordionContent value="solid-1">
+            The default solid style with filled background and strong borders.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion variant="outline" defaultValue="outline-1">
+        <AccordionItem value="outline-1">
+          <AccordionHeader value="outline-1">Outline Variant</AccordionHeader>
+          <AccordionContent value="outline-1">
+            Clean outline design with transparent background.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion variant="ghost" defaultValue="ghost-1">
+        <AccordionItem value="ghost-1">
+          <AccordionHeader value="ghost-1">Ghost Variant</AccordionHeader>
+          <AccordionContent value="ghost-1">
+            Subtle dashed borders for a lighter appearance.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion variant="light" defaultValue="light-1">
+        <AccordionItem value="light-1">
+          <AccordionHeader value="light-1">Light Variant</AccordionHeader>
+          <AccordionContent value="light-1">
+            Soft, light styling perfect for minimal designs.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion variant="flat" defaultValue="flat-1">
+        <AccordionItem value="flat-1">
+          <AccordionHeader value="flat-1">Flat Variant</AccordionHeader>
+          <AccordionContent value="flat-1">
+            Modern flat design without shadows or depth effects.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+
+      <Accordion variant="sketchy" defaultValue="sketchy-1">
+        <AccordionItem value="sketchy-1">
+          <AccordionHeader value="sketchy-1">Sketchy Variant</AccordionHeader>
+          <AccordionContent value="sketchy-1">
+            Enhanced hand-drawn feel with mixed border styles and extra character.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+<AccordionVariants />
+
+## Controlled Mode
+
+Use controlled mode when you need to manage the accordion state externally or synchronize with other components.
+
+```tsx
+"use client";
+
+import {useState} from "react";
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionControlled() {
+  const [value, setValue] = useState<string>("");
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2 flex-wrap">
+        <button
+          onClick={() => setValue("item-1")}
+          className="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600"
+        >
+          Open First
+        </button>
+        <button
+          onClick={() => setValue("item-2")}
+          className="px-3 py-1 bg-green-500 text-white rounded text-sm hover:bg-green-600"
+        >
+          Open Second
+        </button>
+        <button
+          onClick={() => setValue("")}
+          className="px-3 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600"
+        >
+          Close All
+        </button>
+      </div>
+
+      <p className="text-sm text-gray-600">Current state: {value || "none"}</p>
+
+      <Accordion value={value} onValueChange={setValue}>
+        <AccordionItem value="item-1">
+          <AccordionHeader value="item-1">Controlled Item 1</AccordionHeader>
+          <AccordionContent value="item-1">
+            This accordion is controlled by external state. You can open it using the buttons above.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="item-2">
+          <AccordionHeader value="item-2">Controlled Item 2</AccordionHeader>
+          <AccordionContent value="item-2">
+            The state is managed externally, allowing for programmatic control.
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+<AccordionControlled />
+
+## Multiple Selection
+
+Enable multiple accordion items to be open simultaneously for better content comparison and navigation.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionMultiple() {
+  return (
+    <Accordion allowMultiple defaultValue={["feature-1", "feature-3"]}>
+      <AccordionItem value="feature-1">
+        <AccordionHeader value="feature-1">Feature 1: Hand-drawn Design</AccordionHeader>
+        <AccordionContent value="feature-1">
+          <div className="space-y-2">
+            <p>Our unique hand-drawn aesthetic sets us apart from typical flat design.</p>
+            <ul className="list-disc list-inside text-sm space-y-1">
+              <li>Slight rotations for organic feel</li>
+              <li>Custom shadows and borders</li>
+              <li>Handwritten font family</li>
+            </ul>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="feature-2">
+        <AccordionHeader value="feature-2">Feature 2: Accessibility</AccordionHeader>
+        <AccordionContent value="feature-2">
+          <div className="space-y-2">
+            <p>Built with accessibility as a first-class citizen.</p>
+            <ul className="list-disc list-inside text-sm space-y-1">
+              <li>Full ARIA support</li>
+              <li>Keyboard navigation</li>
+              <li>Screen reader compatibility</li>
+            </ul>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="feature-3">
+        <AccordionHeader value="feature-3">Feature 3: Smooth Animations</AccordionHeader>
+        <AccordionContent value="feature-3">
+          <div className="space-y-2">
+            <p>React Spring powered animations for smooth interactions.</p>
+            <ul className="list-disc list-inside text-sm space-y-1">
+              <li>Height and opacity transitions</li>
+              <li>Hardware acceleration</li>
+              <li>Configurable timing</li>
+            </ul>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+<AccordionMultiple />
+
+## Disabled States
+
+Disable accordion items or the entire accordion to prevent interaction when needed.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionDisabled() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-sm font-medium mb-2">Individual Item Disabled</h3>
+        <Accordion defaultValue="item-1">
+          <AccordionItem value="item-1">
+            <AccordionHeader value="item-1">Available Item</AccordionHeader>
+            <AccordionContent value="item-1">
+              This item is available and can be interacted with normally.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2" isDisabled>
+            <AccordionHeader value="item-2">Disabled Item</AccordionHeader>
+            <AccordionContent value="item-2">
+              This content cannot be accessed because the item is disabled.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionHeader value="item-3">Another Available Item</AccordionHeader>
+            <AccordionContent value="item-3">
+              This item is also available for interaction.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-medium mb-2">Entire Accordion Disabled</h3>
+        <Accordion isDisabled defaultValue="disabled-1">
+          <AccordionItem value="disabled-1">
+            <AccordionHeader value="disabled-1">Disabled Accordion</AccordionHeader>
+            <AccordionContent value="disabled-1">
+              When the entire accordion is disabled, no items can be interacted with.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="disabled-2">
+            <AccordionHeader value="disabled-2">Also Disabled</AccordionHeader>
+            <AccordionContent value="disabled-2">
+              All items inherit the disabled state from the parent accordion.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  );
+}
+```
+
+<AccordionDisabled />
+
+## Custom Styles
+
+Apply custom styles using Tailwind CSS classes to create unique accordion appearances that match your design system.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionCustomStyles() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-sm font-medium mb-2">Gradient Background</h3>
+        <Accordion
+          customStyles="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20"
+          defaultValue="gradient-1"
+        >
+          <AccordionItem value="gradient-1">
+            <AccordionHeader value="gradient-1">Gradient Styled Accordion</AccordionHeader>
+            <AccordionContent value="gradient-1">
+              This accordion features a beautiful gradient background that enhances the hand-drawn
+              aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-medium mb-2">Heavy Shadow Effect</h3>
+        <Accordion
+          customStyles="[box-shadow:8px_8px_0px_0px_rgba(0,0,0,0.8)] dark:[box-shadow:8px_8px_0px_0px_rgba(255,255,255,0.3)]"
+          defaultValue="shadow-1"
+        >
+          <AccordionItem value="shadow-1">
+            <AccordionHeader value="shadow-1">Heavy Shadow Accordion</AccordionHeader>
+            <AccordionContent value="shadow-1">
+              Enhanced shadow effects create a more pronounced hand-drawn appearance.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-medium mb-2">Custom Rotation</h3>
+        <Accordion
+          customStyles="[transform:rotate(-2deg)] hover:[transform:rotate(0deg)] transition-transform"
+          defaultValue="rotation-1"
+        >
+          <AccordionItem value="rotation-1">
+            <AccordionHeader value="rotation-1">Tilted Accordion</AccordionHeader>
+            <AccordionContent value="rotation-1">
+              Custom rotation angles add personality and enhance the organic feel.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  );
+}
+```
+
+<AccordionCustomStyles />
+
+## Accessibility
+
+The Accordion component is built with accessibility as a first-class citizen, ensuring it works seamlessly with assistive technologies.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionAccessibility() {
+  return (
+    <div className="space-y-4">
+      <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+        <h3 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+          ♿ Accessibility Features
+        </h3>
+        <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+          <li>
+            • <strong>ARIA Support:</strong> Full ARIA attributes for screen readers
+          </li>
+          <li>
+            • <strong>Keyboard Navigation:</strong> Tab, Enter, and Space key support
+          </li>
+          <li>
+            • <strong>Focus Management:</strong> Proper focus indicators and flow
+          </li>
+          <li>
+            • <strong>Screen Reader:</strong> Announces state changes and content
+          </li>
+        </ul>
+      </div>
+
+      <Accordion defaultValue="aria-1">
+        <AccordionItem value="aria-1">
+          <AccordionHeader value="aria-1">🔍 ARIA Attributes Demo</AccordionHeader>
+          <AccordionContent value="aria-1">
+            <div className="space-y-3">
+              <p>This accordion includes the following ARIA attributes:</p>
+              <ul className="list-disc list-inside text-sm space-y-1">
+                <li>
+                  <code>aria-expanded</code>: Indicates if the panel is expanded
+                </li>
+                <li>
+                  <code>aria-controls</code>: Links header to its content panel
+                </li>
+                <li>
+                  <code>aria-labelledby</code>: Links content to its header
+                </li>
+                <li>
+                  <code>role="region"</code>: Identifies content as a landmark
+                </li>
+              </ul>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="keyboard-1">
+          <AccordionHeader value="keyboard-1">⌨️ Keyboard Navigation</AccordionHeader>
+          <AccordionContent value="keyboard-1">
+            <div className="space-y-3">
+              <p>Try these keyboard interactions:</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                  <strong>Tab:</strong> Move between headers
+                </div>
+                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                  <strong>Enter:</strong> Toggle panel
+                </div>
+                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                  <strong>Space:</strong> Toggle panel
+                </div>
+                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                  <strong>Shift+Tab:</strong> Move backwards
+                </div>
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+<AccordionAccessibility />
+
+## Smooth Animations
+
+Experience the React Spring powered animations that make the accordion feel alive and responsive.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionAnimations() {
+  return (
+    <div className="space-y-4">
+      <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+        <h3 className="font-medium text-green-900 dark:text-green-100 mb-2">
+          🎬 Animation Features
+        </h3>
+        <ul className="text-sm text-green-800 dark:text-green-200 space-y-1">
+          <li>
+            • <strong>Height Transitions:</strong> Smooth expand/collapse with measured heights
+          </li>
+          <li>
+            • <strong>Opacity Fading:</strong> Content fades in and out gracefully
+          </li>
+          <li>
+            • <strong>Transform Effects:</strong> Subtle scale and translate animations
+          </li>
+          <li>
+            • <strong>Hardware Acceleration:</strong> GPU-optimized for smooth performance
+          </li>
+        </ul>
+      </div>
+
+      <Accordion>
+        <AccordionItem value="animation-1">
+          <AccordionHeader value="animation-1">
+            ✨ Animation Demo - Click to See Magic
+          </AccordionHeader>
+          <AccordionContent value="animation-1">
+            <div className="space-y-4">
+              <p>Watch how smoothly this content appears and disappears!</p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded">
+                  <h4 className="font-medium mb-2">Height Animation</h4>
+                  <p className="text-sm">
+                    The container smoothly animates from 0 to the actual content height.
+                  </p>
+                </div>
+
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded">
+                  <h4 className="font-medium mb-2">Opacity Transition</h4>
+                  <p className="text-sm">Content fades in and out with perfect timing.</p>
+                </div>
+              </div>
+
+              <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded">
+                <h4 className="font-medium mb-2">Transform Effects</h4>
+                <p className="text-sm">
+                  Subtle scale and translate transforms add depth and character to the animation.
+                  Try expanding and collapsing multiple times to see the smooth transitions!
+                </p>
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+<AccordionAnimations />
+
+## Dark Mode Support
+
+Accordions automatically adapt to dark mode environments with appropriate styling adjustments while maintaining the hand-drawn aesthetic.
+
+```tsx
+"use client";
+
+import {Accordion, AccordionItem, AccordionHeader, AccordionContent} from "@faiz-ui/react";
+
+export default function AccordionDarkMode() {
+  return (
+    <div className="dark bg-gray-900 p-6 rounded-lg">
+      <h3 className="text-white font-medium mb-4">Dark Mode Accordion Examples</h3>
+
+      <div className="space-y-4">
+        <Accordion color="primary" defaultValue="dark-1">
+          <AccordionItem value="dark-1">
+            <AccordionHeader value="dark-1">Primary in Dark Mode</AccordionHeader>
+            <AccordionContent value="dark-1">
+              The primary color adapts beautifully to dark backgrounds with proper contrast.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <Accordion color="success" variant="outline" defaultValue="dark-2">
+          <AccordionItem value="dark-2">
+            <AccordionHeader value="dark-2">Success Outline Variant</AccordionHeader>
+            <AccordionContent value="dark-2">
+              Outline variants maintain their elegance in dark mode with adjusted borders.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <Accordion color="warning" variant="ghost" defaultValue="dark-3">
+          <AccordionItem value="dark-3">
+            <AccordionHeader value="dark-3">Warning Ghost Variant</AccordionHeader>
+            <AccordionContent value="dark-3">
+              Ghost variants provide subtle styling that works perfectly in dark environments.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        <Accordion color="info" variant="sketchy" defaultValue="dark-4">
+          <AccordionItem value="dark-4">
+            <AccordionHeader value="dark-4">Info Sketchy Variant</AccordionHeader>
+            <AccordionContent value="dark-4">
+              The sketchy variant maintains its hand-drawn character with dark mode optimizations.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  );
+}
+```
+
+<AccordionDarkMode />
+
+## Implementation Notes
+
+- The Accordion component uses React Spring for smooth, hardware-accelerated animations
+- Hand-drawn aesthetic is consistently applied across all variants and states
+- All components are fully accessible with keyboard navigation and screen reader support
+- The component automatically handles height measurements for smooth animations
+- Custom styling can be applied while preserving the core functionality
+
+## API Reference
+
+### Accordion
+
+The main container component that manages state and provides context to child components.
+
+| Prop            | Type                                                                       | Default     | Description                         |
+| --------------- | -------------------------------------------------------------------------- | ----------- | ----------------------------------- |
+| `value`         | `string \| string[]`                                                       | `undefined` | Controlled value of expanded items  |
+| `defaultValue`  | `string \| string[]`                                                       | `undefined` | Default value for uncontrolled mode |
+| `onValueChange` | `(value: string \| string[]) => void`                                      | `undefined` | Callback when value changes         |
+| `allowMultiple` | `boolean`                                                                  | `false`     | Allow multiple items to be expanded |
+| `isDisabled`    | `boolean`                                                                  | `false`     | Disable all accordion interactions  |
+| `color`         | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'primary'` | Color theme                         |
+| `size`          | `'sm' \| 'md' \| 'lg'`                                                     | `'md'`      | Size variant                        |
+| `variant`       | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`        | `'solid'`   | Visual variant                      |
+| `customStyles`  | `string`                                                                   | `undefined` | Additional CSS classes              |
+| `className`     | `string`                                                                   | `undefined` | CSS class name                      |
+
+### AccordionItem
+
+Individual accordion item container.
+
+| Prop           | Type      | Default      | Description                    |
+| -------------- | --------- | ------------ | ------------------------------ |
+| `value`        | `string`  | **required** | Unique identifier for the item |
+| `isDisabled`   | `boolean` | `false`      | Disable this specific item     |
+| `customStyles` | `string`  | `undefined`  | Additional CSS classes         |
+| `className`    | `string`  | `undefined`  | CSS class name                 |
+
+### AccordionHeader
+
+Clickable header that triggers expand/collapse.
+
+| Prop           | Type                         | Default      | Description                           |
+| -------------- | ---------------------------- | ------------ | ------------------------------------- |
+| `value`        | `string`                     | **required** | Must match parent AccordionItem value |
+| `customStyles` | `string`                     | `undefined`  | Additional CSS classes                |
+| `className`    | `string`                     | `undefined`  | CSS class name                        |
+| `onClick`      | `React.MouseEventHandler`    | `undefined`  | Additional click handler              |
+| `onKeyDown`    | `React.KeyboardEventHandler` | `undefined`  | Additional keydown handler            |
+
+### AccordionContent
+
+Collapsible content area with smooth animations.
+
+| Prop           | Type     | Default      | Description                           |
+| -------------- | -------- | ------------ | ------------------------------------- |
+| `value`        | `string` | **required** | Must match parent AccordionItem value |
+| `customStyles` | `string` | `undefined`  | Additional CSS classes                |
+| `className`    | `string` | `undefined`  | CSS class name                        |
+
+## Accessibility Guidelines
+
+### ARIA Attributes
+
+- **`aria-expanded`**: Indicates whether the accordion panel is expanded
+- **`aria-controls`**: Links the header to its corresponding content panel
+- **`aria-labelledby`**: Links the content panel to its header
+- **`role="region"`**: Identifies the content area as a landmark region
+
+### Keyboard Navigation
+
+| Key           | Action                               |
+| ------------- | ------------------------------------ |
+| `Tab`         | Move focus between accordion headers |
+| `Enter`       | Toggle the focused accordion panel   |
+| `Space`       | Toggle the focused accordion panel   |
+| `Shift + Tab` | Move focus backwards                 |
+
+### Best Practices
+
+1. **Content Organization**: Group related content logically and use clear, descriptive headers
+2. **Performance**: Consider lazy loading heavy content within accordion panels
+3. **Responsive Design**: Test accordion behavior across different screen sizes
+4. **Content Length**: Avoid extremely long content that might cause performance issues
+5. **State Management**: Use controlled mode when accordion state needs to sync with other components

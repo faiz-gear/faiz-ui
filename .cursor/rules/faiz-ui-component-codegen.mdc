@@ -105,11 +105,12 @@ HTML元素: img
 
 ## 约束条件
 
-1. 组件必须符合 faiz-ui 的设计规范和代码风格 [faiz-ui-component-style.mdc](mdc:.cursor/rules/faiz-ui-component-style.mdc)
-2. 组件必须支持通过 `as` 属性更改渲染元素
-3. 组件必须支持 ref 转发
-4. 组件必须有完整的类型定义
-5. 组件样式必须使用 tailwind-variants 定义
-6. 如果用户的输入信息不全，请自动补全缺失的信息
+1. 通过执行"pnpm run create:comp"命令快速创建复合组件规范的模版
+2. 组件必须符合 faiz-ui 的设计规范和代码风格 [faiz-ui-component-style.mdc](mdc:.cursor/rules/faiz-ui-component-style.mdc)
+3. 组件必须支持通过 `as` 属性更改渲染元素
+4. 组件必须支持 ref 转发
+5. 组件必须有完整的类型定义
+6. 组件样式必须使用 tailwind-variants 定义
+7. 如果用户的输入信息不全，请自动补全缺失的信息
 
 请根据以上规范，为我生成一个符合 faiz-ui 组件库标准的组件。
