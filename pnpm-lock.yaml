@@ -267,6 +267,9 @@ importers:
         specifier: workspace:*
         version: link:../../core/theme
     devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
       react:
         specifier: ^18.0.0
         version: 18.3.0
