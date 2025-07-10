@@ -255,6 +255,22 @@ importers:
         specifier: ^18.0.0
         version: 18.3.0
 
+  packages/components/badge:
+    dependencies:
+      '@faiz-ui/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@faiz-ui/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@faiz-ui/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+    devDependencies:
+      react:
+        specifier: ^18.0.0
+        version: 18.3.0
+
   packages/components/button:
     dependencies:
       '@faiz-ui/react-utils':
@@ -326,6 +342,9 @@ importers:
       '@faiz-ui/avatar':
         specifier: workspace:*
         version: link:../../components/avatar
+      '@faiz-ui/badge':
+        specifier: workspace:*
+        version: link:../../components/badge
       '@faiz-ui/button':
         specifier: workspace:*
         version: link:../../components/button

@@ -1,0 +1,477 @@
+---
+title: Badge
+description: A hand-drawn styled badge component for displaying status, notifications, and labels with a sketchy aesthetic.
+---
+
+import {
+  BadgeUsage,
+  Colors,
+  Variants,
+  Sizes,
+  Shapes,
+  WithIcons,
+  NumericBadges,
+  DotVariant,
+  PositionedBadges,
+  CustomStyles,
+  SketchyVariant,
+  AccessibilityFeatures,
+} from "@/components/docs/badge";
+
+# Badge
+
+The Badge component in Faiz UI provides a hand-drawn sketch aesthetic for displaying status indicators, notifications, labels, and other small pieces of information. It supports various colors, sizes, shapes, and positioning options to match different use cases.
+
+## Features
+
+- 🎨 **Hand-drawn aesthetic** - Unique visual style with slight rotations, shadows, and organic feel
+- 🎯 **Multiple variants** - Solid, outline, ghost, light, flat, and sketchy styles
+- 🌈 **Rich color palette** - Seven semantic colors for different contexts
+- 📏 **Flexible sizing** - Five size options from extra small to extra large
+- 🔢 **Numeric support** - Built-in handling for counts with max limits and zero display control
+- 📍 **Positioning** - Absolute positioning for notification badges
+- 🔴 **Dot variant** - Minimal status indicators without text
+- 🎭 **Icon integration** - Support for icons with flexible placement
+- ♿ **Accessibility first** - Comprehensive ARIA support and semantic HTML
+- 🎨 **Custom styling** - Easy customization with Tailwind CSS classes
+
+## Installation
+
+```bash
+npm install @faiz-ui/react
+# or
+pnpm add @faiz-ui/react
+```
+
+## Usage
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function BadgeUsage() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge>Default Badge</Badge>
+      <Badge color="success">Success</Badge>
+      <Badge color="warning">Warning</Badge>
+      <Badge color="error">Error</Badge>
+    </div>
+  );
+}
+```
+
+<BadgeUsage />
+
+## Colors
+
+Badges come in various color options to convey different meanings and priority levels.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function Colors() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge color="default">Default</Badge>
+      <Badge color="primary">Primary</Badge>
+      <Badge color="secondary">Secondary</Badge>
+      <Badge color="success">Success</Badge>
+      <Badge color="warning">Warning</Badge>
+      <Badge color="error">Error</Badge>
+      <Badge color="info">Info</Badge>
+    </div>
+  );
+}
+```
+
+<Colors />
+
+## Variants
+
+The Badge component offers multiple style variants to suit different UI contexts.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function Variants() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge variant="solid">Solid</Badge>
+      <Badge variant="outline">Outline</Badge>
+      <Badge variant="ghost">Ghost</Badge>
+      <Badge variant="light">Light</Badge>
+      <Badge variant="flat">Flat</Badge>
+      <Badge variant="sketchy">Sketchy</Badge>
+    </div>
+  );
+}
+```
+
+<Variants />
+
+## Sizes
+
+Control the size of badges to match your design requirements.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function Sizes() {
+  return (
+    <div className="flex flex-wrap items-center gap-4">
+      <Badge size="xs">XS</Badge>
+      <Badge size="sm">SM</Badge>
+      <Badge size="md">MD</Badge>
+      <Badge size="lg">LG</Badge>
+      <Badge size="xl">XL</Badge>
+    </div>
+  );
+}
+```
+
+<Sizes />
+
+## Shapes
+
+Customize the shape of badges with different border radius options.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function Shapes() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge shape="square">Square</Badge>
+      <Badge shape="rounded">Rounded</Badge>
+      <Badge shape="pill">Pill</Badge>
+      <Badge shape="full">Full</Badge>
+    </div>
+  );
+}
+```
+
+<Shapes />
+
+## With Icons
+
+Add icons to badges to provide additional context and visual appeal.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function WithIcons() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge 
+        icon={<span>★</span>} 
+        color="warning"
+      >
+        Starred
+      </Badge>
+      <Badge 
+        icon={<span>✓</span>} 
+        color="success"
+        iconPlacement="after"
+      >
+        Verified
+      </Badge>
+      <Badge 
+        icon={<span>🔥</span>} 
+        color="error"
+      >
+        Hot
+      </Badge>
+    </div>
+  );
+}
+```
+
+<WithIcons />
+
+## Numeric Badges
+
+Perfect for displaying counts, notifications, and other numeric values. The Badge component automatically handles numeric formatting, including max limits and zero display control.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function NumericBadges() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge color="primary">5</Badge>
+      <Badge color="error" max={99}>150</Badge>
+      <Badge color="success" showZero>0</Badge>
+      <Badge color="warning">1</Badge>
+      <Badge color="info" max={9}>25</Badge>
+      <Badge color="secondary">999</Badge>
+    </div>
+  );
+}
+```
+
+<NumericBadges />
+
+### Key Features:
+- **Max prop**: Numbers exceeding the max value display as "max+" (e.g., 150 with max={99} shows "99+")
+- **ShowZero prop**: Control whether zero values are displayed or hidden
+- **Automatic ARIA labels**: Generates appropriate accessibility labels for screen readers
+
+## Dot Variant
+
+Use the dot variant for simple status indicators without text.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function DotVariant() {
+  return (
+    <div className="flex flex-wrap items-center gap-6">
+      <div className="flex items-center gap-2">
+        <Badge isDot color="success" aria-label="Online" />
+        <span>Online</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Badge isDot color="warning" aria-label="Away" />
+        <span>Away</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Badge isDot color="error" aria-label="Offline" />
+        <span>Offline</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <Badge isDot color="info" aria-label="Busy" />
+        <span>Busy</span>
+      </div>
+    </div>
+  );
+}
+```
+
+<DotVariant />
+
+## Positioned Badges
+
+Position badges relative to other elements for notification indicators. Perfect for showing unread counts, status indicators, or alerts on buttons, avatars, and icons.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function PositionedBadges() {
+  return (
+    <div className="flex flex-wrap gap-8">
+      <div className="relative">
+        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-lg">
+          📧
+        </div>
+        <Badge position="top-right" color="error" size="xs">3</Badge>
+      </div>
+
+      <div className="relative">
+        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-lg">
+          🔔
+        </div>
+        <Badge position="top-left" color="warning" size="xs">!</Badge>
+      </div>
+
+      <div className="relative">
+        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-lg">
+          👤
+        </div>
+        <Badge position="bottom-right" isDot color="success" />
+      </div>
+
+      <div className="relative">
+        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-lg">
+          💬
+        </div>
+        <Badge position="bottom-left" color="info" size="xs">99+</Badge>
+      </div>
+
+      <div className="relative">
+        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-lg">
+          🛒
+        </div>
+        <Badge position="top-right" color="primary" size="sm">12</Badge>
+      </div>
+    </div>
+  );
+}
+```
+
+<PositionedBadges />
+
+### Available Positions:
+- `top-right` - Most common for notification counts
+- `top-left` - Alternative positioning for alerts
+- `bottom-right` - Status indicators and secondary info
+- `bottom-left` - Less common, for specific use cases
+- `center` - Centered positioning
+- `static` - Default inline positioning
+
+## Custom Styles
+
+Apply custom styles using Tailwind CSS classes to create unique badge appearances.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function CustomStyles() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge customStyles="bg-gradient-to-r from-purple-400/60 to-pink-400/60">
+        Gradient
+      </Badge>
+      <Badge customStyles="border-[3px] border-dashed">
+        Dashed
+      </Badge>
+      <Badge customStyles="[transform:rotate(-2deg)] hover:[transform:rotate(0deg)]">
+        Tilted
+      </Badge>
+      <Badge customStyles="shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+        Heavy Shadow
+      </Badge>
+    </div>
+  );
+}
+```
+
+<CustomStyles />
+
+## Sketchy Variant
+
+The signature sketchy style variant enhances the hand-drawn aesthetic.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function SketchyVariant() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge variant="sketchy" color="primary">Primary</Badge>
+      <Badge variant="sketchy" color="success">Success</Badge>
+      <Badge variant="sketchy" color="warning">Warning</Badge>
+      <Badge variant="sketchy" color="error">Error</Badge>
+      <Badge variant="sketchy" color="info">Info</Badge>
+    </div>
+  );
+}
+```
+
+<SketchyVariant />
+
+## Accessibility Features
+
+The Badge component includes comprehensive accessibility support.
+
+```tsx
+"use client";
+
+import {Badge} from "@faiz-ui/react";
+
+export default function AccessibilityFeatures() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Badge aria-label="5 unread messages">5</Badge>
+      <Badge isDot color="success" aria-label="User is online" />
+      <Badge color="error" aria-label="Critical alert">!</Badge>
+      <Badge color="info" aria-label="Information available">i</Badge>
+    </div>
+  );
+}
+```
+
+<AccessibilityFeatures />
+
+## Common Use Cases
+
+### Notification Badges
+```tsx
+// Unread message count
+<div className="relative">
+  <Button>Messages</Button>
+  <Badge position="top-right" color="error" size="xs">5</Badge>
+</div>
+
+// Shopping cart items
+<div className="relative">
+  <Button>Cart</Button>
+  <Badge position="top-right" color="primary" size="xs" max={99}>150</Badge>
+</div>
+```
+
+### Status Indicators
+```tsx
+// User online status
+<div className="flex items-center gap-2">
+  <Avatar src="/user.jpg" />
+  <Badge isDot color="success" aria-label="Online" />
+  <span>John Doe</span>
+</div>
+
+// System status
+<div className="flex items-center gap-2">
+  <Badge isDot color="error" />
+  <span>Service Unavailable</span>
+</div>
+```
+
+### Content Labels
+```tsx
+// Feature tags
+<Badge variant="outline" color="info">New</Badge>
+<Badge variant="light" color="warning">Beta</Badge>
+<Badge variant="solid" color="success">Stable</Badge>
+
+// Priority levels
+<Badge color="error">High Priority</Badge>
+<Badge color="warning">Medium Priority</Badge>
+<Badge color="default">Low Priority</Badge>
+```
+
+## Best Practices
+
+- **Use semantic colors**: Choose colors that match the meaning (error for alerts, success for positive states)
+- **Keep text concise**: Badges work best with short labels or numbers
+- **Consider accessibility**: Always provide appropriate ARIA labels, especially for dot variants
+- **Use positioning wisely**: Positioned badges should enhance, not obstruct, the parent element
+- **Maintain consistency**: Use the same badge styles throughout your application for similar purposes
+
+## Props
+
+| Prop             | Type                                                                                    | Default     | Description                                           |
+| ---------------- | --------------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------- |
+| `color`          | `'default' \| 'primary' \| 'secondary' \| 'success' \| 'warning' \| 'error' \| 'info'` | `'primary'` | The color theme of the badge                          |
+| `variant`        | `'solid' \| 'outline' \| 'ghost' \| 'light' \| 'flat' \| 'sketchy'`                    | `'solid'`   | The visual style variant of the badge                 |
+| `size`           | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                  | `'md'`      | The size of the badge                                 |
+| `shape`          | `'rounded' \| 'pill' \| 'square' \| 'full'`                                            | `'rounded'` | The shape/border radius of the badge                  |
+| `isDot`          | `boolean`                                                                               | `false`     | Whether to render as a dot indicator                  |
+| `position`       | `'top-right' \| 'top-left' \| 'bottom-right' \| 'bottom-left' \| 'center' \| 'static'` | `'static'`  | Position for notification badges                      |
+| `icon`           | `React.ReactNode`                                                                       | `undefined` | Icon to display in the badge                          |
+| `iconPlacement`  | `'before' \| 'after'`                                                                  | `'before'`  | Whether to show icon before or after content         |
+| `max`            | `number`                                                                                | `undefined` | Maximum number to display (shows "max+" when exceeded) |
+| `showZero`       | `boolean`                                                                               | `false`     | Whether to show zero values                           |
+| `isDisabled`     | `boolean`                                                                               | `false`     | Whether the badge is disabled                         |
+| `customStyles`   | `string`                                                                                | `undefined` | Custom Tailwind CSS classes                          |
+| `aria-label`     | `string`                                                                                | `undefined` | ARIA label for accessibility                          |
