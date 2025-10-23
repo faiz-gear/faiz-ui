@@ -14,6 +14,7 @@ Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用组件逻辑
 - [X] 实现 breadcrumbs-item 子组件
 - [X] 创建 stories 示例
 - [X] 在 docs 网站添加文档
+- [X] 修复 underline 属性 bug
 - [ ] 创建测试用例
 
 ### 设计要点
@@ -37,7 +38,25 @@ Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用组件逻辑
 6. ✅ 创建文档 MDX 文件
 7. ✅ 更新 @faiz-ui/react 包导出
 8. ✅ 构建所有包
-9. ⏳ 测试文档网站
+9. ✅ 修复 underline 属性 bug
+10. ⏳ 最终测试和验证
+
+### Bug 修复记录
+
+#### Underline 属性 Bug (已修复)
+**问题描述**: 即使设置 `underline="none"`，下划线仍然显示
+
+**原因分析**: 
+- link 和 current slots 的基础样式中没有包含 `no-underline` 类
+- 当 underline 设置为 "none" 时，variants 只返回空对象 `{}`，无法覆盖浏览器默认样式或继承的下划线样式
+
+**解决方案**:
+- 在 link slot 的基础样式中添加 `no-underline` 类
+- 在 current slot 的基础样式中添加 `no-underline` 类
+- 这样当 underline 设置为其他值（hover, always, active）时，会添加 underline 类覆盖基础样式
+
+**修改文件**: 
+- `packages/core/theme/src/components/breadcrumbs.ts`
 
 ### 文件清单
 **组件文件：**
@@ -78,6 +97,7 @@ Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用组件逻辑
    - 在 `packages/core/theme/src/components` 中定义组件样式
    - 使用 tailwind-variants 创建样式变体
    - 导出样式变体的类型
+   - 记得在基础样式中设置合理的默认值，避免浏览器默认样式干扰
 
 4. **组件导出**：
    - 在 index.ts 中导出组件、类型和 Hook
@@ -126,9 +146,15 @@ Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用组件逻辑
    - 实现组件逻辑和视图
    - 编写 Storybook 示例
    - 添加文档网站文档
+   - 测试各种属性和边界情况
 
 2. 版本管理：
    - 使用 Changesets 进行版本管理
    - 每次修改后使用 `pnpm changeset` 记录变更
    - 发布前使用 `pnpm version` 更新版本
    - 使用 `pnpm release` 发布包
+
+3. 样式开发注意事项：
+   - 在基础样式中设置合理的默认值（如 no-underline）
+   - variants 用于覆盖基础样式，而不是添加全新的样式
+   - 考虑浏览器默认样式的影响
