@@ -1,0 +1,312 @@
+---
+title: Breadcrumbs
+description: A navigation component that displays the current page location within the site hierarchy with hand-drawn sketch aesthetic.
+---
+
+import {
+  BreadcrumbsUsage,
+  Sizes,
+  Colors,
+  Variants,
+  Separators,
+  Underline,
+  WithIcons,
+  Disabled,
+} from '@/components/docs/breadcrumbs'
+
+# Breadcrumbs
+
+Breadcrumbs provide a navigation trail for users to understand their current location within the site hierarchy. The component features Faiz UI's signature hand-drawn sketch aesthetic while maintaining full accessibility and functionality.
+
+## Usage
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function BreadcrumbsUsage() {
+  return (
+    <Breadcrumbs>
+      <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/products/electronics">Electronics</Breadcrumbs.Item>
+      <Breadcrumbs.Item>Laptops</Breadcrumbs.Item>
+    </Breadcrumbs>
+  )
+}
+```
+
+<BreadcrumbsUsage />
+
+## Sizes
+
+Breadcrumbs come in three sizes to match different design needs.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Sizes() {
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumbs size="sm">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs size="md">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs size="lg">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+    </div>
+  )
+}
+```
+
+<Sizes />
+
+## Colors
+
+Choose from various color options to match your design theme.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Colors() {
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumbs color="primary">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs color="secondary">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs color="success">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+    </div>
+  )
+}
+```
+
+<Colors />
+
+## Variants
+
+Different visual styles for breadcrumbs.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Variants() {
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumbs variant="solid">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs variant="light">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs variant="bordered">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+    </div>
+  )
+}
+```
+
+<Variants />
+
+## Custom Separators
+
+Customize the separator character between breadcrumb items.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Separators() {
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumbs separator="/">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs separator=">">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs separator="→">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs separator="•">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+    </div>
+  )
+}
+```
+
+<Separators />
+
+## Underline
+
+Control when breadcrumb items show underlines.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Underline() {
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumbs underline="none">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs underline="hover">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs underline="always">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+      
+      <Breadcrumbs underline="active">
+        <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+        <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>
+    </div>
+  )
+}
+```
+
+<Underline />
+
+## With Icons
+
+Add icons to breadcrumb items for better visual context.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function WithIcons() {
+  return (
+    <Breadcrumbs>
+      <Breadcrumbs.Item href="/">🏠 Home</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/products">📦 Products</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/products/electronics">💻 Electronics</Breadcrumbs.Item>
+      <Breadcrumbs.Item>🖥️ Laptops</Breadcrumbs.Item>
+    </Breadcrumbs>
+  )
+}
+```
+
+<WithIcons />
+
+## Disabled Items
+
+Disable specific breadcrumb items to prevent navigation.
+
+```tsx
+'use client'
+
+import { Breadcrumbs } from '@faiz-ui/react'
+
+export default function Disabled() {
+  return (
+    <Breadcrumbs>
+      <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+      <Breadcrumbs.Item href="/products" isDisabled>
+        Products (Disabled)
+      </Breadcrumbs.Item>
+      <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+    </Breadcrumbs>
+  )
+}
+```
+
+<Disabled />
+
+## Implementation Notes
+
+- The last breadcrumb item is automatically marked as the current page with `aria-current="page"`
+- The component uses semantic HTML with `<nav>` and ordered lists for better accessibility
+- Disabled items prevent both click events and navigation
+- The current item (last item) is styled differently and doesn't have hover effects
+- Custom separators can be any React node, not just text characters
+
+## Props
+
+### Breadcrumbs Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the breadcrumbs |
+| `color` | `"primary" \| "secondary" \| "success" \| "warning" \| "danger" \| "info"` | `"primary"` | The color theme of the breadcrumbs |
+| `variant` | `"solid" \| "light" \| "bordered"` | `"solid"` | The visual style variant |
+| `underline` | `"none" \| "hover" \| "always" \| "active"` | `"none"` | When to show underlines on items |
+| `separator` | `ReactNode` | `"/"` | The separator between breadcrumb items |
+| `customStyles` | `object` | - | Custom CSS classes for styling slots |
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbItem Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `href` | `string` | - | The URL to navigate to when clicked |
+| `isCurrent` | `boolean` | `false` | Whether this is the current/active breadcrumb (automatically set for the last item) |
+| `isDisabled` | `boolean` | `false` | Whether the breadcrumb item is disabled |
+| `onClick` | `(e: React.MouseEvent) => void` | - | Custom click handler |
+| `as` | `React.ElementType` | `"a"` or `"span"` | The HTML element to render as |
+| `className` | `string` | - | Additional CSS classes |
