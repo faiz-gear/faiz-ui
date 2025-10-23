@@ -34,6 +34,7 @@
     "@faiz-ui/alert": "workspace:*",
     "@faiz-ui/avatar": "workspace:*",
     "@faiz-ui/badge": "workspace:*",
+    "@faiz-ui/breadcrumbs": "workspace:*",
     "@faiz-ui/button": "workspace:*",
     "@faiz-ui/landing-card": "workspace:*",
     "@faiz-ui/ripple": "workspace:*",
