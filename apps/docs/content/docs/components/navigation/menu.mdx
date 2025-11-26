@@ -8,6 +8,8 @@ import {
   WithIcons,
   WithDescriptions,
   WithSections,
+  WithBadges,
+  AsLinks,
   Colors,
   Variants,
   Sizes,
@@ -195,6 +197,62 @@ export default function WithSections() {
 ```
 
 <WithSections />
+
+## With Badges
+
+Add badges or indicators to menu items to show notifications, status, or labels.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem, MenuDivider } from '@faiz-ui/react'
+
+export default function WithBadges() {
+  return (
+    <Menu>
+      <MenuItem badge="5" badgeColor="danger">
+        Inbox
+      </MenuItem>
+      <MenuItem badge="New" badgeColor="primary">
+        Notifications
+      </MenuItem>
+      <MenuItem badge="Beta" badgeColor="warning">
+        Help Center
+      </MenuItem>
+      <MenuDivider />
+      <MenuItem>Settings</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<WithBadges />
+
+## As Links
+
+Menu items can be rendered as anchor tags by providing an `href` prop, making them perfect for navigation menus.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem, MenuDivider } from '@faiz-ui/react'
+
+export default function AsLinks() {
+  return (
+    <Menu>
+      <MenuItem href="/">Home</MenuItem>
+      <MenuItem href="/about">About</MenuItem>
+      <MenuItem href="https://github.com" target="_blank">
+        External Link
+      </MenuItem>
+      <MenuDivider />
+      <MenuItem href="/contact">Contact</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<AsLinks />
 
 ## Colors
 
@@ -396,11 +454,14 @@ export default function Interactive() {
 
 ## Implementation Notes
 
-- Menu items are fully keyboard accessible with proper ARIA attributes
+- Menu items are fully keyboard accessible with proper ARIA attributes and keyboard navigation (Enter/Space to activate)
 - The component uses semantic HTML with `role="menu"` and `role="menuitem"`
 - Selected items are automatically highlighted when using `selectedKey` prop
 - Disabled items prevent both click events and keyboard navigation
 - Icons can be placed at the start or end of menu items
+- Badges can be added to show notifications, status indicators, or labels
+- Menu items can be rendered as links by providing an `href` prop
+- External links automatically get `rel="noopener noreferrer"` when `target="_blank"` is used
 - Sections help organize items into logical groups with optional titles
 - The menu inherits the hand-drawn aesthetic from the Faiz UI design system
 
@@ -429,8 +490,13 @@ export default function Interactive() {
 | `startIcon` | `ReactNode` | - | Icon to display at the start of the item |
 | `endIcon` | `ReactNode` | - | Icon to display at the end of the item |
 | `description` | `string` | - | Additional description text below the main content |
+| `badge` | `ReactNode` | - | Badge or indicator to display (e.g., notification count, status label) |
+| `badgeColor` | `"default" \| "primary" \| "secondary" \| "success" \| "warning" \| "danger"` | `"default"` | Color variant for the badge |
+| `href` | `string` | - | URL to navigate to (renders item as `<a>` tag) |
+| `target` | `string` | - | Target attribute for link (e.g., `"_blank"`) |
+| `rel` | `string` | - | Rel attribute for link (auto-set to `"noopener noreferrer"` when target is `"_blank"`) |
 | `onClick` | `(e: React.MouseEvent) => void` | - | Custom click handler |
-| `as` | `React.ElementType` | `"div"` | The HTML element to render as |
+| `as` | `React.ElementType` | `"div"` | The HTML element to render as (defaults to `"a"` when `href` is provided) |
 | `className` | `string` | - | Additional CSS classes |
 
 ### MenuSection Props
