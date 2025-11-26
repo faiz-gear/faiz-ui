@@ -1,0 +1,449 @@
+---
+title: Menu
+description: A hand-drawn style menu component for displaying navigation items and actions with sections, icons, and interactive selection states.
+---
+
+import {
+  MenuUsage,
+  WithIcons,
+  WithDescriptions,
+  WithSections,
+  Colors,
+  Variants,
+  Sizes,
+  DisabledItems,
+  SelectedState,
+  Interactive,
+} from '@/components/docs/menu'
+
+# Menu
+
+The Menu component provides a versatile solution for displaying navigation items and actions. It features Faiz UI's signature hand-drawn aesthetic while offering rich functionality including sections, icons, descriptions, and selection states.
+
+## Usage
+
+Basic menu with simple items.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function MenuUsage() {
+  return (
+    <Menu>
+      <MenuItem>Profile</MenuItem>
+      <MenuItem>Settings</MenuItem>
+      <MenuItem>Dashboard</MenuItem>
+      <MenuItem>Logout</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<MenuUsage />
+
+## With Icons
+
+Add icons to menu items for better visual context.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem, MenuDivider } from '@faiz-ui/react'
+
+export default function WithIcons() {
+  return (
+    <Menu>
+      <MenuItem
+        startIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+            />
+          </svg>
+        }
+      >
+        Profile
+      </MenuItem>
+      <MenuItem
+        startIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"
+            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        }
+      >
+        Settings
+      </MenuItem>
+      <MenuItem
+        startIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+            />
+          </svg>
+        }
+      >
+        Dashboard
+      </MenuItem>
+      <MenuDivider />
+      <MenuItem
+        startIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+            />
+          </svg>
+        }
+      >
+        Logout
+      </MenuItem>
+    </Menu>
+  )
+}
+```
+
+<WithIcons />
+
+## With Descriptions
+
+Add descriptions to provide additional context for menu items.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function WithDescriptions() {
+  return (
+    <Menu>
+      <MenuItem description="View and edit your profile">Profile</MenuItem>
+      <MenuItem description="Manage your account settings">Settings</MenuItem>
+      <MenuItem description="Access your dashboard">Dashboard</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<WithDescriptions />
+
+## With Sections
+
+Organize menu items into logical sections with titles and dividers.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem, MenuSection, MenuDivider } from '@faiz-ui/react'
+
+export default function WithSections() {
+  return (
+    <Menu>
+      <MenuSection title="Account">
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>Settings</MenuItem>
+      </MenuSection>
+      <MenuDivider />
+      <MenuSection title="Navigation">
+        <MenuItem>Dashboard</MenuItem>
+        <MenuItem>Analytics</MenuItem>
+      </MenuSection>
+      <MenuDivider />
+      <MenuItem>Logout</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<WithSections />
+
+## Colors
+
+Choose from various color themes to match your design.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function Colors() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Menu color="default">
+        <MenuItem>Default</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu color="primary">
+        <MenuItem>Primary</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu color="secondary">
+        <MenuItem>Secondary</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu color="success">
+        <MenuItem>Success</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu color="warning">
+        <MenuItem>Warning</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu color="danger">
+        <MenuItem>Danger</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+    </div>
+  )
+}
+```
+
+<Colors />
+
+## Variants
+
+Different visual styles for the menu container.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function Variants() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Menu variant="solid">
+        <MenuItem>Solid</MenuItem>
+        <MenuItem>Variant</MenuItem>
+      </Menu>
+      <Menu variant="bordered">
+        <MenuItem>Bordered</MenuItem>
+        <MenuItem>Variant</MenuItem>
+      </Menu>
+      <Menu variant="light">
+        <MenuItem>Light</MenuItem>
+        <MenuItem>Variant</MenuItem>
+      </Menu>
+      <Menu variant="flat">
+        <MenuItem>Flat</MenuItem>
+        <MenuItem>Variant</MenuItem>
+      </Menu>
+    </div>
+  )
+}
+```
+
+<Variants />
+
+## Sizes
+
+Menu supports three different sizes.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function Sizes() {
+  return (
+    <div className="flex flex-wrap gap-4 items-start">
+      <Menu size="sm">
+        <MenuItem>Small</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu size="md">
+        <MenuItem>Medium</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+      <Menu size="lg">
+        <MenuItem>Large</MenuItem>
+        <MenuItem>Menu</MenuItem>
+      </Menu>
+    </div>
+  )
+}
+```
+
+<Sizes />
+
+## Disabled Items
+
+Disable specific menu items to prevent interaction.
+
+```tsx
+'use client'
+
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function DisabledItems() {
+  return (
+    <Menu>
+      <MenuItem>Active Item</MenuItem>
+      <MenuItem isDisabled>Disabled Item</MenuItem>
+      <MenuItem>Active Item</MenuItem>
+      <MenuItem isDisabled>Disabled Item</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<DisabledItems />
+
+## Selected State
+
+Highlight the currently selected menu item.
+
+```tsx
+'use client'
+
+import { useState } from 'react'
+import { Menu, MenuItem } from '@faiz-ui/react'
+
+export default function SelectedState() {
+  const [selected, setSelected] = useState('profile')
+
+  return (
+    <Menu selectedKey={selected} onSelect={setSelected}>
+      <MenuItem itemKey="profile">Profile</MenuItem>
+      <MenuItem itemKey="settings">Settings</MenuItem>
+      <MenuItem itemKey="dashboard">Dashboard</MenuItem>
+      <MenuItem itemKey="analytics">Analytics</MenuItem>
+    </Menu>
+  )
+}
+```
+
+<SelectedState />
+
+## Interactive Example
+
+A fully interactive menu with selection state and feedback.
+
+```tsx
+'use client'
+
+import { useState } from 'react'
+import { Menu, MenuItem, MenuSection, MenuDivider } from '@faiz-ui/react'
+
+export default function Interactive() {
+  const [selected, setSelected] = useState<string>('home')
+  const [message, setMessage] = useState('Select an item from the menu')
+
+  const handleSelect = (key: string) => {
+    setSelected(key)
+    setMessage(`You selected: ${key}`)
+  }
+
+  return (
+    <div className="space-y-4">
+      <p className="text-sm font-medium">{message}</p>
+      <Menu selectedKey={selected} onSelect={handleSelect} color="primary">
+        <MenuSection title="Main">
+          <MenuItem itemKey="home">Home</MenuItem>
+          <MenuItem itemKey="dashboard">Dashboard</MenuItem>
+        </MenuSection>
+        <MenuDivider />
+        <MenuSection title="Account">
+          <MenuItem itemKey="profile">Profile</MenuItem>
+          <MenuItem itemKey="settings">Settings</MenuItem>
+        </MenuSection>
+      </Menu>
+    </div>
+  )
+}
+```
+
+<Interactive />
+
+## Implementation Notes
+
+- Menu items are fully keyboard accessible with proper ARIA attributes
+- The component uses semantic HTML with `role="menu"` and `role="menuitem"`
+- Selected items are automatically highlighted when using `selectedKey` prop
+- Disabled items prevent both click events and keyboard navigation
+- Icons can be placed at the start or end of menu items
+- Sections help organize items into logical groups with optional titles
+- The menu inherits the hand-drawn aesthetic from the Faiz UI design system
+
+## Props
+
+### Menu Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `variant` | `"solid" \| "bordered" \| "light" \| "flat"` | `"solid"` | The visual style variant of the menu |
+| `color` | `"default" \| "primary" \| "secondary" \| "success" \| "warning" \| "danger"` | `"default"` | The color theme of the menu |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | The size of the menu and its items |
+| `selectedKey` | `string` | - | The key of the currently selected item |
+| `onSelect` | `(key: string) => void` | - | Callback fired when a menu item is selected |
+| `closeOnSelect` | `boolean` | `false` | Whether to close the menu when an item is selected (useful with dropdown menus) |
+| `customStyles` | `string` | - | Additional CSS classes for custom styling |
+| `className` | `string` | - | Additional CSS classes |
+
+### MenuItem Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `itemKey` | `string` | - | Unique key for the item (required for selection tracking) |
+| `isDisabled` | `boolean` | `false` | Whether the menu item is disabled |
+| `isSelected` | `boolean` | `false` | Whether the menu item is selected (controlled) |
+| `startIcon` | `ReactNode` | - | Icon to display at the start of the item |
+| `endIcon` | `ReactNode` | - | Icon to display at the end of the item |
+| `description` | `string` | - | Additional description text below the main content |
+| `onClick` | `(e: React.MouseEvent) => void` | - | Custom click handler |
+| `as` | `React.ElementType` | `"div"` | The HTML element to render as |
+| `className` | `string` | - | Additional CSS classes |
+
+### MenuSection Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `title` | `string` | - | Title text for the section |
+| `as` | `React.ElementType` | `"div"` | The HTML element to render as |
+| `className` | `string` | - | Additional CSS classes |
+
+### MenuDivider Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `as` | `React.ElementType` | `"hr"` | The HTML element to render as |
+| `className` | `string` | - | Additional CSS classes |
