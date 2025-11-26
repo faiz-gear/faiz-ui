@@ -30,6 +30,7 @@ export const menu = tv({
       'px-3 py-2',
       'cursor-pointer',
       'text-neutral-900 dark:text-neutral-100',
+      'no-underline',
       'hover:bg-black/5 dark:hover:bg-white/5',
       'active:bg-black/10 dark:active:bg-white/10',
       'focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black/30 dark:focus-visible:ring-white/30',
@@ -39,7 +40,18 @@ export const menu = tv({
     ],
     itemIcon: ['flex-shrink-0 w-5 h-5'],
     itemContent: ['flex-1'],
-    itemDescription: ['text-sm opacity-70'],
+    itemDescription: ['text-sm opacity-70 mt-0.5'],
+    itemBadge: [
+      'flex-shrink-0',
+      'inline-flex items-center justify-center',
+      'px-2 py-0.5',
+      'text-xs font-bold',
+      'rounded-full',
+      'border-[1.5px] border-black dark:border-white',
+      '[transform:rotate(-1deg)]',
+      'bg-neutral-200 dark:bg-neutral-700',
+      'text-neutral-900 dark:text-neutral-100'
+    ],
     submenu: ['relative pl-4'],
     submenuTrigger: ['justify-between'],
     submenuIcon: ['flex-shrink-0 w-4 h-4 transition-transform duration-200'],
@@ -150,13 +162,34 @@ export const menu = tv({
       true: {
         submenuIcon: 'rotate-90'
       }
+    },
+    badgeColor: {
+      default: {
+        itemBadge: 'bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100'
+      },
+      primary: {
+        itemBadge: 'bg-blue-100 dark:bg-blue-900/50 text-blue-900 dark:text-blue-100 border-blue-600 dark:border-blue-500'
+      },
+      secondary: {
+        itemBadge: 'bg-purple-100 dark:bg-purple-900/50 text-purple-900 dark:text-purple-100 border-purple-600 dark:border-purple-500'
+      },
+      success: {
+        itemBadge: 'bg-green-100 dark:bg-green-900/50 text-green-900 dark:text-green-100 border-green-600 dark:border-green-500'
+      },
+      warning: {
+        itemBadge: 'bg-amber-100 dark:bg-amber-900/50 text-amber-900 dark:text-amber-100 border-amber-600 dark:border-amber-500'
+      },
+      danger: {
+        itemBadge: 'bg-red-100 dark:bg-red-900/50 text-red-900 dark:text-red-100 border-red-600 dark:border-red-500'
+      }
     }
   },
   defaultVariants: {
     variant: 'solid',
     color: 'default',
     size: 'md',
-    orientation: 'vertical'
+    orientation: 'vertical',
+    badgeColor: 'default'
   }
 })
 

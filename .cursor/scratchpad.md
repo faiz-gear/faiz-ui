@@ -1,160 +1,101 @@
 # Faiz-UI 开发记录
 
+## 当前任务: 重构 Menu 组件
+
+### 任务目标
+按照 daisyUI 的 Menu 功能重构 Menu 组件并更新相关的 stories 和文档
+
+### 计划步骤
+- [X] 分析当前 Menu 组件结构
+- [X] 识别 daisyUI Menu 功能特性
+- [X] 添加新特性到 Menu 组件
+  - [X] 添加 badge/indicator 支持
+  - [X] 改进键盘导航
+  - [X] 添加链接支持 (href prop)
+  - [X] 增强无障碍访问
+- [X] 更新主题样式
+- [X] 更新 stories 展示新功能
+- [X] 更新文档
+- [ ] 测试所有功能
+- [ ] 构建并验证
+
+### 已完成的改进
+
+#### 1. ✅ Badge/Indicator 支持
+- 在 MenuItem 添加了 `badge` 和 `badgeColor` props
+- 支持数字徽章和文本徽章（通过 ReactNode）
+- 支持 6 种颜色变体：default, primary, secondary, success, warning, danger
+- 在主题中添加了 `itemBadge` slot 和 `badgeColor` variant
+
+#### 2. ✅ 链接支持
+- MenuItem 添加 `href` prop
+- 添加 `target` 和 `rel` props
+- 当提供 href 时自动渲染为 `<a>` 标签
+- 自动为 target="_blank" 添加 rel="noopener noreferrer"
+- 添加 `no-underline` 到 item 基础样式以防止链接下划线
+
+#### 3. ✅ 键盘导航增强
+- 添加 `handleKeyDown` 处理器
+- 支持 Enter 和 Space 键激活菜单项
+- 在禁用状态下阻止键盘事件
+
+#### 4. ✅ 无障碍增强
+- 保持 ARIA 标签（role="menuitem", aria-disabled）
+- 改进 tabIndex 处理
+- 添加键盘事件处理
+
+#### 5. ✅ Stories 更新
+- 添加 `WithBadges` story 展示徽章功能
+- 添加 `AsLinks` story 展示链接功能
+- 更新 `AllFeatures` story 包含新功能
+
+#### 6. ✅ 文档更新
+- 创建 `with-badges.tsx` 示例组件
+- 创建 `as-links.tsx` 示例组件
+- 更新 `menu.mdx` 添加新功能的文档
+- 更新 Props 表格包含新的属性
+- 更新 Implementation Notes
+
+### 文件修改清单
+
+**主题文件：**
+- ✅ packages/core/theme/src/components/menu.ts
+  - 添加 itemBadge slot
+  - 添加 badgeColor variants
+  - 在 item slot 添加 no-underline
+
+**组件文件：**
+- ✅ packages/components/menu/src/use-menu.ts
+  - UseMenuItemProps 添加 badge, badgeColor, href, target, rel
+  - useMenuItem 添加 badge 处理逻辑
+  - 添加 handleKeyDown
+  - 添加 linkProps 处理
+  - 根据 href 自动确定 Component 类型
+
+- ✅ packages/components/menu/src/menu.tsx
+  - MenuItem 组件更新使用新的 props
+  - 添加 badge 渲染
+  - 添加 onKeyDown 处理
+
+**Stories：**
+- ✅ packages/components/menu/stories/menu.stories.tsx
+  - 添加 WithBadges story
+  - 添加 AsLinks story
+  - 更新 AllFeatures story
+
+**文档：**
+- ✅ apps/docs/components/docs/menu/with-badges.tsx (新建)
+- ✅ apps/docs/components/docs/menu/as-links.tsx (新建)
+- ✅ apps/docs/components/docs/menu/index.ts (更新 exports)
+- ✅ apps/docs/content/docs/components/navigation/menu.mdx (更新文档)
+
+### 当前进度
+- [X] 代码重构完成
+- [X] Stories 更新完成
+- [X] 文档更新完成
+- [ ] 构建验证
+- [ ] 最终测试
+
 ## 项目概述
 
 Faiz-UI 是一个基于 React 和 Tailwind CSS 的组件库，采用组件逻辑与视图分离的设计模式，使用 tailwind-variants 进行样式管理。
-
-## 当前任务: 实现 Breadcrumbs 组件
-
-### 任务目标
-- [X] 使用 plop 创建组件基础结构
-- [X] 创建 theme 样式定义
-- [X] 实现 use-breadcrumbs hook
-- [X] 实现 breadcrumbs 组件视图
-- [X] 实现 breadcrumbs-item 子组件
-- [X] 创建 stories 示例
-- [X] 在 docs 网站添加文档
-- [X] 修复 underline 属性 bug
-- [ ] 创建测试用例
-
-### 设计要点
-- 支持自定义分隔符（默认为 "/"）
-- 支持不同尺寸（sm, md, lg）
-- 支持颜色变体（primary, secondary, success, etc.）
-- 符合手绘风格设计理念
-- 支持禁用状态
-- 支持当前项高亮
-
-### 组件结构
-- Breadcrumbs: 容器组件
-- BreadcrumbItem: 面包屑项子组件
-
-### 完成进度
-1. ✅ 创建 breadcrumbs 样式主题 (theme/src/components/breadcrumbs.ts)
-2. ✅ 实现 use-breadcrumbs hook
-3. ✅ 实现 Breadcrumbs 和 BreadcrumbItem 组件
-4. ✅ 创建 Storybook stories
-5. ✅ 创建文档网站示例组件
-6. ✅ 创建文档 MDX 文件
-7. ✅ 更新 @faiz-ui/react 包导出
-8. ✅ 构建所有包
-9. ✅ 修复 underline 属性 bug
-10. ⏳ 最终测试和验证
-
-### Bug 修复记录
-
-#### Underline 属性 Bug (已修复)
-**问题描述**: 即使设置 `underline="none"`，下划线仍然显示
-
-**原因分析**: 
-- link 和 current slots 的基础样式中没有包含 `no-underline` 类
-- 当 underline 设置为 "none" 时，variants 只返回空对象 `{}`，无法覆盖浏览器默认样式或继承的下划线样式
-
-**解决方案**:
-- 在 link slot 的基础样式中添加 `no-underline` 类
-- 在 current slot 的基础样式中添加 `no-underline` 类
-- 这样当 underline 设置为其他值（hover, always, active）时，会添加 underline 类覆盖基础样式
-
-**修改文件**: 
-- `packages/core/theme/src/components/breadcrumbs.ts`
-
-### 文件清单
-**组件文件：**
-- packages/components/breadcrumbs/src/breadcrumbs.tsx
-- packages/components/breadcrumbs/src/breadcrumb-item.tsx
-- packages/components/breadcrumbs/src/use-breadcrumbs.ts
-- packages/components/breadcrumbs/src/index.ts
-
-**样式文件：**
-- packages/core/theme/src/components/breadcrumbs.ts
-
-**Stories：**
-- packages/components/breadcrumbs/stories/breadcrumbs.stories.tsx
-
-**文档：**
-- apps/docs/content/docs/components/navigation/breadcrumbs.mdx
-- apps/docs/components/docs/breadcrumbs/*.tsx
-
-**导出配置：**
-- packages/core/theme/src/components/index.ts (已更新)
-- packages/core/react/src/index.ts (已更新)
-- packages/core/react/package.json (已更新依赖)
-
-## 组件开发规范
-
-1. **组件逻辑与视图分离**：
-
-   - 使用 `use[ComponentName]` 自定义 Hook 处理组件逻辑
-   - 组件文件只负责渲染，从 Hook 获取所需数据
-
-2. **类型定义**：
-
-   - 组件 Props 继承自 `HTMLFaizUIProps<'element'>`
-   - 导出组件的 Props 类型供外部使用
-
-3. **样式处理**：
-
-   - 在 `packages/core/theme/src/components` 中定义组件样式
-   - 使用 tailwind-variants 创建样式变体
-   - 导出样式变体的类型
-   - 记得在基础样式中设置合理的默认值，避免浏览器默认样式干扰
-
-4. **组件导出**：
-   - 在 index.ts 中导出组件、类型和 Hook
-
-## 已有组件
-
-1. **Button**：按钮组件
-
-   - 支持颜色、尺寸、圆角变体
-   - 集成水波纹效果
-
-2. **Ripple**：水波纹效果组件
-
-   - 用于交互反馈
-
-3. **LandingCard**：登陆卡片组件
-
-4. **Accordion**: 手风琴组件
-
-5. **Alert**: 警告组件
-
-6. **Avatar**: 头像组件
-
-7. **Badge**: 徽章组件
-
-8. **Breadcrumbs**: 面包屑导航组件 ✨新增✨
-   - 支持自定义分隔符
-   - 支持尺寸、颜色、变体
-   - 支持下划线样式
-   - 支持禁用状态
-   - 自动标记当前项
-
-## 开发工具
-
-- **Plop**: 用于生成组件和 Hook 模板
-- **Turborepo**: 用于优化构建流程
-- **Changesets**: 用于版本管理和发布
-- **Storybook**: 用于组件开发和文档
-
-## 注意事项
-
-1. 新组件开发流程：
-
-   - 使用 `pnpm create:comp` 创建组件基础结构
-   - 在 theme 包中定义组件样式
-   - 实现组件逻辑和视图
-   - 编写 Storybook 示例
-   - 添加文档网站文档
-   - 测试各种属性和边界情况
-
-2. 版本管理：
-   - 使用 Changesets 进行版本管理
-   - 每次修改后使用 `pnpm changeset` 记录变更
-   - 发布前使用 `pnpm version` 更新版本
-   - 使用 `pnpm release` 发布包
-
-3. 样式开发注意事项：
-   - 在基础样式中设置合理的默认值（如 no-underline）
-   - variants 用于覆盖基础样式，而不是添加全新的样式
-   - 考虑浏览器默认样式的影响

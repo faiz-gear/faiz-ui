@@ -110,7 +110,7 @@ export function useMenu(props: UseMenuProps) {
 export type UseMenuReturn = ReturnType<typeof useMenu>
 
 // MenuItem Props
-export interface UseMenuItemProps extends HTMLFaizUIProps<'div'> {
+export interface UseMenuItemProps extends Omit<HTMLFaizUIProps<'div'>, 'href'> {
   ref?: ReactRef<HTMLElement | null>
   itemKey?: string
   isDisabled?: boolean
@@ -118,6 +118,11 @@ export interface UseMenuItemProps extends HTMLFaizUIProps<'div'> {
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   description?: string
+  badge?: React.ReactNode
+  badgeColor?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  href?: string
+  target?: string
+  rel?: string
   onClick?: (e: React.MouseEvent) => void
   customStyles?: string
 }
@@ -132,6 +137,11 @@ export function useMenuItem(props: UseMenuItemProps) {
     startIcon,
     endIcon,
     description,
+    badge,
+    badgeColor = 'default',
+    href,
+    target,
+    rel,
     onClick,
     className,
     customStyles,
@@ -155,6 +165,11 @@ export function useMenuItem(props: UseMenuItemProps) {
     [context.slots, isDisabled, isSelected, customStyles, className]
   )
 
+  const badgeStyles = React.useMemo(
+    () => context.slots.itemBadge({ badgeColor }),
+    [context.slots, badgeColor]
+  )
+
   const handleClick = (e: React.MouseEvent) => {
     if (isDisabled) return
 
@@ -165,21 +180,44 @@ export function useMenuItem(props: UseMenuItemProps) {
     }
   }
 
-  const Component = as || 'div'
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (isDisabled) return
+
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleClick(e as any)
+    }
+  }
+
+  // Determine component type based on href
+  const Component = as || (href ? 'a' : 'div')
+
+  // Additional props for links
+  const linkProps = href
+    ? {
+        href,
+        target,
+        rel: rel || (target === '_blank' ? 'noopener noreferrer' : undefined)
+      }
+    : {}
 
   return {
     Component,
     domRef,
     itemStyles,
+    badgeStyles,
     iconStyles: context.slots.itemIcon(),
     contentStyles: context.slots.itemContent(),
     descriptionStyles: context.slots.itemDescription(),
     handleClick,
+    handleKeyDown,
     isDisabled,
     startIcon,
     endIcon,
     description,
+    badge,
     children: props.children,
+    linkProps,
     ...otherProps
   }
 }

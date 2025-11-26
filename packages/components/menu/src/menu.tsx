@@ -39,15 +39,19 @@ const MenuItem = forwardRef<'div', MenuItemProps>((props, ref) => {
     Component,
     domRef,
     itemStyles,
+    badgeStyles,
     iconStyles,
     contentStyles,
     descriptionStyles,
     handleClick,
+    handleKeyDown,
     isDisabled,
     startIcon,
     endIcon,
     description,
+    badge,
     children,
+    linkProps,
     ...otherProps
   } = useMenuItem({ ...props, ref })
 
@@ -56,9 +60,11 @@ const MenuItem = forwardRef<'div', MenuItemProps>((props, ref) => {
       ref={domRef}
       className={itemStyles}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       role="menuitem"
       aria-disabled={isDisabled}
       tabIndex={isDisabled ? -1 : 0}
+      {...linkProps}
       {...otherProps}
     >
       {startIcon && <span className={iconStyles}>{startIcon}</span>}
@@ -66,6 +72,7 @@ const MenuItem = forwardRef<'div', MenuItemProps>((props, ref) => {
         {children}
         {description && <div className={descriptionStyles}>{description}</div>}
       </div>
+      {badge && <span className={badgeStyles}>{badge}</span>}
       {endIcon && <span className={iconStyles}>{endIcon}</span>}
     </Component>
   )
