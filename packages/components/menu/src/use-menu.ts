@@ -10,6 +10,8 @@ interface MenuContextValue {
   closeOnSelect?: boolean
   color?: MenuVariantProps['color']
   size?: MenuVariantProps['size']
+  orientation?: MenuVariantProps['orientation']
+  isCompact?: boolean
   slots: ReturnType<typeof menu>
 }
 
@@ -31,6 +33,7 @@ export interface UseMenuProps
   selectedKey?: string
   onSelect?: (key: string) => void
   closeOnSelect?: boolean
+  title?: string
   customStyles?: string
 }
 
@@ -41,9 +44,12 @@ export function useMenu(props: UseMenuProps) {
     variant = 'solid',
     color = 'default',
     size = 'md',
+    orientation = 'vertical',
+    isCompact = false,
     selectedKey,
     onSelect,
     closeOnSelect = false,
+    title,
     className,
     customStyles,
     ...otherProps
@@ -58,9 +64,11 @@ export function useMenu(props: UseMenuProps) {
       menu({
         variant,
         color,
-        size
+        size,
+        orientation,
+        isCompact
       }),
-    [variant, color, size]
+    [variant, color, size, orientation, isCompact]
   )
 
   const Component = as || 'div'
@@ -72,9 +80,11 @@ export function useMenu(props: UseMenuProps) {
       closeOnSelect,
       color,
       size,
+      orientation,
+      isCompact,
       slots
     }),
-    [selectedKey, onSelect, closeOnSelect, color, size, slots]
+    [selectedKey, onSelect, closeOnSelect, color, size, orientation, isCompact, slots]
   )
 
   const baseStyles = React.useMemo(
@@ -82,11 +92,15 @@ export function useMenu(props: UseMenuProps) {
     [slots, customStyles, className]
   )
 
+  const titleStyles = React.useMemo(() => slots.title(), [slots])
+
   return {
     Component,
     domRef,
     contextValue,
     baseStyles,
+    titleStyles,
+    title,
     MenuContext,
     children: props.children,
     ...otherProps
@@ -237,3 +251,88 @@ export function useMenuDivider(props: UseMenuDividerProps) {
 }
 
 export type UseMenuDividerReturn = ReturnType<typeof useMenuDivider>
+
+// MenuSubmenu Props
+export interface UseMenuSubmenuProps extends HTMLFaizUIProps<'div'> {
+  ref?: ReactRef<HTMLElement | null>
+  label: React.ReactNode
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode
+  defaultOpen?: boolean
+  isDisabled?: boolean
+  customStyles?: string
+}
+
+export function useMenuSubmenu(props: UseMenuSubmenuProps) {
+  const {
+    ref,
+    as,
+    label,
+    startIcon,
+    endIcon,
+    defaultOpen = false,
+    isDisabled = false,
+    className,
+    customStyles,
+    ...otherProps
+  } = props
+
+  const context = useMenuContext()
+  const domRef = React.useRef(null)
+  const [isOpen, setIsOpen] = React.useState(defaultOpen)
+
+  React.useImperativeHandle(ref, () => domRef.current)
+
+  const toggleSubmenu = () => {
+    if (!isDisabled) {
+      setIsOpen((prev) => !prev)
+    }
+  }
+
+  const submenuStyles = React.useMemo(
+    () => context.slots.submenu({ className: [customStyles, className].filter(Boolean).join(' ') }),
+    [context.slots, customStyles, className]
+  )
+
+  const triggerStyles = React.useMemo(
+    () =>
+      context.slots.item({
+        isDisabled,
+        className: context.slots.submenuTrigger()
+      }),
+    [context.slots, isDisabled]
+  )
+
+  const submenuIconStyles = React.useMemo(
+    () => context.slots.submenuIcon({ isOpen }),
+    [context.slots, isOpen]
+  )
+
+  const contentStyles = React.useMemo(
+    () => context.slots.submenuContent(),
+    [context.slots]
+  )
+
+  const Component = as || 'div'
+
+  return {
+    Component,
+    domRef,
+    submenuStyles,
+    triggerStyles,
+    submenuIconStyles,
+    contentStyles,
+    iconStyles: context.slots.itemIcon(),
+    itemContentStyles: context.slots.itemContent(),
+    label,
+    startIcon,
+    endIcon,
+    isOpen,
+    isDisabled,
+    toggleSubmenu,
+    children: props.children,
+    ...otherProps
+  }
+}
+
+export type UseMenuSubmenuReturn = ReturnType<typeof useMenuSubmenu>

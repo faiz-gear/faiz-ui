@@ -18,6 +18,12 @@ export const menu = tv({
       'before:rounded-[inherit]'
     ],
     list: ['relative z-10 py-1'],
+    title: [
+      'px-3 py-2 text-lg font-bold',
+      'text-neutral-900 dark:text-neutral-100',
+      'border-b-[2px] border-dashed border-black/20 dark:border-white/20',
+      '[transform:rotate(0.1deg)]'
+    ],
     item: [
       'relative overflow-hidden transition-all',
       'flex items-center gap-2',
@@ -34,6 +40,13 @@ export const menu = tv({
     itemIcon: ['flex-shrink-0 w-5 h-5'],
     itemContent: ['flex-1'],
     itemDescription: ['text-sm opacity-70'],
+    submenu: ['relative pl-4'],
+    submenuTrigger: ['justify-between'],
+    submenuIcon: ['flex-shrink-0 w-4 h-4 transition-transform duration-200'],
+    submenuContent: [
+      'overflow-hidden transition-all duration-200',
+      'border-l-[2px] border-dashed border-black/20 dark:border-white/20 ml-4'
+    ],
     section: ['relative py-1'],
     sectionTitle: [
       'px-3 py-1 text-xs uppercase tracking-wider',
@@ -82,20 +95,45 @@ export const menu = tv({
       }
     },
     size: {
+      xs: {
+        base: 'text-xs min-w-[140px]',
+        item: 'px-2 py-1 text-xs',
+        itemIcon: 'w-3 h-3',
+        title: 'px-2 py-1 text-sm'
+      },
       sm: {
         base: 'text-sm min-w-[160px]',
         item: 'px-2 py-1.5 text-sm',
-        itemIcon: 'w-4 h-4'
+        itemIcon: 'w-4 h-4',
+        title: 'px-2 py-1.5 text-base'
       },
       md: {
         base: 'text-base min-w-[200px]',
         item: 'px-3 py-2 text-base',
-        itemIcon: 'w-5 h-5'
+        itemIcon: 'w-5 h-5',
+        title: 'px-3 py-2 text-lg'
       },
       lg: {
         base: 'text-lg min-w-[240px]',
         item: 'px-4 py-2.5 text-lg',
-        itemIcon: 'w-6 h-6'
+        itemIcon: 'w-6 h-6',
+        title: 'px-4 py-2.5 text-xl'
+      }
+    },
+    orientation: {
+      vertical: {},
+      horizontal: {
+        base: 'flex-row min-w-fit',
+        list: 'flex flex-row items-center py-0',
+        item: 'border-b-0 border-r border-dashed border-black/10 dark:border-white/10 last:border-r-0',
+        divider: 'my-0 mx-1 border-t-0 border-r-[1.5px] h-auto self-stretch'
+      }
+    },
+    isCompact: {
+      true: {
+        base: 'min-w-fit',
+        item: 'px-2 py-1',
+        list: 'py-0.5'
       }
     },
     isDisabled: {
@@ -107,12 +145,18 @@ export const menu = tv({
       true: {
         item: 'bg-black/10 dark:bg-white/10 font-bold'
       }
+    },
+    isOpen: {
+      true: {
+        submenuIcon: 'rotate-90'
+      }
     }
   },
   defaultVariants: {
     variant: 'solid',
     color: 'default',
-    size: 'md'
+    size: 'md',
+    orientation: 'vertical'
   }
 })
 

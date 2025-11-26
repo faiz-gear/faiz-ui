@@ -7,13 +7,15 @@ import {
   UseMenuSectionProps,
   useMenuSection,
   UseMenuDividerProps,
-  useMenuDivider
+  useMenuDivider,
+  UseMenuSubmenuProps,
+  useMenuSubmenu
 } from './use-menu'
 
 export interface MenuProps extends UseMenuProps {}
 
 const Menu = forwardRef<'div', MenuProps>((props, ref) => {
-  const { Component, domRef, contextValue, baseStyles, MenuContext, children, ...otherProps } = useMenu({
+  const { Component, domRef, contextValue, baseStyles, titleStyles, title, MenuContext, children, ...otherProps } = useMenu({
     ...props,
     ref
   })
@@ -21,6 +23,7 @@ const Menu = forwardRef<'div', MenuProps>((props, ref) => {
   return (
     <MenuContext.Provider value={contextValue}>
       <Component ref={domRef} className={baseStyles} role="menu" {...otherProps}>
+        {title && <div className={titleStyles}>{title}</div>}
         <div className={contextValue.slots.list()}>{children}</div>
       </Component>
     </MenuContext.Provider>
@@ -98,5 +101,61 @@ const MenuDivider = forwardRef<'hr', MenuDividerProps>((props, ref) => {
 
 MenuDivider.displayName = 'MenuDivider'
 
-export { Menu, MenuItem, MenuSection, MenuDivider }
+export interface MenuSubmenuProps extends UseMenuSubmenuProps {}
+
+const MenuSubmenu = forwardRef<'div', MenuSubmenuProps>((props, ref) => {
+  const {
+    Component,
+    domRef,
+    submenuStyles,
+    triggerStyles,
+    submenuIconStyles,
+    contentStyles,
+    iconStyles,
+    itemContentStyles,
+    label,
+    startIcon,
+    endIcon,
+    isOpen,
+    isDisabled,
+    toggleSubmenu,
+    children,
+    ...otherProps
+  } = useMenuSubmenu({ ...props, ref })
+
+  const defaultChevronIcon = (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className="w-4 h-4"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  )
+
+  return (
+    <Component ref={domRef} className={submenuStyles} {...otherProps}>
+      <div
+        className={triggerStyles}
+        onClick={toggleSubmenu}
+        role="menuitem"
+        aria-disabled={isDisabled}
+        aria-expanded={isOpen}
+        tabIndex={isDisabled ? -1 : 0}
+      >
+        {startIcon && <span className={iconStyles}>{startIcon}</span>}
+        <div className={itemContentStyles}>{label}</div>
+        <span className={submenuIconStyles}>{endIcon || defaultChevronIcon}</span>
+      </div>
+      {isOpen && <div className={contentStyles}>{children}</div>}
+    </Component>
+  )
+})
+
+MenuSubmenu.displayName = 'MenuSubmenu'
+
+export { Menu, MenuItem, MenuSection, MenuDivider, MenuSubmenu }
 export default Menu
