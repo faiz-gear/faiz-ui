@@ -1,0 +1,45 @@
+{
+  "name": "@faiz-ui/menu",
+  "version": "1.0.0",
+  "description": "A hand-drawn style menu component for displaying navigation items and actions",
+  "keywords": [
+    "menu"
+  ],
+  "author": "faiz-gear",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "directory": "packages/components/menu"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "prepare": "pnpm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@faiz-ui/react-utils": "workspace:*",
+    "@faiz-ui/system": "workspace:*",
+    "@faiz-ui/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

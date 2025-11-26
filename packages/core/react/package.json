@@ -37,6 +37,7 @@
     "@faiz-ui/breadcrumbs": "workspace:*",
     "@faiz-ui/button": "workspace:*",
     "@faiz-ui/landing-card": "workspace:*",
+    "@faiz-ui/menu": "workspace:*",
     "@faiz-ui/ripple": "workspace:*",
     "clean-package": "2.2.0"
   },
